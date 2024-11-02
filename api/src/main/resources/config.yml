@@ -1,0 +1,8 @@
+kumuluzee:
+  server:
+    http:
+      port: 8080
+  name: hello-world-service
+  version: 1.0.0
+  env:
+    name: dev
