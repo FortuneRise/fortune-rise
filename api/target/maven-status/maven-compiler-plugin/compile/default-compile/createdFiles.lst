@@ -1,4 +1,9 @@
-org\fortunerise\api\v1\resources\UsersResource.class
-org\fortunerise\api\Resource.class
+org\fortunerise\api\v1\models\Wallet.class
+org\fortunerise\api\v1\resources\RouletteResource.class
+org\fortunerise\api\v1\models\Bet.class
 org\fortunerise\api\FortuneRiseApp.class
+org\fortunerise\api\v1\resources\UsersResource.class
+org\fortunerise\api\v1\models\BetResult.class
+org\fortunerise\api\v1\resources\WalletResource.class
+org\fortunerise\api\v1\models\Roulette.class
 org\fortunerise\api\v1\models\User.class
