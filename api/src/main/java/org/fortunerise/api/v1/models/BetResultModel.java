@@ -1,11 +1,11 @@
 package org.fortunerise.api.v1.models;
 
-public class BetResult {
+public class BetResultModel {
     private boolean win;
     private double amount;
 
     // Constructor
-    public BetResult(boolean win, double amount) {
+    public BetResultModel(boolean win, double amount) {
         this.win = win;
         this.amount = amount;
     }

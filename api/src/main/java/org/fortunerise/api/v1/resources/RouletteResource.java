@@ -1,8 +1,8 @@
 package org.fortunerise.api.v1.resources;
 
-import org.fortunerise.api.v1.models.Roulette;
-import org.fortunerise.api.v1.models.Bet;
-import org.fortunerise.api.v1.models.BetResult;
+import org.fortunerise.api.v1.models.RouletteModel;
+import org.fortunerise.api.v1.models.BetModel;
+import org.fortunerise.api.v1.models.BetResultModel;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
@@ -18,33 +18,33 @@ import java.util.Random;
 public class RouletteResource {
 
     // Static list to hold active games (for simplicity)
-    private static List<Roulette> games = new ArrayList<>();
+    private static List<RouletteModel> games = new ArrayList<>();
     private static int gameCounter = 1;
 
     // POST method to create a new game
     @POST
     public Response createGame(Integer player_id) {
-        Roulette game = new Roulette(gameCounter++, player_id);
+        RouletteModel game = new RouletteModel(gameCounter++, player_id);
         games.add(game);
         return Response.status(Status.CREATED).entity(game).build();
     }
 
     // Helper function to determine if a bet won (mock logic for demonstration)
-    private BetResult processBet(Bet bet) {
+    private BetResultModel processBet(BetModel bet) {
         Random random = new Random();
         boolean win = random.nextBoolean(); // Random win or lose
         double amount = bet.getAmount() * 2; // Double amount if win, else 0
-        return new BetResult(win, amount);
+        return new BetResultModel(win, amount);
     }
 
     // POST method to place a bet on an existing game
     @POST
     @Path("/{gameId}")
-    public Response placeBet(@PathParam("gameId") int gameId, Bet bet) {
-        for (Roulette game : games) {
+    public Response placeBet(@PathParam("gameId") int gameId, BetModel bet) {
+        for (RouletteModel game : games) {
             if (game.getGameId() == gameId) {
                 game.placeBet(bet);
-                BetResult result =processBet(bet);
+                BetResultModel result =processBet(bet);
                 return Response.ok(result).build(); // Return updated game with new bet
             }
         }
@@ -55,7 +55,7 @@ public class RouletteResource {
     @GET
     @Path("/{gameId}")
     public Response getGame(@PathParam("gameId") int gameId) {
-        for (Roulette game : games) {
+        for (RouletteModel game : games) {
             if (game.getGameId() == gameId) {
                 return Response.ok(game).build();
             }
@@ -67,7 +67,7 @@ public class RouletteResource {
     @DELETE
     @Path("/{gameId}")
     public Response deleteGame(@PathParam("gameId") int gameId) {
-        for (Roulette game : games) {
+        for (RouletteModel game : games) {
             if (game.getGameId() == gameId) {
                 games.remove(game);
                 return Response.noContent().build(); // 204 No Content on successful deletion

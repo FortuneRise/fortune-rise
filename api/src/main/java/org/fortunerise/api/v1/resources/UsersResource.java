@@ -1,6 +1,6 @@
 package org.fortunerise.api.v1.resources;
 
-import org.fortunerise.api.v1.models.User;
+import org.fortunerise.api.v1.models.UserModel;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
@@ -17,13 +17,13 @@ import java.util.List;
 public class UsersResource {
 
     // Static list to store users between calls
-    private static List<User> users = new ArrayList<>();
+    private static List<UserModel> users = new ArrayList<>();
 
     static {
         // Initialize with some mock data
-        users.add(new User(1, "John Doe", "john.doe@example.com"));
-        users.add(new User(2, "Jane Smith", "jane.smith@example.com"));
-        users.add(new User(3, "Mike Johnson", "mike.johnson@example.com"));
+        users.add(new UserModel(1, "John Doe", "john.doe@example.com"));
+        users.add(new UserModel(2, "Jane Smith", "jane.smith@example.com"));
+        users.add(new UserModel(3, "Mike Johnson", "mike.johnson@example.com"));
     }
 
     @GET
@@ -35,7 +35,7 @@ public class UsersResource {
     @Path("/{id}")
     public Response getUserById(@PathParam("id") int id) {
         // Search for the user by ID
-        for (User user : users) {
+        for (UserModel user : users) {
             if (user.getId() == id) {
                 return Response.ok(user).build(); // Return the user data if found
             }
@@ -45,7 +45,7 @@ public class UsersResource {
     }
 
     @POST
-    public Response createUser(User newUser, @Context UriInfo uriInfo) {
+    public Response createUser(UserModel newUser, @Context UriInfo uriInfo) {
         // Set a unique ID for the new user
         newUser.setId(users.size() + 1);
 
@@ -60,9 +60,9 @@ public class UsersResource {
 
     @PUT
     @Path("/{id}")
-    public Response updateUser(@PathParam("id") int id, User updatedUser) {
+    public Response updateUser(@PathParam("id") int id, UserModel updatedUser) {
         // Find the user by ID
-        for (User user : users) {
+        for (UserModel user : users) {
             if (user.getId() == id) {
                 // Update user fields
                 user.setName(updatedUser.getName());
@@ -78,7 +78,7 @@ public class UsersResource {
     @Path("/{id}")
     public Response deleteUser(@PathParam("id") int id) {
         // Iterate through the list to find the user by ID
-        for (User user : users) {
+        for (UserModel user : users) {
             if (user.getId() == id) {
                 users.remove(user);
                 return Response.noContent().build(); // 204 No Content on successful deletion

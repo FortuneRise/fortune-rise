@@ -1,6 +1,6 @@
 package org.fortunerise.api.v1.resources;
 
-import org.fortunerise.api.v1.models.Notification;
+import org.fortunerise.api.v1.models.NotificationModel;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
@@ -12,25 +12,20 @@ import java.util.List;
 @Produces(MediaType.APPLICATION_JSON)
 public class NotificationsResources {
 
-    private static List<Notification> notifications;
-
 
     @GET
     public Response getAllNotifications(){
-        return Response.ok(notifications).build();
+
     }
 
     @POST
-    public void addNotification(Notification notification){
-        notifications.add(notification);
-        return;
+    public void addNotification(NotificationModel notification){
+
     }
 
     @PUT
-    @Path("/{ntfid}")
-    public void readNotification(@PathParam("ntfid") int id){
-        for(Notification notification : notifications){
-            if (notification.getID() == id) notification.setRead(true);
-        }
+    @Path("/{id}")
+    public void readNotification(@PathParam("id") int id){
+
     }
 }

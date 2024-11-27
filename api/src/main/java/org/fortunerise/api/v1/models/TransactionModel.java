@@ -1,15 +1,15 @@
 package org.fortunerise.api.v1.models;
 
-public class Transaction {
-    private User payer;
-    private User reciever;
+public class TransactionModel {
+    private UserModel payer;
+    private UserModel reciever;
     private double amount;
 
     // Default constructor required for JSON deserialization
-    public Transaction(){}
+    public TransactionModel(){}
 
     // Constructor for manual creation
-    public Transaction(User payer, User reciever, double amount){
+    public TransactionModel(UserModel payer, UserModel reciever, double amount){
         this.payer = payer;
         this.reciever = reciever;
         this.amount = amount;
@@ -18,19 +18,19 @@ public class Transaction {
 
 
     // Getters and setters
-    public User getPayer() {
+    public UserModel getPayer() {
         return payer;
     }
 
-    public void setPayer(User payer) {
+    public void setPayer(UserModel payer) {
         this.payer = payer;
     }
 
-    public User getReciever() {
+    public UserModel getReciever() {
         return reciever;
     }
 
-    public void setReciever(User reciever) {
+    public void setReciever(UserModel reciever) {
         this.reciever = reciever;
     }
 

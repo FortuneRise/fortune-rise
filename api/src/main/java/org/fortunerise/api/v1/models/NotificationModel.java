@@ -1,12 +1,12 @@
 package org.fortunerise.api.v1.models;
 
-public class Notification {
+public class NotificationModel {
     int id;
     private String date; // Time of notification
     private String message; // Message of notification
     private boolean read; // True if notification has been read
 
-    public Notification(int id, String date, String msg, boolean read){
+    public NotificationModel(int id, String date, String msg, boolean read){
         this.id = id;
         this.date = date;
         this.message = msg;

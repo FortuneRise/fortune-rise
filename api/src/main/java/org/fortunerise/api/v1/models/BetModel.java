@@ -1,15 +1,15 @@
 package org.fortunerise.api.v1.models;
 
-public class Bet {
+public class BetModel {
     private String type; // e.g., "number", "color", "odd/even"
     private double amount;
     private int number;
 
     // Default constructor for JSON deserialization
-    public Bet() {}
+    public BetModel() {}
 
     // Constructor
-    public Bet(String type, double amount, int number) {
+    public BetModel(String type, double amount, int number) {
         this.type = type;
         this.amount = amount;
         this.number = number;

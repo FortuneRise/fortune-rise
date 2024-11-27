@@ -1,6 +1,6 @@
 package org.fortunerise.api.v1.resources;
 
-import org.fortunerise.api.v1.models.Promotion;
+import org.fortunerise.api.v1.models.PromotionModel;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
@@ -12,7 +12,7 @@ import java.util.List;
 @Consumes(MediaType.APPLICATION_JSON)
 public class PromotionsResource {
 
-    private static List<Promotion> promotions;
+    private static List<PromotionModel> promotions;
 
     @GET
     public Response getPromotions(){
@@ -20,8 +20,8 @@ public class PromotionsResource {
     }
 
     @POST
-    public void addPromotion(Promotion promtion){
-        promotions.add(promtion);
+    public void addPromotion(PromotionModel promotion){
+        promotions.add(promotion);
         return;
 
     }

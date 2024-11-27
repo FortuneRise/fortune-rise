@@ -1,9 +1,9 @@
 package org.fortunerise.api.v1.models;
 
-public class Promotion {
+public class PromotionModel {
     private String message; // Message for a promotion
 
-    public Promotion(String message){
+    public PromotionModel(String message){
         this.message = message;
     }
 

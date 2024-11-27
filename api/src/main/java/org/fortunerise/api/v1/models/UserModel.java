@@ -1,15 +1,15 @@
 package org.fortunerise.api.v1.models;
 
-public class User {
+public class UserModel {
     private int id;
     private String name;
     private String email;
 
     // Default constructor required for JSON deserialization
-    public User() {}
+    public UserModel() {}
 
     // Constructor
-    public User(int id, String name, String email) {
+    public UserModel(int id, String name, String email) {
         this.id = id;
         this.name = name;
         this.email = email;

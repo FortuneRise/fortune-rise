@@ -1,15 +1,15 @@
 package org.fortunerise.api.v1.models;
 
-public class Wallet {
+public class WalletModel {
     private int id;
     private double balance;
     private int user_id;
 
     // Default constructor for JSON deserialization
-    public Wallet() {}
+    public WalletModel() {}
 
     // Constructor for manual creation
-    public Wallet(int id, double balance, int user_id) {
+    public WalletModel(int id, double balance, int user_id) {
         this.id = id;
         this.balance = balance;
         this.user_id = user_id;
