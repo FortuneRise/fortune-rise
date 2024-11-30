@@ -1,10 +1,12 @@
 package org.fortunerise.api.v1.resources;
 
-import org.fortunerise.api.v1.models.WalletModel;
+import javax.inject.Inject;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
+import javax.ws.rs.core.Context;
+import javax.ws.rs.core.UriInfo;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,25 +15,6 @@ import java.util.List;
 @Consumes(MediaType.APPLICATION_JSON)
 public class WalletResource {
 
-    // Static list to store wallets
-    private static List<WalletModel> wallets = new ArrayList<>();
-
-    static {
-        // Initialize with some mock data
-        wallets.add(new WalletModel(1, 100.0, 1));
-        wallets.add(new WalletModel(2, 200.0, 2));
-        wallets.add(new WalletModel(3, 300.0, 3));
-    }
-
-    // POST method to create a new wallet
-    @POST
-    public Response createWallet(WalletModel newWallet) {
-        newWallet.setId(wallets.size() + 1); // Generate a unique ID
-        wallets.add(newWallet);
-        return Response.status(Status.CREATED)
-                .entity(newWallet)
-                .build();
-    }
 
     // GET method to retrieve a specific wallet by ID
     @GET

@@ -1,27 +1,35 @@
 package org.fortunerise.dtos;
 
+import org.fortunerise.entities.User;
+
 public class UserDto {
-    private int id;
     private String name;
-    private String email;
+    private String surname;
+    private String username;
 
     // Default constructor required for JSON deserialization
     public UserDto() {}
 
     // Constructor
-    public UserDto(int id, String name, String email) {
-        this.id = id;
+    public UserDto(String name, String surname, String username) {
         this.name = name;
-        this.email = email;
+        this.surname = surname;
+        this.username = username;
     }
 
-    // Getters and Setters
-    public int getId() {
-        return id;
+    public UserDto(User user) {
+        this.name = user.getName();
+        this.surname = user.getSurname();
+        this.username = user.getUsername();
     }
 
-    public void setId(int id) {
-        this.id = id;
+
+    public String getSurname() {
+        return surname;
+    }
+
+    public void setSurname(String surname) {
+        this.surname = surname;
     }
 
     public String getName() {
@@ -32,11 +40,11 @@ public class UserDto {
         this.name = name;
     }
 
-    public String getEmail() {
-        return email;
+    public String getUsername() {
+        return username;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setUsername(String username) {
+        this.username = username;
     }
 }

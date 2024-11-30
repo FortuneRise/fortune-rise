@@ -1,15 +1,2 @@
-org/fortunerise/api/v1/resources/HistoryResource.class
-org/fortunerise/api/v1/resources/PromotionsResource.class
-org/fortunerise/api/v1/resources/UsersResource.class
-org/fortunerise/api/v1/resources/RouletteResource.class
-org/fortunerise/api/v1/models/PromotionModel.class
-org/fortunerise/api/v1/models/BetResultModel.class
-org/fortunerise/api/v1/models/NotificationModel.class
-org/fortunerise/api/v1/resources/NotificationsResources.class
-org/fortunerise/api/v1/models/RouletteModel.class
-org/fortunerise/api/v1/models/WalletModel.class
-org/fortunerise/api/v1/models/UserModel.class
-org/fortunerise/api/FortuneRiseApp.class
-org/fortunerise/api/v1/models/BetModel.class
-org/fortunerise/api/v1/resources/WalletResource.class
-org/fortunerise/api/v1/models/TransactionModel.class
+org\fortunerise\api\v1\resources\UsersResource.class
+org\fortunerise\api\FortuneRiseApp.class

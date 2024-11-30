@@ -3,6 +3,7 @@ package org.fortunerise.entities;
 import javax.persistence.*;
 import java.util.List;
 
+@Entity
 public class Promotion {
 
     @Id

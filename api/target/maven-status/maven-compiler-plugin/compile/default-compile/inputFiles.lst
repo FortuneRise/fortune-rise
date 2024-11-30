@@ -1,15 +1,2 @@
-/home/jan/Faks/PRPO/fortune-rise/api/src/main/java/org/fortunerise/api/v1/resources/NotificationsResources.java
-/home/jan/Faks/PRPO/fortune-rise/api/src/main/java/org/fortunerise/api/v1/models/UserModel.java
-/home/jan/Faks/PRPO/fortune-rise/api/src/main/java/org/fortunerise/api/v1/resources/RouletteResource.java
-/home/jan/Faks/PRPO/fortune-rise/api/src/main/java/org/fortunerise/api/v1/models/PromotionModel.java
-/home/jan/Faks/PRPO/fortune-rise/api/src/main/java/org/fortunerise/api/v1/models/NotificationModel.java
-/home/jan/Faks/PRPO/fortune-rise/api/src/main/java/org/fortunerise/api/v1/resources/WalletResource.java
-/home/jan/Faks/PRPO/fortune-rise/api/src/main/java/org/fortunerise/api/v1/resources/UsersResource.java
-/home/jan/Faks/PRPO/fortune-rise/api/src/main/java/org/fortunerise/api/v1/models/BetResultModel.java
-/home/jan/Faks/PRPO/fortune-rise/api/src/main/java/org/fortunerise/api/v1/models/WalletModel.java
-/home/jan/Faks/PRPO/fortune-rise/api/src/main/java/org/fortunerise/api/v1/models/TransactionModel.java
-/home/jan/Faks/PRPO/fortune-rise/api/src/main/java/org/fortunerise/api/v1/models/BetModel.java
-/home/jan/Faks/PRPO/fortune-rise/api/src/main/java/org/fortunerise/api/v1/models/RouletteModel.java
-/home/jan/Faks/PRPO/fortune-rise/api/src/main/java/org/fortunerise/api/v1/resources/PromotionsResource.java
-/home/jan/Faks/PRPO/fortune-rise/api/src/main/java/org/fortunerise/api/FortuneRiseApp.java
-/home/jan/Faks/PRPO/fortune-rise/api/src/main/java/org/fortunerise/api/v1/resources/HistoryResource.java
+C:\Users\andra\OneDrive\3. letnik\1. semester\Postopki razvoja programske opreme\vaje\fortune-rise\api\src\main\java\org\fortunerise\api\FortuneRiseApp.java
+C:\Users\andra\OneDrive\3. letnik\1. semester\Postopki razvoja programske opreme\vaje\fortune-rise\api\src\main\java\org\fortunerise\api\v1\resources\UsersResource.java

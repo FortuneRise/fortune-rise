@@ -1,12 +1,13 @@
 package org.fortunerise.entities;
 
-import org.eclipse.persistence.jpa.config.Cascade;
-
 import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Table(name = "user")
+@Table(name = "user_table")
+@NamedQueries({
+        @NamedQuery(name = "User.findAll", query = "SELECT u FROM User u")
+})
 public class User {
 
     @Id
@@ -22,6 +23,10 @@ public class User {
     @Column(name = "user_name")
     private String userName;
 
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "wallet_id", nullable = false)
+    private Wallet wallet;
+
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private List<Notification> notifications;
 
@@ -30,11 +35,15 @@ public class User {
             CascadeType.PERSIST,
             CascadeType.MERGE
     })
-    @JoinTable(name = "user_to_promotion",
+    @JoinTable(name = "nakupovalni_seznam_oznaka",
             joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "promotion_id")
     )
     private List<Promotion> promotions;
+
+    public User() {
+
+    }
 
 
     public String getName() {
@@ -53,11 +62,11 @@ public class User {
         this.surname = surname;
     }
 
-    public String getUserName() {
+    public String getUsername() {
         return userName;
     }
 
-    public void setUserName(String userName) {
+    public void setUsername(String userName) {
         this.userName = userName;
     }
 
@@ -69,4 +78,11 @@ public class User {
         this.id = id;
     }
 
+    public Wallet getWallet() {
+        return wallet;
+    }
+
+    public void setWallet(Wallet wallet) {
+        this.wallet = wallet;
+    }
 }

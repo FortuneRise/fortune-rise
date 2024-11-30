@@ -7,8 +7,8 @@ kumuluzee:
   env:
     name: dev
   datasources:
-    jndi-name : jdbc/FortuneRiseDS
-    connection-url: jdbc:postgresql://localhost:5432/fortunerise
-    username: postgres
-    password: postgres
-    max-pool-size: 20
+   - jndi-name : jdbc/FortuneRiseDS
+     connection-url: jdbc:postgresql://localhost:5432/fortunerise
+     username: postgres
+     password: postgres
+     max-pool-size: 20

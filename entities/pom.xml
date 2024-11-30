@@ -38,6 +38,7 @@
             <groupId>com.kumuluz.ee</groupId>
             <artifactId>kumuluzee-jpa-eclipselink</artifactId>
         </dependency>
+
     </dependencies>
 
 </project>
