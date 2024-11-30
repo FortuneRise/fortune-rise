@@ -1,15 +1,15 @@
-package org.fortunerise.api.v1.models;
+package org.fortunerise.dtos;
 
-public class UserModel {
+public class UserDto {
     private int id;
     private String name;
     private String email;
 
     // Default constructor required for JSON deserialization
-    public UserModel() {}
+    public UserDto() {}
 
     // Constructor
-    public UserModel(int id, String name, String email) {
+    public UserDto(int id, String name, String email) {
         this.id = id;
         this.name = name;
         this.email = email;

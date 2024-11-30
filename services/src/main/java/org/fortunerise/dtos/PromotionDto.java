@@ -1,9 +1,9 @@
-package org.fortunerise.api.v1.models;
+package org.fortunerise.dtos;
 
-public class PromotionModel {
+public class PromotionDto {
     private String message; // Message for a promotion
 
-    public PromotionModel(String message){
+    public PromotionDto(String message){
         this.message = message;
     }
 

@@ -5,7 +5,6 @@ import org.fortunerise.api.v1.models.NotificationModel;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-import java.util.List;
 
 @Path("/notifications")
 @Consumes(MediaType.APPLICATION_JSON)

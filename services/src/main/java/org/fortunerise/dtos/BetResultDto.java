@@ -1,11 +1,11 @@
-package org.fortunerise.api.v1.models;
+package org.fortunerise.dtos;
 
-public class BetResultModel {
+public class BetResultDto {
     private boolean win;
     private double amount;
 
     // Constructor
-    public BetResultModel(boolean win, double amount) {
+    public BetResultDto(boolean win, double amount) {
         this.win = win;
         this.amount = amount;
     }

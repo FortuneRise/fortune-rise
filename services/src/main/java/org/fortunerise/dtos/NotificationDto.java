@@ -1,12 +1,12 @@
-package org.fortunerise.api.v1.models;
+package org.fortunerise.dtos;
 
-public class NotificationModel {
+public class NotificationDto {
     int id;
     private String date; // Time of notification
     private String message; // Message of notification
     private boolean read; // True if notification has been read
 
-    public NotificationModel(int id, String date, String msg, boolean read){
+    public NotificationDto(int id, String date, String msg, boolean read){
         this.id = id;
         this.date = date;
         this.message = msg;

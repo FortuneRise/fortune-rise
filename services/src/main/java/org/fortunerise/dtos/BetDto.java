@@ -1,15 +1,15 @@
-package org.fortunerise.api.v1.models;
+package org.fortunerise.dtos;
 
-public class BetModel {
+public class BetDto {
     private String type; // e.g., "number", "color", "odd/even"
     private double amount;
     private int number;
 
     // Default constructor for JSON deserialization
-    public BetModel() {}
+    public BetDto() {}
 
     // Constructor
-    public BetModel(String type, double amount, int number) {
+    public BetDto(String type, double amount, int number) {
         this.type = type;
         this.amount = amount;
         this.number = number;

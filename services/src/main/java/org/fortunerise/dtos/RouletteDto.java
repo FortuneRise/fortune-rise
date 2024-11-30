@@ -1,22 +1,22 @@
-package org.fortunerise.api.v1.models;
+package org.fortunerise.dtos;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class RouletteModel {
+public class RouletteDto {
     private int gameId;
     private int player_id;
-    private List<BetModel> bets;
+    private List<BetDto> bets;
 
     // Constructor
-    public RouletteModel(int gameId, int player) {
+    public RouletteDto(int gameId, int player) {
         this.gameId = gameId;
         this.player_id = player_id;
         this.bets = new ArrayList<>(); // Initialize empty bet list
     }
 
     // Add a new bet to the game
-    public void placeBet(BetModel bet) {
+    public void placeBet(BetDto bet) {
         bets.add(bet);
     }
 
@@ -29,7 +29,7 @@ public class RouletteModel {
         return player_id;
     }
 
-    public List<BetModel> getBets() {
+    public List<BetDto> getBets() {
         return bets;
     }
 }
