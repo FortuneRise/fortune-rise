@@ -55,7 +55,6 @@
             <version>3.8.1</version>
             <configuration>
                 <excludes>
-                    <exclude>**/WalletResource.java</exclude>
                     <exclude>**/HistoryResource.java</exclude>
                     <exclude>**/NotificationsResource.java</exclude>
                     <exclude>**/PromotionsResource.java</exclude>

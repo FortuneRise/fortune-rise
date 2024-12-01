@@ -23,6 +23,14 @@ public class UserDto {
         this.username = user.getUsername();
     }
 
+    public static UserDto convertUserToUserDto(User user){
+        if(user == null){
+            return null;
+        }
+
+        return new UserDto(user);
+    }
+
 
     public String getSurname() {
         return surname;

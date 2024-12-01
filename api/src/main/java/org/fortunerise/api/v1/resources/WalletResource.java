@@ -1,5 +1,8 @@
 package org.fortunerise.api.v1.resources;
 
+import org.fortunerise.beans.WalletBean;
+import org.fortunerise.dtos.WalletDto;
+
 import javax.inject.Inject;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
@@ -15,42 +18,31 @@ import java.util.List;
 @Consumes(MediaType.APPLICATION_JSON)
 public class WalletResource {
 
+    @Inject
+    private WalletBean walletBean;
 
     // GET method to retrieve a specific wallet by ID
     @GET
-    @Path("/{id}")
-    public Response getWalletById(@PathParam("id") int id) {
-        for (WalletModel wallet : wallets) {
-            if (wallet.getId() == id) {
-                return Response.ok(wallet).build();
-            }
+    @Path("/{usrid}")
+    public Response getWalletByUsrId(@PathParam("usrid") Integer usrID) {
+        WalletDto walletDto = walletBean.getWalletByUserId(usrID);
+
+        if (walletDto == null){
+            return Response.status(Status.NO_CONTENT).build();
         }
-        throw new NotFoundException("Wallet with ID " + id + " not found.");
+
+        return Response.ok(walletDto).build();
     }
 
     // PUT method to update an existing wallet by ID
     @PUT
-    @Path("/{id}")
-    public Response updateWallet(@PathParam("id") int id, WalletModel updatedWallet) {
-        for (WalletModel wallet : wallets) {
-            if (wallet.getId() == id) {
-                wallet.setBalance(updatedWallet.getBalance());
-                return Response.ok(wallet).build();
-            }
+    @Path("/{usrid}")
+    public Response updateWallet(WalletDto walletAddBalance, @PathParam("id") Integer id) {
+        if(walletBean.updateWallet(id, walletAddBalance.getBalance())){
+            return Response.ok().build();
         }
-        throw new NotFoundException("Wallet with ID " + id + " not found.");
+
+        return Response.notModified().build();
     }
 
-    // DELETE method to remove a wallet by ID
-    @DELETE
-    @Path("/{id}")
-    public Response deleteWallet(@PathParam("id") int id) {
-        for (WalletModel wallet : wallets) {
-            if (wallet.getId() == id) {
-                wallets.remove(wallet);
-                return Response.noContent().build(); // 204 No Content on successful deletion
-            }
-        }
-        throw new NotFoundException("Wallet with ID " + id + " not found.");
-    }
 }

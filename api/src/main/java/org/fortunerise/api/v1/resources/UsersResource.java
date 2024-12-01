@@ -32,6 +32,18 @@ public class UsersResource {
         return Response.ok(userDtos).build(); // 200 OK if users are found
     }
 
+    @Path("{usrID}")
+    @GET
+    public Response getUserByID(@PathParam("usrID") Integer usrID){
+        UserDto userDto = userBean.getUserById(usrID);
+
+        if(userDto == null){
+            return Response.status(Status.NO_CONTENT).build(); // 204 No Content if user with usrID does not exist
+        }
+
+        return Response.ok(userDto).build(); // 200 OK if user found
+    }
+
 
     @POST
     public Response createUser(UserDto userDto) {

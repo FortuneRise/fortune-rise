@@ -52,7 +52,17 @@ public class UserBean {
         em.flush();
     }
 
-    private User convertUserDtoToUser(UserDto userDto){
+    @Transactional(Transactional.TxType.REQUIRED)
+    public UserDto getUserById(Integer usrID){
+        User user = em.find(User.class, usrID);
+        if(user == null){
+            return null;
+        }
+
+        return new UserDto(user);
+    }
+
+    private static User convertUserDtoToUser(UserDto userDto){
         User user = new User();
         user.setName(userDto.getName());
         user.setSurname(userDto.getSurname());
