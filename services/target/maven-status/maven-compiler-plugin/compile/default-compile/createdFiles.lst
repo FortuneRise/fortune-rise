@@ -1,0 +1,14 @@
+org\fortunerise\beans\GameBean.class
+org\fortunerise\beans\NotificationBean.class
+org\fortunerise\dtos\NotificationDto.class
+org\fortunerise\dtos\TransactionDto.class
+org\fortunerise\beans\MrBean.class
+org\fortunerise\dtos\BetDto.class
+org\fortunerise\dtos\BetResultDto.class
+org\fortunerise\beans\PromotionBean.class
+org\fortunerise\beans\WalletBean.class
+org\fortunerise\beans\BetBean.class
+org\fortunerise\dtos\PromotionDto.class
+org\fortunerise\dtos\RouletteDto.class
+org\fortunerise\dtos\UserDto.class
+org\fortunerise\beans\UserBean.class
