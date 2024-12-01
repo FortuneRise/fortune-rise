@@ -37,7 +37,7 @@ public class WalletResource {
     // PUT method to update an existing wallet by ID
     @PUT
     @Path("/{usrid}")
-    public Response updateWallet(WalletDto walletAddBalance, @PathParam("id") Integer id) {
+    public Response updateWallet(WalletDto walletAddBalance, @PathParam("usrid") Integer id) {
         if(walletBean.updateWallet(id, walletAddBalance.getBalance())){
             return Response.ok().build();
         }
