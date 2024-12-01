@@ -41,7 +41,7 @@ public class WalletBean {
 
 
     @Transactional(Transactional.TxType.REQUIRED)
-    public boolean updateWallet(Integer userId, BigDecimal amount){
+    public Boolean updateWallet(Integer userId, BigDecimal amount){
         String queryString = "SELECT w FROM Wallet w WHERE w.user.id = :userId";
         Query query = em.createQuery(queryString);
         query.setParameter("userId", userId);

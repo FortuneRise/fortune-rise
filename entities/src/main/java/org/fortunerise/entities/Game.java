@@ -2,7 +2,7 @@ package org.fortunerise.entities;
 
 
 import javax.persistence.*;
-import java.util.Date;
+import java.time.*;
 import java.util.List;
 
 @Entity
@@ -18,7 +18,8 @@ public class Game {
     private User user;
 
     @Column(name = "date")
-    private Date date;
+    @Temporal(TemporalType.DATE)
+    private LocalDateTime date;
 
     @Column(name = "result_num")
     private Integer result;
@@ -35,11 +36,11 @@ public class Game {
         this.user = user;
     }
 
-    public Date getDate() {
+    public LocalDateTime getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(LocalDateTime date) {
         this.date = date;
     }
 

@@ -4,7 +4,8 @@ import javax.persistence.*;
 import java.math.BigDecimal;
 
 @Entity
-public class Bet {
+@Inheritance(strategy = InheritanceType.JOINED)
+public abstract class Bet {
 
 
     @Id
@@ -15,17 +16,13 @@ public class Bet {
     @JoinColumn(name = "game_id")
     private Game game;
 
-    @Column(name = "bet")
-    private BigDecimal bet;
+    @Column(name = "bet_amount")
+    private BigDecimal betAmount;
 
     @Column(name = "payout")
     private BigDecimal payout;
 
-    @Column(name = "bet_type")
-    private String betType;
-
-    @Column(name = "bet_start_field")
-    private Integer betStartField;
+    public abstract void calculatePayout(Integer roll);
 
     public Integer getId() {
         return id;
@@ -43,12 +40,12 @@ public class Bet {
         this.game = game;
     }
 
-    public BigDecimal getBet() {
-        return bet;
+    public BigDecimal getBetAmount() {
+        return betAmount;
     }
 
-    public void setBet(BigDecimal bet) {
-        this.bet = bet;
+    public void setBetAmount(BigDecimal betAmount) {
+        this.betAmount = betAmount;
     }
 
     public BigDecimal getPayout() {
@@ -59,20 +56,5 @@ public class Bet {
         this.payout = payout;
     }
 
-    public String getBetType() {
-        return betType;
-    }
-
-    public void setBetType(String betType) {
-        this.betType = betType;
-    }
-
-    public Integer getBetStartField() {
-        return betStartField;
-    }
-
-    public void setBetStartField(Integer betStartField) {
-        this.betStartField = betStartField;
-    }
 
 }
