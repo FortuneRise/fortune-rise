@@ -4,6 +4,7 @@ import org.fortunerise.beans.WalletBean;
 import org.fortunerise.dtos.WalletDto;
 
 import javax.inject.Inject;
+import javax.persistence.NoResultException;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
@@ -23,26 +24,32 @@ public class WalletResource {
 
     // GET method to retrieve a specific wallet by ID
     @GET
-    @Path("/{usrid}")
-    public Response getWalletByUsrId(@PathParam("usrid") Integer usrID) {
-        WalletDto walletDto = walletBean.getWalletByUserId(usrID);
+    @Path("/{userId}")
+    public Response getWalletByUsrId(@PathParam("userId") Integer userId) {
+        try {
+            WalletDto walletDto = walletBean.getWalletByUserId(userId);
 
-        if (walletDto == null){
+            return Response.ok(walletDto).build();
+        } catch (NoResultException e) {
             return Response.status(Status.NO_CONTENT).build();
         }
 
-        return Response.ok(walletDto).build();
     }
 
     // PUT method to update an existing wallet by ID
     @PUT
     @Path("/{usrid}")
     public Response updateWallet(WalletDto walletAddBalance, @PathParam("usrid") Integer id) {
-        if(walletBean.updateWallet(id, walletAddBalance.getBalance())){
-            return Response.ok().build();
+
+        try {
+            if(walletBean.updateWallet(id, walletAddBalance.getBalance())){
+                return Response.ok().build();
+            }
+            return Response.notModified().build();
+        }catch (NoResultException e){
+            return Response.status(Status.NO_CONTENT).build();
         }
 
-        return Response.notModified().build();
     }
 
 }

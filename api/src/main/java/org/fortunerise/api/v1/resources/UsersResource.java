@@ -4,6 +4,7 @@ import org.fortunerise.dtos.UserDto;
 import org.fortunerise.beans.UserBean;
 
 import javax.inject.Inject;
+import javax.persistence.NoResultException;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
@@ -35,13 +36,15 @@ public class UsersResource {
     @Path("{usrID}")
     @GET
     public Response getUserByID(@PathParam("usrID") Integer usrID){
-        UserDto userDto = userBean.getUserById(usrID);
-
-        if(userDto == null){
+        try {
+            UserDto userDto = userBean.getUserById(usrID);
+            return Response.ok(userDto).build(); // 200 OK if user found
+        } catch (NoResultException e) {
             return Response.status(Status.NO_CONTENT).build(); // 204 No Content if user with usrID does not exist
         }
 
-        return Response.ok(userDto).build(); // 200 OK if user found
+
+
     }
 
 

@@ -45,21 +45,16 @@ public class WalletBean {
         String queryString = "SELECT w FROM Wallet w WHERE w.user.id = :userId";
         Query query = em.createQuery(queryString);
         query.setParameter("userId", userId);
+        Wallet wallet = (Wallet) query.getSingleResult();
+        BigDecimal balance = wallet.getBalance();
 
-        try {
-            Wallet wallet = (Wallet) query.getSingleResult();
-            BigDecimal balance = wallet.getBalance();
-
-            if (amount.signum() == -1 && amount.abs().compareTo(balance) == 1) {
-                return false;
-            }
-
-            wallet.setBalance(balance.add(amount));
-            return true;
-
-        }catch (NoResultException e){
+        if (amount.signum() == -1 && amount.abs().compareTo(balance) == 1) {
             return false;
         }
+
+        wallet.setBalance(balance.add(amount));
+        return true;
+
 
     }
 

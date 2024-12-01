@@ -1,6 +1,7 @@
 package org.fortunerise.dtos;
 
 import org.fortunerise.entities.User;
+import org.fortunerise.entities.Wallet;
 
 public class UserDto {
     private String name;
@@ -29,6 +30,12 @@ public class UserDto {
         }
 
         return new UserDto(user);
+    }
+
+    public User convertToUser(){
+        User user = new User(this.name, this.surname, this.username);
+
+        return user;
     }
 
 

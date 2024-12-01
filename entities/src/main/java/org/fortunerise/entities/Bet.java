@@ -7,7 +7,6 @@ import java.math.BigDecimal;
 @Inheritance(strategy = InheritanceType.JOINED)
 public abstract class Bet {
 
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
@@ -17,10 +16,16 @@ public abstract class Bet {
     private Game game;
 
     @Column(name = "bet_amount")
-    private BigDecimal betAmount;
+    protected BigDecimal betAmount;
 
     @Column(name = "payout")
-    private BigDecimal payout;
+    protected BigDecimal payout;
+
+    public Bet() {}
+
+    public Bet(BigDecimal betAmount) {
+        this.betAmount = betAmount;
+    }
 
     public abstract void calculatePayout(Integer roll);
 

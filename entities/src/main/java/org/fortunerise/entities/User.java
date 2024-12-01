@@ -41,7 +41,11 @@ public class User {
     )
     private List<Promotion> promotions;
 
-    public User() {
+    public User(String name, String surname, String userName){
+        this.name = name;
+        this.surname = surname;
+        this.userName = userName;
+        this.wallet = new Wallet();
 
     }
 
