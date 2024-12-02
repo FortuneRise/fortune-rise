@@ -35,7 +35,7 @@ public class User {
             CascadeType.PERSIST,
             CascadeType.MERGE
     })
-    @JoinTable(name = "nakupovalni_seznam_oznaka",
+    @JoinTable(name = "user_promotion",
             joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "promotion_id")
     )

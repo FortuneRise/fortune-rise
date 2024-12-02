@@ -42,7 +42,7 @@ public class WalletBean {
 
 
     @Transactional(Transactional.TxType.REQUIRED)
-    public WalletDto updateWallet(Integer userId, WalletDto walletDto) {
+    public Wallet updateWallet(Integer userId, WalletDto walletDto) {
         String queryString = "SELECT w FROM Wallet w WHERE w.user.id = :userId";
         Query query = em.createQuery(queryString);
         query.setParameter("userId", userId);
@@ -51,29 +51,32 @@ public class WalletBean {
         BigDecimal change = walletDto.getBalance();
 
         if (change.signum() == -1 && change.abs().compareTo(balance) > 0) {
-            throw new BadRequestException("Illegal balance change!");
+            throw new IllegalArgumentException("Illegal balance change!");
         }
 
         wallet.setBalance(balance.add(change));
         em.flush();
 
-        return new WalletDto(wallet);
+        return wallet;
     }
 
     @Transactional(Transactional.TxType.REQUIRED)
-    public WalletDto getWalletByUserId(Integer userId) {
+    public WalletDto updateWalletDto(Integer userId, WalletDto walletDto) {
+        return new WalletDto(updateWallet(userId, walletDto));
+    }
+
+    @Transactional(Transactional.TxType.REQUIRED)
+    public WalletDto getWalletDtoByUserId(Integer userId) {
+        return new WalletDto(getWalletByUserId(userId));
+    }
+
+
+    public Wallet getWalletByUserId(Integer userId) {
         String queryString = "SELECT w FROM Wallet w WHERE w.user.id = :userId";
         Query query = em.createQuery(queryString);
         query.setParameter("userId", userId);
 
-        try {
-            Wallet wallet = (Wallet) query.getSingleResult();
-            return WalletDto.convertWalletToWalletDto(wallet);
-        }catch (NoResultException e){
-            return null;
-        }
-
-
+        return (Wallet) query.getSingleResult();
     }
 
 }

@@ -9,21 +9,14 @@ public class WalletDto {
     private BigDecimal balance;
 
 
-    public WalletDto(){
+    public WalletDto() {}
 
+    public WalletDto(BigDecimal balance) {
+        this.balance = balance;
     }
 
     public WalletDto(Wallet wallet){
         this.balance = wallet.getBalance();
-    }
-
-
-    public static WalletDto convertWalletToWalletDto(Wallet wallet){
-        if (wallet == null){
-            return null;
-        }
-
-        return new WalletDto(wallet);
     }
 
     public BigDecimal getBalance() {

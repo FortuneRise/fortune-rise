@@ -26,20 +26,9 @@ public class UserDto {
         this.username = user.getUsername();
     }
 
-    public static UserDto convertUserToUserDto(User user){
-        if(user == null){
-            return null;
-        }
-
-        return new UserDto(user);
+    public User convertToUser() {
+        return new User(this.name, this.surname, this.username);
     }
-
-    public User convertToUser(){
-        User user = new User(this.name, this.surname, this.username);
-
-        return user;
-    }
-
 
     public String getSurname() {
         return surname;

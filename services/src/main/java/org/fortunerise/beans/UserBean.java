@@ -46,19 +46,26 @@ public class UserBean {
     }
 
     @Transactional(Transactional.TxType.REQUIRED)
-    public void insertUser(UserDto userDto){
+    public UserDto insertUser(UserDto userDto){
         User user = userDto.convertToUser();
         em.persist(user);
         em.flush();
+        userDto.setId(user.getId());
+        return userDto;
     }
 
     @Transactional(Transactional.TxType.REQUIRED)
-    public UserDto getUserById(Integer userId){
-        String queryString = "SELECT new org.fortunerise.dtos.UserDto(u) FROM User u WHERE u.id = :userId";
+    public UserDto getUserDtoById(Integer userId){
+        return new UserDto(getUserById(userId));
+    }
+
+    @Transactional(Transactional.TxType.REQUIRED)
+    public User getUserById(Integer userId){
+        String queryString = "SELECT u FROM User u WHERE u.id = :userId";
         Query query = em.createQuery(queryString);
         query.setParameter("userId", userId);
 
-        return (UserDto) query.getSingleResult();
+        return (User) query.getSingleResult();
     }
 
 }

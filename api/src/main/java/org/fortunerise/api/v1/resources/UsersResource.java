@@ -24,53 +24,42 @@ public class UsersResource {
 
     @GET
     public Response getUsers() {
-        List<UserDto> userDtos = userBean.getUsers();
-
-        if (userDtos.isEmpty()) {
-            return Response.status(Response.Status.NO_CONTENT).build(); // 204 No Content if no users
+        try {
+            List<UserDto> userDtos = userBean.getUsers();
+            return Response.ok(userDtos).build();
         }
-
-        return Response.ok(userDtos).build(); // 200 OK if users are found
+        catch (NoResultException e) {
+            return Response.status(Status.NOT_FOUND).build();
+        }
+        catch (Exception e) {
+            return Response.status(Status.INTERNAL_SERVER_ERROR).entity(e.getMessage()).build();
+        }
     }
 
-    @Path("{usrID}")
+    @Path("{userId}")
     @GET
-    public Response getUserByID(@PathParam("usrID") Integer usrID){
+    public Response getUserByID(@PathParam("userId") Integer userId){
         try {
-            UserDto userDto = userBean.getUserById(usrID);
+            UserDto userDto = userBean.getUserDtoById(userId);
             return Response.ok(userDto).build(); // 200 OK if user found
-        } catch (NoResultException e) {
-            return Response.status(Status.NO_CONTENT).build(); // 204 No Content if user with usrID does not exist
         }
-
-
-
+        catch (NoResultException e) {
+            return Response.status(Status.NOT_FOUND).build();
+        }
+        catch (Exception e) {
+            return Response.status(Status.INTERNAL_SERVER_ERROR).build();
+        }
     }
 
 
     @POST
     public Response createUser(UserDto userDto) {
         try {
-            // Try to insert the user, this should be a transactional operation
-            userBean.insertUser(userDto);
-
-            // If successful, return a 201 Created response
-            return Response
-                    .status(Response.Status.CREATED)
-                    .entity(userDto)  // Optionally return the created object or its ID
-                    .build();
-        } catch (RuntimeException e) {
-            // If a RuntimeException occurs, it will trigger a rollback by the container
-            return Response
-                    .status(Response.Status.INTERNAL_SERVER_ERROR)
-                    .entity("Failed to create user: " + e.getMessage())
-                    .build();
-        } catch (Exception e) {
-            // Catch any other unexpected exceptions
-            return Response
-                    .status(Response.Status.INTERNAL_SERVER_ERROR)
-                    .entity("Unexpected error: " + e.getMessage())
-                    .build();
+           UserDto responseUserDto = userBean.insertUser(userDto);
+           return Response.ok(responseUserDto).build();
+        }
+        catch (Exception e) {
+            return Response.status(Status.INTERNAL_SERVER_ERROR).build();
         }
     }
 

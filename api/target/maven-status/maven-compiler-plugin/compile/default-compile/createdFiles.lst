@@ -1,4 +1,4 @@
 org\fortunerise\api\v1\resources\UsersResource.class
-org\fortunerise\api\v1\resources\WalletResource.class
+org\fortunerise\api\v1\resources\WalletsResource.class
+org\fortunerise\api\v1\resources\GamesResource.class
 org\fortunerise\api\FortuneRiseApp.class
-org\fortunerise\api\v1\resources\GameResource.class

@@ -84,5 +84,7 @@ public class BetDto {
         };
     }
 
-
+    public BigDecimal getBetAmount() {
+        return betAmount;
+    }
 }
