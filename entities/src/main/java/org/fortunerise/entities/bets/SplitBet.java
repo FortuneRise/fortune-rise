@@ -4,14 +4,20 @@ package org.fortunerise.entities.bets;
 import org.fortunerise.entities.Bet;
 
 import javax.persistence.Column;
+import javax.persistence.DiscriminatorValue;
+import javax.persistence.Entity;
 import java.math.BigDecimal;
 
+@Entity
+//@DiscriminatorValue("SPLIT")
 public class SplitBet extends Bet {
     @Column
     private Integer field1;
 
     @Column
     private Integer field2;
+
+    public SplitBet() {}
 
     public SplitBet(BigDecimal betAmount, Integer roll, Integer field1, Integer field2) {
         super(betAmount);

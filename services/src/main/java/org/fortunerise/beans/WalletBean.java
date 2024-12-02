@@ -13,6 +13,7 @@ import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import javax.transaction.Transactional;
+import javax.ws.rs.BadRequestException;
 import java.math.BigDecimal;
 import java.util.logging.Logger;
 
@@ -41,21 +42,22 @@ public class WalletBean {
 
 
     @Transactional(Transactional.TxType.REQUIRED)
-    public Boolean updateWallet(Integer userId, BigDecimal amount){
+    public WalletDto updateWallet(Integer userId, WalletDto walletDto) {
         String queryString = "SELECT w FROM Wallet w WHERE w.user.id = :userId";
         Query query = em.createQuery(queryString);
         query.setParameter("userId", userId);
         Wallet wallet = (Wallet) query.getSingleResult();
         BigDecimal balance = wallet.getBalance();
+        BigDecimal change = walletDto.getBalance();
 
-        if (amount.signum() == -1 && amount.abs().compareTo(balance) == 1) {
-            return false;
+        if (change.signum() == -1 && change.abs().compareTo(balance) > 0) {
+            throw new BadRequestException("Illegal balance change!");
         }
 
-        wallet.setBalance(balance.add(amount));
-        return true;
+        wallet.setBalance(balance.add(change));
+        em.flush();
 
-
+        return new WalletDto(wallet);
     }
 
     @Transactional(Transactional.TxType.REQUIRED)

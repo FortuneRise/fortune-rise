@@ -2,13 +2,12 @@ package org.fortunerise.entities.bets;
 
 import org.fortunerise.entities.Bet;
 
-import javax.persistence.Column;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
+import javax.persistence.*;
 import java.math.BigDecimal;
 import java.util.Set;
 
-
+@Entity
+//@DiscriminatorValue("COLOR")
 public class ColorBet extends Bet {
     private static final Set<Integer> RED_NUMBERS = Set.of(1, 3, 5, 7, 9, 12, 14, 16, 18, 19, 21, 23, 25, 27, 30, 32, 34, 36);
 
@@ -19,6 +18,8 @@ public class ColorBet extends Bet {
     @Column
     @Enumerated(EnumType.STRING)
     private Color color;
+
+    public ColorBet() {}
 
     public ColorBet(BigDecimal betAmount, Integer roll, Color color) {
         super(betAmount);

@@ -3,12 +3,11 @@ package org.fortunerise.entities.bets;
 
 import org.fortunerise.entities.Bet;
 
-import javax.persistence.Column;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
+import javax.persistence.*;
 import java.math.BigDecimal;
 
-
+@Entity
+//@DiscriminatorValue("HIGH_LOW")
 public class HighLowBet extends Bet {
 
     public enum HighLow {
@@ -19,6 +18,8 @@ public class HighLowBet extends Bet {
     @Column
     @Enumerated(EnumType.STRING)
     private HighLow highLow;
+
+    public HighLowBet() {}
 
     public HighLowBet(BigDecimal betAmount, Integer roll, HighLow highLow) {
         super(betAmount);

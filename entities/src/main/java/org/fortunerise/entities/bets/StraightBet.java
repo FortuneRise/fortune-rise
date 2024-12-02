@@ -4,12 +4,18 @@ package org.fortunerise.entities.bets;
 import org.fortunerise.entities.Bet;
 
 import javax.persistence.Column;
+import javax.persistence.DiscriminatorValue;
+import javax.persistence.Entity;
 import java.math.BigDecimal;
 import java.net.Inet4Address;
 
+@Entity
+//@DiscriminatorValue("STRAIGHT")
 public class StraightBet extends Bet {
     @Column
     private Integer field1;
+
+    public StraightBet() {}
 
     public StraightBet(BigDecimal betAmount, Integer roll, Integer field1) {
         super(betAmount);

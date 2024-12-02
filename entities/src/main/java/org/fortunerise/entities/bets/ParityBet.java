@@ -2,11 +2,11 @@ package org.fortunerise.entities.bets;
 
 import org.fortunerise.entities.Bet;
 
-import javax.persistence.Column;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
+import javax.persistence.*;
 import java.math.BigDecimal;
 
+@Entity
+//@DiscriminatorValue("PARITY")
 public class ParityBet extends Bet {
 
     @Column
@@ -16,6 +16,8 @@ public class ParityBet extends Bet {
     public enum Parity {
         EVEN, ODD
     }
+
+    public ParityBet() {}
 
     public ParityBet(BigDecimal betAmount, Integer roll, Parity parity) {
         super(betAmount);

@@ -4,8 +4,12 @@ package org.fortunerise.entities.bets;
 import org.fortunerise.entities.Bet;
 
 import javax.persistence.Column;
+import javax.persistence.DiscriminatorValue;
+import javax.persistence.Entity;
 import java.math.BigDecimal;
 
+@Entity
+//@DiscriminatorValue("SIX_LINE")
 public class SixLineBet extends Bet {
     @Column
     private Integer field1;
@@ -24,6 +28,8 @@ public class SixLineBet extends Bet {
 
     @Column
     private Integer field6;
+
+    public SixLineBet() {}
 
     public SixLineBet(BigDecimal betAmount, Integer roll, Integer field1, Integer field2, Integer field3, Integer field4, Integer field5, Integer field6) {
         super(betAmount);

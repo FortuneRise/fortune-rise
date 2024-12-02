@@ -4,6 +4,7 @@ import org.fortunerise.entities.User;
 import org.fortunerise.entities.Wallet;
 
 public class UserDto {
+    private Integer id;
     private String name;
     private String surname;
     private String username;
@@ -19,6 +20,7 @@ public class UserDto {
     }
 
     public UserDto(User user) {
+        this.id = user.getId();
         this.name = user.getName();
         this.surname = user.getSurname();
         this.username = user.getUsername();
@@ -61,5 +63,13 @@ public class UserDto {
 
     public void setUsername(String username) {
         this.username = username;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 }

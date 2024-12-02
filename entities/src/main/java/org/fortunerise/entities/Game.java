@@ -2,7 +2,8 @@ package org.fortunerise.entities;
 
 
 import javax.persistence.*;
-import java.time.*;
+import java.math.BigDecimal;
+import java.util.Date;
 import java.util.List;
 
 @Entity
@@ -19,14 +20,26 @@ public class Game {
 
     @Column(name = "date")
     @Temporal(TemporalType.DATE)
-    private LocalDateTime date;
+    private Date date;
 
-    @Column(name = "result_num")
-    private Integer result;
+    @Column(name = "roll")
+    private Integer roll;
+
+    @Column
+    private BigDecimal payout;
 
     @OneToMany(mappedBy = "game", cascade = CascadeType.ALL)
     private List<Bet> bets;
 
+    public Game() {}
+
+    public Game(Date date, Integer roll, User user) {
+        this.date = date;
+        this.roll = roll;
+        this.user = user;
+    }
+
+    public Integer getId() { return id; }
 
     public User getUser() {
         return user;
@@ -36,19 +49,27 @@ public class Game {
         this.user = user;
     }
 
-    public LocalDateTime getDate() {
+    public Date getDate() {
         return date;
     }
 
-    public void setDate(LocalDateTime date) {
+    public void setDate(Date date) {
         this.date = date;
     }
 
-    public Integer getResult() {
-        return result;
+    public Integer getRoll() {
+        return roll;
     }
 
-    public void setResult(Integer result) {
-        this.result = result;
+    public void setRoll(Integer roll) {
+        this.roll = roll;
+    }
+
+    public BigDecimal getPayout() {
+        return payout;
+    }
+
+    public void setPayout(BigDecimal payout) {
+        this.payout = payout;
     }
 }

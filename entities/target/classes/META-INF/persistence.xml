@@ -10,6 +10,16 @@
         <class>org.fortunerise.entities.Bet</class>
         <class>org.fortunerise.entities.Notification</class>
         <class>org.fortunerise.entities.Promotion</class>
+        <class>org.fortunerise.entities.bets.ColorBet</class>
+        <class>org.fortunerise.entities.bets.ColumnBet</class>
+        <class>org.fortunerise.entities.bets.CornerBet</class>
+        <class>org.fortunerise.entities.bets.DozenBet</class>
+        <class>org.fortunerise.entities.bets.HighLowBet</class>
+        <class>org.fortunerise.entities.bets.ParityBet</class>
+        <class>org.fortunerise.entities.bets.SixLineBet</class>
+        <class>org.fortunerise.entities.bets.SplitBet</class>
+        <class>org.fortunerise.entities.bets.StraightBet</class>
+        <class>org.fortunerise.entities.bets.StreetBet</class>
 
         <!-- <class>org.fortunerise.converters.</class> -->
 

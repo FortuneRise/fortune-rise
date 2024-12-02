@@ -4,8 +4,12 @@ package org.fortunerise.entities.bets;
 import org.fortunerise.entities.Bet;
 
 import javax.persistence.Column;
+import javax.persistence.DiscriminatorValue;
+import javax.persistence.Entity;
 import java.math.BigDecimal;
 
+@Entity
+//@DiscriminatorValue("STREET")
 public class StreetBet extends Bet {
     @Column
     private Integer field1;
@@ -15,6 +19,8 @@ public class StreetBet extends Bet {
 
     @Column
     private Integer field3;
+
+    public StreetBet() {}
 
     public StreetBet(BigDecimal betAmount, Integer roll, Integer field1, Integer field2, Integer field3) {
         super(betAmount);

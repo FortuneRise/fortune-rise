@@ -2,12 +2,11 @@ package org.fortunerise.entities.bets;
 
 import org.fortunerise.entities.Bet;
 
-import javax.persistence.Column;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
+import javax.persistence.*;
 import java.math.BigDecimal;
 
-
+@Entity
+//@DiscriminatorValue("COLUMN")
 public class ColumnBet extends Bet {
 
     public enum Columns {
@@ -16,10 +15,11 @@ public class ColumnBet extends Bet {
         THIRD
     }
 
-
     @Column
     @Enumerated(EnumType.ORDINAL)
     private Columns columns;
+
+    public ColumnBet() {}
 
     public ColumnBet(BigDecimal betAmount, Integer roll, Columns columns) {
         super(betAmount);

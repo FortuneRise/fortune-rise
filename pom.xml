@@ -58,7 +58,6 @@
                     <exclude>**/HistoryResource.java</exclude>
                     <exclude>**/NotificationsResource.java</exclude>
                     <exclude>**/PromotionsResource.java</exclude>
-                    <exclude>**/GameResource.java</exclude>
                 </excludes>
             </configuration>
         </plugin>

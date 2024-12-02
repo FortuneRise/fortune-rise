@@ -5,6 +5,8 @@ import java.math.BigDecimal;
 
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
+@Table(name = "bet")
+//@DiscriminatorColumn(name = "BET_TYPE")
 public abstract class Bet {
 
     @Id
@@ -12,7 +14,7 @@ public abstract class Bet {
     private Integer id;
 
     @ManyToOne
-    @JoinColumn(name = "game_id")
+    @JoinColumn(name = "game_id", nullable = false)
     private Game game;
 
     @Column(name = "bet_amount")

@@ -57,10 +57,8 @@ public class UserBean {
         String queryString = "SELECT new org.fortunerise.dtos.UserDto(u) FROM User u WHERE u.id = :userId";
         Query query = em.createQuery(queryString);
         query.setParameter("userId", userId);
-        UserDto userDto = (UserDto) query.getSingleResult();
 
-
-        return userDto;
+        return (UserDto) query.getSingleResult();
     }
 
 }
