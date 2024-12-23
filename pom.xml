@@ -56,7 +56,6 @@
             <configuration>
                 <excludes>
                     <exclude>**/HistoryResource.java</exclude>
-                    <exclude>**/NotificationsResource.java</exclude>
                     <exclude>**/PromotionsResource.java</exclude>
                 </excludes>
             </configuration>
