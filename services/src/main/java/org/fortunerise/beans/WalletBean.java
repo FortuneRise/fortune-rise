@@ -1,6 +1,9 @@
 package org.fortunerise.beans;
 
+import org.fortunerise.dtos.TransactionDto;
 import org.fortunerise.dtos.WalletDto;
+import org.fortunerise.entities.Promotion;
+import org.fortunerise.entities.Transaction;
 import org.fortunerise.entities.User;
 import org.fortunerise.entities.Wallet;
 
@@ -8,6 +11,7 @@ import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.context.RequestScoped;
+import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
@@ -19,6 +23,12 @@ import java.util.logging.Logger;
 
 @ApplicationScoped
 public class WalletBean {
+
+    @Inject
+    private PromotionBean promotionBean;
+
+    @Inject
+    private UserBean userBean;
 
     private Logger log = Logger.getLogger(WalletBean.class.getName());
 
@@ -39,30 +49,37 @@ public class WalletBean {
         // zapiranje virov
     }
 
-
-
     @Transactional(Transactional.TxType.REQUIRED)
-    public Wallet updateWallet(Integer userId, WalletDto walletDto) {
+    public Wallet updateWallet(Integer userId, TransactionDto transactionDto) {
         String queryString = "SELECT w FROM Wallet w WHERE w.user.id = :userId";
         Query query = em.createQuery(queryString);
         query.setParameter("userId", userId);
         Wallet wallet = (Wallet) query.getSingleResult();
         BigDecimal balance = wallet.getBalance();
-        BigDecimal change = walletDto.getBalance();
+        BigDecimal change = transactionDto.getAmount();
 
         if (change.signum() == -1 && change.abs().compareTo(balance) > 0) {
             throw new IllegalArgumentException("Illegal balance change!");
         }
 
+        Transaction transaction = new Transaction(wallet, change);
+
         wallet.setBalance(balance.add(change));
+        em.persist(transaction);
         em.flush();
+
+        if (transactionDto.getPromotionId() != null) {
+            User user = userBean.getUserById(userId);
+            Promotion promotion = promotionBean.getPromotionById(transactionDto.getPromotionId());
+            promotionBean.executePromotionOnTransaction(promotion, user, transaction);
+        }
 
         return wallet;
     }
 
     @Transactional(Transactional.TxType.REQUIRED)
-    public WalletDto updateWalletDto(Integer userId, WalletDto walletDto) {
-        return new WalletDto(updateWallet(userId, walletDto));
+    public WalletDto updateWalletDto(Integer userId, TransactionDto transactionDto) {
+        return new WalletDto(updateWallet(userId, transactionDto));
     }
 
     @Transactional(Transactional.TxType.REQUIRED)

@@ -51,6 +51,9 @@ public class User {
 
     }
 
+    public void removePromotion(Promotion promotion){
+        promotions.remove(promotion);
+    }
 
     public String getName() {
         return name;

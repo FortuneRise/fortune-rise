@@ -10,6 +10,7 @@ import java.util.List;
 
 public class BetDto {
 
+
     public enum BetType {
         @JsonProperty("STRAIGHT")
         STRAIGHT,
@@ -39,6 +40,8 @@ public class BetDto {
     private BigDecimal betAmount;
     @JsonProperty("fields")
     private List<Integer> fields;
+    @JsonProperty("promotionId")
+    private Integer promotionId;
 
     // Default constructor for JSON deserialization
     public BetDto() {}
@@ -86,5 +89,9 @@ public class BetDto {
 
     public BigDecimal getBetAmount() {
         return betAmount;
+    }
+
+    public Integer getPromotionId() {
+        return promotionId;
     }
 }
