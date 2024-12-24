@@ -25,7 +25,7 @@ public abstract class Bet {
 
     public Bet() {}
 
-    public Bet(BigDecimal betAmount) {
+    protected Bet(BigDecimal betAmount) {
         this.betAmount = betAmount;
     }
 

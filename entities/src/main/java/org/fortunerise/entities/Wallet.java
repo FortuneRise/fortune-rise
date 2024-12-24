@@ -29,4 +29,8 @@ public class Wallet {
     public void setBalance(BigDecimal balance) {
         this.balance = balance;
     }
+
+    public Integer getId() {
+        return id;
+    }
 }

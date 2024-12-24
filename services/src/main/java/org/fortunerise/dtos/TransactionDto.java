@@ -1,44 +1,52 @@
 package org.fortunerise.dtos;
 
+import org.fortunerise.entities.Transaction;
+
+import java.math.BigDecimal;
+
 public class TransactionDto {
-    private UserDto payer;
-    private UserDto reciever;
-    private double amount;
+    private Integer id;
+    private BigDecimal amount;
+    //private Integer walletId;
+    private Integer promotionId;
 
-    // Default constructor required for JSON deserialization
-    public TransactionDto(){}
+    public TransactionDto() {}
 
-    // Constructor for manual creation
-    public TransactionDto(UserDto payer, UserDto reciever, double amount){
-        this.payer = payer;
-        this.reciever = reciever;
+    public TransactionDto(BigDecimal amount) {
         this.amount = amount;
     }
 
-
-
-    // Getters and setters
-    public UserDto getPayer() {
-        return payer;
+    public TransactionDto(Transaction transaction) {
+        this.id = transaction.getId();
+        this.amount = transaction.getAmount();
+        //this.walletId = transaction.getWallet().getId();
     }
 
-    public void setPayer(UserDto payer) {
-        this.payer = payer;
+    public Integer getId() {
+        return id;
     }
 
-    public UserDto getReciever() {
-        return reciever;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
-    public void setReciever(UserDto reciever) {
-        this.reciever = reciever;
-    }
-
-    public double getAmount() {
+    public BigDecimal getAmount() {
         return amount;
     }
 
-    public void setAmount(double amount) {
+    public void setAmount(BigDecimal amount) {
         this.amount = amount;
     }
+
+    public Integer getPromotionId() {
+        return promotionId;
+    }
+
+//    public Integer getWalletId() {
+//        return walletId;
+//    }
+//
+//    public void setWalletId(Integer walletId) {
+//        this.walletId = walletId;
+//    }
 }

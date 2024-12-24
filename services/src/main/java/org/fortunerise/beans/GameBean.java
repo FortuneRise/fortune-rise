@@ -1,13 +1,7 @@
 package org.fortunerise.beans;
 
-import org.fortunerise.dtos.BetDto;
-import org.fortunerise.dtos.GameDto;
-import org.fortunerise.dtos.UserDto;
-import org.fortunerise.dtos.WalletDto;
-import org.fortunerise.entities.Bet;
-import org.fortunerise.entities.Game;
-import org.fortunerise.entities.User;
-import org.fortunerise.entities.Wallet;
+import org.fortunerise.dtos.*;
+import org.fortunerise.entities.*;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
@@ -40,6 +34,9 @@ public class GameBean {
     @Inject
     private WalletBean walletBean;
 
+    @Inject
+    private PromotionBean promotionBean;
+
     @PostConstruct
     private void init() {
         log.info("Inicializacija zrna " + GameBean.class.getSimpleName());
@@ -69,8 +66,12 @@ public class GameBean {
 
         for (BetDto betDto : betDtos) {
             totalBet = totalBet.subtract(betDto.getBetAmount());
+            if (betDto.getPromotionId() != null) {
+                Promotion promotion = promotionBean.getPromotionById(betDto.getPromotionId());
+                promotionBean.executePromotionOnBet(promotion, user);
+            }
         }
-        walletBean.updateWallet(userId, new WalletDto(totalBet));
+        walletBean.updateWallet(userId, new TransactionDto(totalBet));
 
         for (BetDto betDto : betDtos) {
             Bet bet = betDto.convertToBet(roll);
@@ -80,7 +81,7 @@ public class GameBean {
         }
 
         game.setPayout(totalPayout);
-        walletBean.updateWallet(userId, new WalletDto(totalPayout));
+        walletBean.updateWallet(userId, new TransactionDto(totalPayout));
         em.flush();
 
         return new GameDto(game);

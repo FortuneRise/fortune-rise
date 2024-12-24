@@ -1,6 +1,7 @@
 package org.fortunerise.api.v1.resources;
 
 import org.fortunerise.beans.WalletBean;
+import org.fortunerise.dtos.TransactionDto;
 import org.fortunerise.dtos.WalletDto;
 
 import javax.inject.Inject;
@@ -38,10 +39,10 @@ public class WalletsResource {
     // PUT method to update an existing wallet by ID
     @PUT
     @Path("/{userId}")
-    public Response updateWallet(@PathParam("userId") Integer userId, WalletDto walletAddBalance) {
+    public Response updateWallet(@PathParam("userId") Integer userId, TransactionDto transactionDto) {
 
         try {
-            WalletDto updatedWalletDto = walletBean.updateWalletDto(userId, walletAddBalance);
+            WalletDto updatedWalletDto = walletBean.updateWalletDto(userId, transactionDto);
             return Response.status(Status.OK).entity(updatedWalletDto).build();
         }
         catch (IllegalArgumentException e) {
