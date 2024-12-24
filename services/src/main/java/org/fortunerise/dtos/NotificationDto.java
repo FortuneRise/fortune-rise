@@ -1,31 +1,47 @@
 package org.fortunerise.dtos;
 
-public class NotificationDto {
-    int id;
-    private String date; // Time of notification
-    private String message; // Message of notification
-    private boolean read; // True if notification has been read
+import org.fortunerise.entities.Notification;
 
-    public NotificationDto(int id, String date, String msg, boolean read){
-        this.id = id;
+import java.util.Date;
+
+public class NotificationDto {
+    private Integer id;
+    private Boolean read; // True if notification has been read
+    private String content; // Message of notification
+    private Date date; // Time of notification
+
+
+
+    public NotificationDto() {}
+
+    public NotificationDto(Date date, String msg, boolean read){
         this.date = date;
-        this.message = msg;
+        this.content = msg;
         this.read = read;
     }
 
-    public int getID(){
-        return this.id;
+    public NotificationDto(Notification notification){
+        this.id = notification.getId();
+        this.content = notification.getContent();
+        this.read = notification.getRead();
+        this.date = notification.getDate();
     }
 
-    public String getDate() {
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public Integer getId() {return id; }
+
+    public Date getDate() {
         return date;
     }
 
-    public String getMessage() {
-        return message;
+    public String getContent() {
+        return content;
     }
 
-    public boolean isRead() {
+    public Boolean isRead() {
         return read;
     }
 
