@@ -87,13 +87,6 @@ public class GameBean {
         return new GameDto(game);
     }
 
-    public List<GameDto> getGameDtosByUserId(Integer userId){
-        String queryString = "SELECT new org.fortunerise.dtos.GameDto(g) FROM Game g WHERE g.user.id = :userId";
-        Query query = em.createQuery(queryString);
-        query.setParameter("userId", userId);
-
-        return (List<GameDto>) query.getResultList();
-    }
 
 
 }

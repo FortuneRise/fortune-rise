@@ -12,8 +12,6 @@ import java.util.List;
 @Consumes(MediaType.APPLICATION_JSON)
 public class PromotionsResource {
 
-    private static List<PromotionModel> promotions;
-
     @GET
     public Response getPromotions(){
         return Response.ok(promotions).build();

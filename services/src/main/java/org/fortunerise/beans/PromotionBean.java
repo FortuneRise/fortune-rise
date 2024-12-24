@@ -1,5 +1,6 @@
 package org.fortunerise.beans;
 
+import org.fortunerise.dtos.PromotionDto;
 import org.fortunerise.dtos.TransactionDto;
 import org.fortunerise.dtos.WalletDto;
 import org.fortunerise.entities.Promotion;
@@ -16,6 +17,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import javax.transaction.Transactional;
+import java.util.List;
 import java.util.logging.Logger;
 
 @ApplicationScoped
@@ -80,5 +82,12 @@ public class PromotionBean {
         }
         walletBean.updateWallet(user.getId(), new TransactionDto(promotion.getAmount()));
         user.removePromotion(promotion);
+    }
+
+    @Transactional
+    public List<PromotionDto> getPromotions() {
+        String queryString = "SELECT new org.fortunerise.dtos.PromotionDto(p) FROM Promotion p";
+        Query query = em.createQuery(queryString);
+        return (List<PromotionDto>) query.getResultList();
     }
 }
