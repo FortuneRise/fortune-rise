@@ -1,0 +1,17 @@
+org\fortunerise\game\entities\bets\DozenBet.class
+org\fortunerise\game\entities\bets\ParityBet$Parity.class
+org\fortunerise\game\entities\bets\ColorBet$Color.class
+org\fortunerise\game\entities\bets\CornerBet.class
+org\fortunerise\game\entities\Game.class
+org\fortunerise\game\entities\Bet.class
+org\fortunerise\game\entities\bets\ParityBet.class
+org\fortunerise\game\entities\bets\ColumnBet.class
+org\fortunerise\game\entities\bets\SixLineBet.class
+org\fortunerise\game\entities\bets\StreetBet.class
+org\fortunerise\game\entities\bets\ColorBet.class
+org\fortunerise\game\entities\bets\HighLowBet.class
+org\fortunerise\game\entities\bets\StraightBet.class
+org\fortunerise\game\entities\bets\ColumnBet$Columns.class
+org\fortunerise\game\entities\bets\SplitBet.class
+org\fortunerise\game\entities\bets\HighLowBet$HighLow.class
+org\fortunerise\game\entities\bets\DozenBet$Dozen.class

@@ -1,0 +1,2 @@
+org\fortunerise\game\api\GameApp.class
+org\fortunerise\game\api\v1\resources\GamesResource.class

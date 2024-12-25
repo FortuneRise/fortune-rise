@@ -1,0 +1,7 @@
+org\fortunerise\game\services\GameDto.class
+org\fortunerise\game\services\BetDto.class
+org\fortunerise\game\services\BetResultDto.class
+org\fortunerise\game\services\GameBean.class
+org\fortunerise\game\services\TransactionDto.class
+org\fortunerise\game\services\BetDto$BetType.class
+org\fortunerise\game\services\BetBean.class

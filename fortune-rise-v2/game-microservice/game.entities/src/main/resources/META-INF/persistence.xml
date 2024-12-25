@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence" version="2.1">
+    <persistence-unit name="fortune-rise-jpa" transaction-type="JTA">
+        <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+        <jta-data-source>jdbc/FortuneRiseDS</jta-data-source>
+
+        <class>org.fortunerise.game.entities.Game</class>
+        <class>org.fortunerise.game.entities.Bet</class>
+        <class>org.fortunerise.game.entities.bets.ColorBet</class>
+        <class>org.fortunerise.game.entities.bets.ColumnBet</class>
+        <class>org.fortunerise.game.entities.bets.CornerBet</class>
+        <class>org.fortunerise.game.entities.bets.DozenBet</class>
+        <class>org.fortunerise.game.entities.bets.HighLowBet</class>
+        <class>org.fortunerise.game.entities.bets.ParityBet</class>
+        <class>org.fortunerise.game.entities.bets.SixLineBet</class>
+        <class>org.fortunerise.game.entities.bets.SplitBet</class>
+        <class>org.fortunerise.game.entities.bets.StraightBet</class>
+        <class>org.fortunerise.game.entities.bets.StreetBet</class>
+
+
+
+        <!-- <class>org.fortunerise.converters.</class> -->
+
+        <properties>
+            <property name="javax.persistence.schema-generation.database.action" value="drop-and-create"/>
+            <property name="javax.persistence.schema-generation.create-source" value="metadata"/>
+            <property name="javax.persistence.sql-load-script-source" value="sql-scripts/init-db.sql"/>
+            <property name="javax.persistence.schema-generation.drop-source" value="metadata"/>
+        </properties>
+
+    </persistence-unit>
+</persistence>
