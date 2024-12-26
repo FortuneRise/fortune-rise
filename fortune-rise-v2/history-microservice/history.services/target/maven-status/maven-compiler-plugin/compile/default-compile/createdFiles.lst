@@ -1,5 +1,6 @@
-org\fortunerise\history\services\BetDto.class
+org\fortunerise\history\services\BetDto$1.class
 org\fortunerise\history\services\HistoryBean.class
+org\fortunerise\history\services\TransactionDto.class
+org\fortunerise\history\services\BetDto.class
 org\fortunerise\history\services\BetDto$BetType.class
 org\fortunerise\history\services\GameDto.class
-org\fortunerise\history\services\TransactionDto.class

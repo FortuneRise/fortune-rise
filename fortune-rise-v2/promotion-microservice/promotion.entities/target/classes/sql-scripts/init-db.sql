@@ -1,8 +1,8 @@
 CREATE SEQUENCE promotion_id_seq START WITH 1 INCREMENT BY 1;
 
 -- Insert rows into parent table `promotion`
-INSERT INTO promotion (id, trigger_scenario) VALUES (1, 'BET');
-INSERT INTO promotion (id, trigger_scenario) VALUES (2, 'DEPOSIT');
+INSERT INTO promotion (id, trigger_scenario, DTYPE) VALUES (1, 'BET', 'FREE_BET');
+INSERT INTO promotion (id, trigger_scenario, DTYPE) VALUES (2, 'DEPOSIT', 'EXTRA_MONEY');
 
 -- Insert rows into child table `free_bet_promotion`
 INSERT INTO free_bet_promotion (id, amount) VALUES (1, 5.00);

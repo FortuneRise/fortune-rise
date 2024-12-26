@@ -3,11 +3,13 @@ package org.fortunerise.promotion.entities.promotions;
 import org.fortunerise.promotion.entities.Promotion;
 
 import javax.persistence.Column;
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 import java.math.BigDecimal;
 
 @Entity
+@DiscriminatorValue("FREE_BET")
 @Table(name = "free_bet_promotion")
 public class FreeBetPromotion extends Promotion {
     @Column(name = "amount")

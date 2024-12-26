@@ -20,6 +20,19 @@ public class PromotionsResource {
     PromotionBean promotionBean;
 
     @GET
+    public Response getPromotions() {
+        try {
+            List<PromotionDto> result = promotionBean.getPromotionDtos();
+            return Response.ok(result).build();
+        } catch (IllegalArgumentException | BadRequestException e) {
+            return Response.status(Response.Status.BAD_REQUEST).entity(e.getMessage()).build();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).build();
+        }
+    }
+
+    @GET
     @Path("/{userId}")
     public Response getPromotionsByUserId(@PathParam("userId") Integer userId, @QueryParam("trigger_scenario") String triggerScenarioParam) {
         try {
@@ -71,8 +84,24 @@ public class PromotionsResource {
         }
     }
 
+    @POST
+    public Response createPromotion(PromotionDto promotionDto) {
+        try {
+            PromotionDto result = promotionBean.createPromotion(promotionDto);
+            return Response.ok(result).build();
+        }
+        catch (IllegalArgumentException | BadRequestException e) {
+            return Response.status(Response.Status.BAD_REQUEST).entity(e.getMessage()).build();
+        }
+        catch (Exception e) {
+            System.out.println(e.getMessage());
+            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).build();
+        }
+    }
+
     @PUT
-    public Response applyPromotion(@QueryParam("user_id") Integer userId, @QueryParam("promotion_id") Integer promotionId) {
+    @Path("/{userId}")
+    public Response applyPromotion(@PathParam("userId") Integer userId, @QueryParam("promotion_id") Integer promotionId) {
         try {
             return promotionBean.applyPromotion(userId, promotionId);
         }

@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PromotionDto {
+
     public enum Type {
         FREE_BET, EXTRA_MONEY
     }
@@ -34,5 +35,28 @@ public class PromotionDto {
             parameters.add(extraMoneyPromotion.getAmount());
             parameters.add(extraMoneyPromotion.getThreshold());
         }
+    }
+
+    public Promotion convertToPromotion() {
+        return switch (type) {
+            case FREE_BET -> new FreeBetPromotion(parameters.get(0));
+            case EXTRA_MONEY -> new ExtraMoneyPromotion(parameters.get(0), parameters.get(1));
+        };
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public List<BigDecimal> getParameters() {
+        return parameters;
+    }
+
+    public Promotion.TriggerScenario getTriggerScenario() {
+        return triggerScenario;
+    }
+
+    public Type getType() {
+        return type;
     }
 }

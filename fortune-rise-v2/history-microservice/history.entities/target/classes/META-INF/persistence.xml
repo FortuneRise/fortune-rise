@@ -6,6 +6,7 @@
 
         <class>org.fortunerise.history.entities.Game</class>
         <class>org.fortunerise.history.entities.Bet</class>
+        <class>org.fortunerise.history.entities.Transaction</class>
         <class>org.fortunerise.history.entities.bets.ColorBet</class>
         <class>org.fortunerise.history.entities.bets.ColumnBet</class>
         <class>org.fortunerise.history.entities.bets.CornerBet</class>

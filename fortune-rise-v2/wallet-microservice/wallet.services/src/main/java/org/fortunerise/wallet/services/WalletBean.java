@@ -14,6 +14,11 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.PersistenceException;
 import javax.persistence.Query;
 import javax.transaction.Transactional;
+import javax.ws.rs.client.Client;
+import javax.ws.rs.client.ClientBuilder;
+import javax.ws.rs.client.Entity;
+import javax.ws.rs.client.WebTarget;
+import javax.ws.rs.core.Response;
 import java.math.BigDecimal;
 import java.util.logging.Logger;
 
@@ -26,10 +31,12 @@ public class WalletBean {
     @PersistenceContext(unitName = "fortune-rise-jpa")
     private EntityManager em;
 
+    private Client client;
+
     @PostConstruct
     private void init() {
         log.info("Bean initialization" + WalletBean.class.getSimpleName());
-
+        client = ClientBuilder.newClient();
         // inicializacija virov
     }
 
@@ -58,6 +65,21 @@ public class WalletBean {
 
 
         wallet.setBalance(balance.add(change));
+
+        WebTarget baseHistory = client.target("http://localhost:8085/api");
+        WebTarget targetHistory = baseHistory.path("/history/transactions");
+        WebTarget endTargetHistory = targetHistory.path("/{userId}").resolveTemplate("userId", userId);
+
+        TransactionDto transaction = new TransactionDto(change);
+        transaction.setUserId(userId);
+        transaction.setWalletId(wallet.getId());
+
+        Response responseHistory = endTargetHistory.request().post(Entity.json(transaction));
+
+        if (responseHistory.getStatus() != 200) {
+            throw new RuntimeException("Problem with history");
+        }
+
 
         /*
         Ta koda se bo nadomsetila s nekim klicem na promotions api

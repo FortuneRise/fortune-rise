@@ -13,6 +13,7 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import javax.transaction.Transactional;
 import javax.ws.rs.client.Client;
+import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.client.Entity;
 import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.Response;
@@ -36,6 +37,8 @@ public class PromotionBean {
     @PostConstruct
     private void init() {
         log.info("Bean initialization: " + PromotionBean.class.getSimpleName());
+
+        client = ClientBuilder.newClient();
     }
 
     @PreDestroy
@@ -53,7 +56,7 @@ public class PromotionBean {
                     "SELECT new org.fortunerise.promotion.services.PromotionDto(ul.promotion) FROM UserLink ul WHERE ul.userId = :userId AND ul.promotion.triggerScenario = 'BET'";
         };
 
-        return (List<PromotionDto>) em.createQuery(queryString).getResultList();
+        return (List<PromotionDto>) em.createQuery(queryString).setParameter("userId", userId).getResultList();
     }
 
     @Transactional
@@ -133,6 +136,16 @@ public class PromotionBean {
 
     @Transactional
     public List<PromotionDto> getPromotionDtos() {
+        String QueryString = "SELECT new org.fortunerise.promotion.services.PromotionDto(p) FROM Promotion p";
+        return (List<PromotionDto>) em.createQuery(QueryString).getResultList();
+    }
 
+    @Transactional
+    public PromotionDto createPromotion(PromotionDto promotionDto) {
+        Promotion promotion = promotionDto.convertToPromotion();
+        em.persist(promotion);
+        em.flush();
+        
+        return new PromotionDto(promotion);
     }
 }

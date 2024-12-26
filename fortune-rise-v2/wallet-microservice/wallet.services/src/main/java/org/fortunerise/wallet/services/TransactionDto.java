@@ -20,10 +20,11 @@ public class TransactionDto {
     public TransactionDto(Transaction transaction) {
         this.id = transaction.getId();
         this.amount = transaction.getAmount();
-        //this.walletId = transaction.getWallet().getId();
+        this.walletId = transaction.getWalletId();
+        this.userId = transaction.getUserId();
     }
+    */
 
-     */
 
     public Integer getId() {
         return id;
@@ -42,7 +43,7 @@ public class TransactionDto {
     }
 
 
-//    public Integer getPromotionId() {
+    //    public Integer getPromotionId() {
 //        return promotionId;
 //    }
     public Integer getWalletId() {
