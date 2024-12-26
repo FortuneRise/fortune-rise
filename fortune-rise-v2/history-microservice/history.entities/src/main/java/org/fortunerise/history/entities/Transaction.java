@@ -10,17 +10,20 @@ public class Transaction {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @ManyToOne
-    @JoinColumn(name = "wallet_id")
-    private Wallet wallet;
+    @Column
+    private Integer userId;
+
+    @Column
+    private Integer walletId;
 
     @Column(name = "amount")
     private BigDecimal amount;
 
     public Transaction() {}
 
-    public Transaction(Wallet wallet, BigDecimal amount) {
-        this.wallet = wallet;
+    public Transaction(Integer userId, Integer walletId, BigDecimal amount) {
+        this.userId = userId;
+        this.walletId = walletId;
         this.amount = amount;
     }
 
@@ -28,8 +31,8 @@ public class Transaction {
         return id;
     }
 
-    public Wallet getWallet() {
-        return wallet;
+    public Integer getWallet() {
+        return walletId;
     }
 
     public BigDecimal getAmount() {

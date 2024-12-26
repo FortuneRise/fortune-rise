@@ -14,9 +14,8 @@ public class Game {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @ManyToOne
-    @JoinColumn(name = "user_id")
-    private User user;
+    @Column
+    private Integer userId;
 
     @Column(name = "date")
     @Temporal(TemporalType.DATE)
@@ -33,20 +32,21 @@ public class Game {
 
     public Game() {}
 
-    public Game(Date date, Integer roll, User user) {
+    public Game(Date date, Integer roll, Integer userId) {
         this.date = date;
         this.roll = roll;
-        this.user = user;
+        this.userId = userId;
     }
+
 
     public Integer getId() { return id; }
 
-    public User getUser() {
-        return user;
+    public Integer getUser() {
+        return userId;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setUser(Integer userId) {
+        this.userId = userId;
     }
 
     public Date getDate() {
@@ -72,4 +72,6 @@ public class Game {
     public void setPayout(BigDecimal payout) {
         this.payout = payout;
     }
+
+
 }

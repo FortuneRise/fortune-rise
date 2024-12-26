@@ -39,7 +39,7 @@ public class NotificationBean {
 
     @Transactional(Transactional.TxType.REQUIRED)
     public List<NotificationDto> getAllNotifiacationsByUsrId(Integer userId){
-        String queryString = "SELECT new org.fortunerise.dtos.NotificationDto(n) FROM Notification n WHERE n.user.id = :userId";
+        String queryString = "SELECT new org.fortunerise.notification.services.NotificationDto(n) FROM Notification n WHERE n.userId = :userId";
         Query query = em.createQuery(queryString);
         query.setParameter("userId", userId);
 
@@ -53,7 +53,7 @@ public class NotificationBean {
 
     @Transactional(Transactional.TxType.REQUIRED)
     public Notification readNotification(Integer notificationId, Integer userId){
-        String queryString = "SELECT n FROM Notification n WHERE n.id = :notificationId AND n.user.id = :userId" ;
+        String queryString = "SELECT n FROM Notification n WHERE n.id = :notificationId AND n.userId = :userId" ;
         Query query = em.createQuery(queryString);
         query.setParameter("notificationId", notificationId);
         query.setParameter("userId", userId);
@@ -66,15 +66,11 @@ public class NotificationBean {
 
     @Transactional(Transactional.TxType.REQUIRED)
     public NotificationDto addNotification(NotificationDto notificationDto, Integer userId){
-        String queryString = "SELECT u FROM User u WHERE u.id = :userId";
-        Query query = em.createQuery(queryString);
-        query.setParameter("userId", userId);
 
-        User user = (User) query.getSingleResult();
         String content = notificationDto.getContent();
         Date now = new Date();
 
-        Notification notification = new Notification(user, content, now);
+        Notification notification = new Notification(userId, content, now);
         em.persist(notification);
         em.flush();
 

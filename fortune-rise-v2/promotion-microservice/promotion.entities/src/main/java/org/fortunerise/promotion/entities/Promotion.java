@@ -9,7 +9,7 @@ import java.util.List;
 public abstract class Promotion {
 
     public enum TriggerScenario {
-        TRANSACTION, BET
+        DEPOSIT, BET
     }
 
     @Id
@@ -20,8 +20,8 @@ public abstract class Promotion {
     @Enumerated(EnumType.STRING)
     private TriggerScenario triggerScenario;
 
-    @ManyToMany(mappedBy = "promotions")
-    private List<User> users;
+    @OneToMany(mappedBy = "promotion")
+    private List<UserLink> userLinks;
 
     public Promotion() {}
 
@@ -37,7 +37,4 @@ public abstract class Promotion {
         return triggerScenario;
     }
 
-    public List<User> getUsers() {
-        return users;
-    }
 }

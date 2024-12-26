@@ -1,8 +1,8 @@
 package org.fortunerise.history.api.v1.resources;
 
 import org.fortunerise.history.services.HistoryBean;
-import org.fortunerise.dtos.GameDto;
-import org.fortunerise.dtos.TransactionDto;
+import org.fortunerise.history.services.GameDto;
+import org.fortunerise.history.services.TransactionDto;
 
 import javax.inject.Inject;
 import javax.persistence.NoResultException;
@@ -34,6 +34,13 @@ public class HistoryResource {
         }
     }
 
+     @POST
+     @Path("/games/{usrId}")
+     public Response createGameHistory(@PathParam("usrId") Integer userId, GameDto gameDto) {
+
+     }
+
+
     @GET
     @Path("/transactions/{usrId}")
     public Response getTransactionHistory(@PathParam("usrId") Integer userId) {
@@ -48,5 +55,8 @@ public class HistoryResource {
             return Response.status(Response.Status.INTERNAL_SERVER_ERROR).build();
         }
     }
+
+
+
 
 }

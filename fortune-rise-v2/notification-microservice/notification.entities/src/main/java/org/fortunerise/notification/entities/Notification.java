@@ -21,17 +21,16 @@ public class Notification {
     @Temporal(TemporalType.DATE)
     private Date date;
 
-    @ManyToOne
-    @JoinColumn(name = "user_id")
-    private User user;
+    @Column
+    private Integer userId;
 
     public Notification(){}
 
-    public Notification(User user, String content, Date date){
+    public Notification(Integer userId, String content, Date date){
         this.read = Boolean.FALSE;
         this.content = content;
         this.date = date;
-        this.user = user;
+        this.userId = userId;
     }
 
     public Integer getId() {
@@ -66,11 +65,11 @@ public class Notification {
         this.date = date;
     }
 
-    public User getUser() {
-        return user;
+    public Integer getUser() {
+        return userId;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setUser(Integer user) {
+        this.userId = user;
     }
 }
