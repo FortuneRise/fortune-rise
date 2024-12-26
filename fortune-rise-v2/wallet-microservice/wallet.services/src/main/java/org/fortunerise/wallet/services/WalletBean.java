@@ -43,12 +43,13 @@ public class WalletBean {
 
     @Transactional(Transactional.TxType.REQUIRED)
     public Wallet updateWallet(Integer userId, TransactionDto transactionDto) {
-        String queryString = "SELECT w FROM Wallet w WHERE w.userId = :userId";
-        Query query = em.createQuery(queryString);
-        query.setParameter("userId", userId);
-        Wallet wallet = (Wallet) query.getSingleResult();
+        Wallet wallet = getWalletByUserId(userId);
         BigDecimal balance = wallet.getBalance();
         BigDecimal change = transactionDto.getAmount();
+
+        log.info("Balance: " + balance);
+        log.info("Change: " + change);
+        log.info("UserId: " + userId);
 
 
         if (change.signum() == -1 && change.abs().compareTo(balance) > 0) {

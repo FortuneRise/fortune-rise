@@ -39,7 +39,7 @@ public class GameBean {
 
     @PostConstruct
     private void init() {
-        log.info("Inicializacija zrna " + GameBean.class.getSimpleName());
+        log.info("Bean initialization " + GameBean.class.getSimpleName());
         random = new Random();
         client = ClientBuilder.newClient();
         jsonBuilderFactory = javax.json.Json.createBuilderFactory(null);
@@ -48,7 +48,7 @@ public class GameBean {
 
     @PreDestroy
     private void destroy() {
-        log.info("Deinicializacija zrna " + GameBean.class.getSimpleName());
+        log.info("Bean deinitialization: " + GameBean.class.getSimpleName());
 
         // zapiranje virov
     }
@@ -81,7 +81,10 @@ public class GameBean {
         }
 
         //walletBean.updateWallet(userId, new TransactionDto(totalBet));
-        Response responseBet = endTarget.request().put(Entity.json(new TransactionDto(totalBet)));
+        log.info("Total bet: " + totalBet);
+        TransactionDto transactionDto = new TransactionDto(totalBet);
+        log.info("Transaction: " + transactionDto);
+        Response responseBet = endTarget.request().put(Entity.json(transactionDto));
 
         /*
         Idk zka noce neki prav serializacijo nardit
@@ -131,8 +134,7 @@ public class GameBean {
 
         em.flush();
 
-        System.out.println(totalBet);
-        System.out.println(totalPayout);
+        log.info("Payout" + totalPayout);
 
         return new GameDto(game);
     }

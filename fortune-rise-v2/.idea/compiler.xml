@@ -23,12 +23,10 @@
         <module name="game.services" />
         <module name="user.entities" />
         <module name="api" />
+        <module name="user.api" />
         <module name="game.entities" />
+        <module name="user.services" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="user.api" target="17" />
-      <module name="user.services" target="23" />
-    </bytecodeTargetLevel>
   </component>
 </project>

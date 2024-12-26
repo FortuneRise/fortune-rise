@@ -11,7 +11,10 @@ org\fortunerise\game\entities\bets\StreetBet.class
 org\fortunerise\game\entities\bets\ColorBet.class
 org\fortunerise\game\entities\bets\HighLowBet.class
 org\fortunerise\game\entities\bets\StraightBet.class
+org\fortunerise\game\entities\bets\ColumnBet$1.class
 org\fortunerise\game\entities\bets\ColumnBet$Columns.class
 org\fortunerise\game\entities\bets\SplitBet.class
 org\fortunerise\game\entities\bets\HighLowBet$HighLow.class
+org\fortunerise\game\entities\bets\HighLowBet$1.class
 org\fortunerise\game\entities\bets\DozenBet$Dozen.class
+org\fortunerise\game\entities\bets\DozenBet$1.class

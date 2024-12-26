@@ -8,7 +8,7 @@ public class TransactionDto {
     private Integer id;
     private BigDecimal amount;
     //private Integer walletId;
-    private Integer promotionId;
+    //private Integer promotionId;
 
     public TransactionDto() {}
 
@@ -38,9 +38,9 @@ public class TransactionDto {
         this.amount = amount;
     }
 
-    public Integer getPromotionId() {
-        return promotionId;
-    }
+//    public Integer getPromotionId() {
+//        return promotionId;
+//    }
 
 //    public Integer getWalletId() {
 //        return walletId;

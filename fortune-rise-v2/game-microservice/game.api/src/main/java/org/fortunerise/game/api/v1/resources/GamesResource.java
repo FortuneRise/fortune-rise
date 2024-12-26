@@ -26,7 +26,7 @@ public class GamesResource {
             GameDto gameDto = gameBean.playGame(userId, betDtos);
             return Response.status(Status.CREATED).entity(gameDto).build();
         }
-        catch (IllegalArgumentException e) {
+        catch (BadRequestException e) {
             return Response.status(Status.BAD_REQUEST).entity(e.getMessage()).build();
         }
         catch (Exception e) {
