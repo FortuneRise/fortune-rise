@@ -41,11 +41,11 @@ public class Game {
 
     public Integer getId() { return id; }
 
-    public Integer getUser() {
+    public Integer getUserId() {
         return userId;
     }
 
-    public void setUser(Integer userId) {
+    public void setUserId(Integer userId) {
         this.userId = userId;
     }
 
@@ -71,6 +71,14 @@ public class Game {
 
     public void setPayout(BigDecimal payout) {
         this.payout = payout;
+    }
+
+    public List<Bet> getBets() {
+        return bets;
+    }
+
+    public void setBets(List<Bet> bets) {
+        this.bets = bets;
     }
 
 

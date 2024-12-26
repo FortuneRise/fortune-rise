@@ -15,4 +15,15 @@ public class UserLink {
     @ManyToOne
     @JoinColumn(name = "promotion_id", nullable = false)
     private Promotion promotion;
+
+    public Promotion getPromotion() {
+        return promotion;
+    }
+
+    public UserLink() {}
+
+    public UserLink(Integer userId, Promotion promotion) {
+        this.userId = userId;
+        this.promotion = promotion;
+    }
 }

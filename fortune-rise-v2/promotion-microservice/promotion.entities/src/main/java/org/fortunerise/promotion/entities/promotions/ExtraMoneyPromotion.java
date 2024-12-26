@@ -1,10 +1,14 @@
 package org.fortunerise.promotion.entities.promotions;
 
-import org.fortunerise.entities.Promotion;
+import org.fortunerise.promotion.entities.Promotion;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 import java.math.BigDecimal;
 
+@Entity
+@Table(name = "extra_money_promotion")
 public class ExtraMoneyPromotion extends Promotion {
     @Column(name = "amount")
     private BigDecimal amount;
@@ -12,8 +16,10 @@ public class ExtraMoneyPromotion extends Promotion {
     @Column(name = "threshold")
     private BigDecimal threshold;
 
+    public ExtraMoneyPromotion() {}
+
     public ExtraMoneyPromotion(BigDecimal amount, BigDecimal threshold) {
-        super(TriggerScenario.TRANSACTION);
+        super(TriggerScenario.DEPOSIT);
         this.amount = amount;
         this.threshold = threshold;
     }

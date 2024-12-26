@@ -1,8 +1,8 @@
 package org.fortunerise.game.api.v1.resources;
 
 import org.fortunerise.game.services.GameBean;
-import org.fortunerise.game.services.BetDto;
-import org.fortunerise.game.services.GameDto;
+import org.fortunerise.game.services.dtos.BetDto;
+import org.fortunerise.game.services.dtos.GameDto;
 
 import javax.inject.Inject;
 import javax.ws.rs.*;
@@ -30,7 +30,6 @@ public class GamesResource {
             return Response.status(Status.BAD_REQUEST).entity(e.getMessage()).build();
         }
         catch (Exception e) {
-            System.out.println(e.getMessage());
             return Response.status(Status.INTERNAL_SERVER_ERROR).build();
         }
     }

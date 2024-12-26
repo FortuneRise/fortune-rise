@@ -37,7 +37,13 @@ public class HistoryResource {
      @POST
      @Path("/games/{usrId}")
      public Response createGameHistory(@PathParam("usrId") Integer userId, GameDto gameDto) {
-
+        try {
+            GameDto createdGameDto = historyBean.addGameByUserId(userId, gameDto);
+            return Response.ok(createdGameDto).build();
+        }
+        catch (Exception e){
+            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).build();
+        }
      }
 
 
@@ -50,6 +56,19 @@ public class HistoryResource {
         }
         catch (NoResultException e){
             return Response.status(Response.Status.NOT_FOUND).build();
+        }
+        catch (Exception e){
+            System.out.println(e.getMessage());
+            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).build();
+        }
+    }
+
+    @POST
+    @Path("/transactions/{usrId}")
+    public Response createTransactionHistory(@PathParam("usrId") Integer userId, TransactionDto transactionDto) {
+        try {
+            TransactionDto createdTransactionDto = historyBean.addTransactionByUser(userId, transactionDto);
+            return Response.ok(createdTransactionDto).build();
         }
         catch (Exception e){
             return Response.status(Response.Status.INTERNAL_SERVER_ERROR).build();

@@ -14,6 +14,7 @@ public abstract class Promotion {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @SequenceGenerator(name = "promotion_seq", sequenceName = "promotion_id_seq", allocationSize = 1)
     private Integer id;
 
     @Column(name = "trigger_scenario")

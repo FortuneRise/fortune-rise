@@ -1,16 +1,15 @@
 package org.fortunerise.game.services;
 
-import org.fortunerise.game.services.*;
-import org.fortunerise.game.entities.*;
-import org.fortunerise.game.entities.bets.*;
+
+import org.fortunerise.game.services.dtos.BetDto;
+import org.fortunerise.game.services.dtos.GameDto;
+import org.fortunerise.game.services.dtos.TransactionDto;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.json.JsonBuilderFactory;
-import javax.json.JsonObject;
-import javax.json.JsonObjectBuilder;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
@@ -34,8 +33,9 @@ public class GameBean {
     private Client client;
     private JsonBuilderFactory jsonBuilderFactory;
 
-    @PersistenceContext(unitName = "fortune-rise-jpa")
-    private EntityManager em;
+
+    @Inject
+    private BetBean betBean;
 
     @PostConstruct
     private void init() {
@@ -60,83 +60,67 @@ public class GameBean {
         BigDecimal totalBet = BigDecimal.ZERO;
         Date now = new Date();
 
-        WebTarget base = client.target("http://localhost:8081/api");
-        WebTarget target = base.path("/wallets");
-        WebTarget endTarget = target.path("/{userId}").resolveTemplate("userId", userId);
+        // Creating base for http requests
 
-        // Verjetno se bo to menjalo z klicem na history resource
-        Game game = new Game(now, roll, userId);
-        em.persist(game);
-        em.flush();
+        WebTarget baseWallet = client.target("http://localhost:8081/api");
+        WebTarget baseHistory = client.target("http://localhost:8085/api");
+
+        WebTarget targetWallet = baseWallet.path("/wallets");
+        WebTarget endTargetWallet = targetWallet.path("/{userId}").resolveTemplate("userId", userId);
+
+        WebTarget targetHistory = baseHistory.path("/history/games");
+        WebTarget endTargetHistory = targetHistory.path("/{userId}").resolveTemplate("userId", userId);
+
+
+        //calculate bet and send request to wallet
 
         for (BetDto betDto : betDtos) {
             totalBet = totalBet.subtract(betDto.getBetAmount());
-            /*
-            if (betDto.getPromotionId() != null) {
-                Promotion promotion = promotionBean.getPromotionById(betDto.getPromotionId());
-                promotionBean.executePromotionOnBet(promotion, user);
-            }
-
-            */
         }
 
-        //walletBean.updateWallet(userId, new TransactionDto(totalBet));
+
         log.info("Total bet: " + totalBet);
         TransactionDto transactionDto = new TransactionDto(totalBet);
         log.info("Transaction: " + transactionDto);
-        Response responseBet = endTarget.request().put(Entity.json(transactionDto));
+        Response responseBet = endTargetWallet.request().put(Entity.json(transactionDto));
 
-        /*
-        Idk zka noce neki prav serializacijo nardit
-
-        JsonObjectBuilder jsonBuilderBet = jsonBuilderFactory.createObjectBuilder();
-        jsonBuilderBet.add("amount", totalBet.toString());
-        JsonObject jsonBet = jsonBuilderBet.build();
-        System.out.println(jsonBet.toString());
-        Response responseBet = endTarget.request().header("Content-Type", "application/json").put(Entity.json(jsonBet));
-        //Response responseBet = endTarget.request().header("Content-Type", "application/json").put(Entity.json("{\"amount\":-40}"));
-
-        System.out.println("Status: " + responseBet.getStatus());
-        System.out.println("Response: " + responseBet.readEntity(String.class));
-        */
         if (responseBet.getStatus() == 400) {
             throw new BadRequestException("You don't have enough balance for this bet");
         }else if (responseBet.getStatus() != 200) {
-            throw new RuntimeException();
+            throw new RuntimeException("Problem with betting");
         }
 
 
-
+        //calculate payout and send to wallet
 
         for (BetDto betDto : betDtos) {
-            Bet bet = betDto.convertToBet(roll);
-            totalPayout = totalPayout.add(bet.getPayout());
-            bet.setGame(game);
-            em.persist(bet);
+            totalPayout = totalPayout.add(betBean.calculatePayout(roll, betDto));
         }
 
-        game.setPayout(totalPayout);
 
-        //walletBean.updateWallet(userId, new TransactionDto(totalPayout));
-        Response responsePayout = endTarget.request().put(Entity.json(new TransactionDto(totalPayout)));
+        Response responsePayout = endTargetWallet.request().put(Entity.json(new TransactionDto(totalPayout)));
 
-        /*
-        Enak problem kot prej
 
-        JsonObjectBuilder jsonBuilderPayout = jsonBuilderFactory.createObjectBuilder();
-        jsonBuilderPayout.add("amount", game.getPayout());
-        JsonObject jsonPayout = jsonBuilderPayout.build();
-        Response responsePayout = endTarget.request().put(Entity.json(jsonPayout));
-        */
         if (responsePayout.getStatus() != 200) {
-            throw new RuntimeException();
+            throw new RuntimeException("Problem with payout");
         }
-
-        em.flush();
 
         log.info("Payout" + totalPayout);
 
-        return new GameDto(game);
+        // send the game to history
+
+        GameDto gameDto = new GameDto(userId, totalPayout, roll, now);
+        gameDto.setBets(betDtos);
+
+        Response responseHistory = endTargetHistory.request().post(Entity.json(gameDto));
+        log.info(responseHistory.getStatusInfo().toString());
+        log.info(responseHistory.readEntity(String.class));
+
+        if (responseHistory.getStatus() != 200) {
+            throw new RuntimeException("Problem with history");
+        }
+
+        return gameDto;
     }
 
 

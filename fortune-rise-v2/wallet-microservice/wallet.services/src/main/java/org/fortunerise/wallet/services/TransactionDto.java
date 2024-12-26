@@ -1,27 +1,30 @@
 package org.fortunerise.wallet.services;
 
-//import org.fortunerise.wallet.entities.Transaction;
 
 import java.math.BigDecimal;
 
 public class TransactionDto {
     private Integer id;
     private BigDecimal amount;
-    //private Integer walletId;
-    //private Integer promotionId;
+    private Integer walletId;
+
+    private Integer userId;
 
     public TransactionDto() {}
 
     public TransactionDto(BigDecimal amount) {
         this.amount = amount;
     }
+
     /*
     public TransactionDto(Transaction transaction) {
         this.id = transaction.getId();
         this.amount = transaction.getAmount();
         //this.walletId = transaction.getWallet().getId();
     }
-    */
+
+     */
+
     public Integer getId() {
         return id;
     }
@@ -38,15 +41,27 @@ public class TransactionDto {
         this.amount = amount;
     }
 
-//  public Integer getPromotionId() {
-//      return promotionId;
-//  }
-//
-//    public Integer getWalletId() {
-//        return walletId;
+
+//    public Integer getPromotionId() {
+//        return promotionId;
 //    }
-//
-//    public void setWalletId(Integer walletId) {
-//        this.walletId = walletId;
-//    }
+    public Integer getWalletId() {
+        return walletId;
+    }
+
+    public void setWalletId(Integer walletId) {
+        this.walletId = walletId;
+    }
+
+    public Integer getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Integer userId) {
+        this.userId = userId;
+    }
+
+    public String toString() {
+        return "TransactionDto [id=" + id + ", amount=" + amount + "]";
+    }
 }

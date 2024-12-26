@@ -2,3 +2,6 @@ Port numbers cor currently implemented microservices:
 user : 8080
 wallet : 8081
 game : 8082
+notification : 8083
+promotion : 8084
+history : 8085

@@ -1,0 +1,5 @@
+org\fortunerise\promotion\entities\UserLink.class
+org\fortunerise\promotion\entities\promotions\ExtraMoneyPromotion.class
+org\fortunerise\promotion\entities\Promotion$TriggerScenario.class
+org\fortunerise\promotion\entities\promotions\FreeBetPromotion.class
+org\fortunerise\promotion\entities\Promotion.class

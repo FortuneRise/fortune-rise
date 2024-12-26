@@ -1,8 +1,6 @@
 package org.fortunerise.notification.services;
 
-import org.fortunerise.notification.services.NotificationDto;
 import org.fortunerise.notification.entities.Notification;
-import org.fortunerise.notification.entities.User;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;

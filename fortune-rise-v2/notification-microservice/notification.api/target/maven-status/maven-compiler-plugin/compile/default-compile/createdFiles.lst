@@ -1,0 +1,2 @@
+org\fortunerise\notification\api\NotificationApp.class
+org\fortunerise\notification\api\v1\resources\NotificationsResource.class

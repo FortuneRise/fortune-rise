@@ -1,6 +1,6 @@
 package org.fortunerise.history.entities.bets;
 
-import org.fortunerise.entities.Bet;
+import org.fortunerise.history.entities.Bet;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

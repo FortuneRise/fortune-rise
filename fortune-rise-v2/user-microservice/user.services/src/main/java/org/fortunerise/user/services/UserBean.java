@@ -59,7 +59,7 @@ public class UserBean {
         WebTarget endTarget = target.path("/{userId}").resolveTemplate("userId", user.getId());
 
 
-        Response response = endTarget.request().post(Entity.json(user));
+        Response response = endTarget.request().post(null);
         int status = response.getStatus();
 
         if (status == 400) {

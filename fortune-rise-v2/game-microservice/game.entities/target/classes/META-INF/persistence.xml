@@ -4,18 +4,6 @@
         <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
         <jta-data-source>jdbc/FortuneRiseDS</jta-data-source>
 
-        <class>org.fortunerise.game.entities.Game</class>
-        <class>org.fortunerise.game.entities.Bet</class>
-        <class>org.fortunerise.game.entities.bets.ColorBet</class>
-        <class>org.fortunerise.game.entities.bets.ColumnBet</class>
-        <class>org.fortunerise.game.entities.bets.CornerBet</class>
-        <class>org.fortunerise.game.entities.bets.DozenBet</class>
-        <class>org.fortunerise.game.entities.bets.HighLowBet</class>
-        <class>org.fortunerise.game.entities.bets.ParityBet</class>
-        <class>org.fortunerise.game.entities.bets.SixLineBet</class>
-        <class>org.fortunerise.game.entities.bets.SplitBet</class>
-        <class>org.fortunerise.game.entities.bets.StraightBet</class>
-        <class>org.fortunerise.game.entities.bets.StreetBet</class>
 
 
 

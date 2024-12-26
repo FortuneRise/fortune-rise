@@ -1,8 +1,13 @@
 package org.fortunerise.game.services;
 
+
+import org.fortunerise.game.services.dtos.BetDto;
+import org.fortunerise.game.services.bets.*;
+
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 import javax.enterprise.context.ApplicationScoped;
+import java.math.BigDecimal;
 import java.util.logging.Logger;
 
 @ApplicationScoped
@@ -23,4 +28,15 @@ public class BetBean {
 
         // zapiranje virov
     }
+
+    public BigDecimal calculatePayout(Integer roll, BetDto betDto){
+        Bet bet = betDto.convertToBet(roll);
+        return bet.getPayout();
+
+    }
+
+
+
+
+
 }
