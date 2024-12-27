@@ -1,5 +1,7 @@
 package org.fortunerise.user.services;
 
+import com.kumuluz.ee.rest.beans.QueryParameters;
+import com.kumuluz.ee.rest.utils.JPAUtils;
 import org.fortunerise.user.entities.User;
 
 import javax.annotation.PostConstruct;
@@ -43,8 +45,9 @@ public class UserBean {
     }
 
     @Transactional(Transactional.TxType.REQUIRED)
-    public List<UserDto> getUsers() {
-        List<UserDto> userDtos = em.createQuery("SELECT new org.fortunerise.user.services.UserDto(u) FROM User u").getResultList();
+    public List<UserDto> getUsers(QueryParameters queryParameters) {
+        List<User> users = JPAUtils.queryEntities(em, User.class, queryParameters);
+        List<UserDto> userDtos = users.stream().map(el -> new UserDto(el)).collect(java.util.stream.Collectors.toList());
         return userDtos;
     }
 

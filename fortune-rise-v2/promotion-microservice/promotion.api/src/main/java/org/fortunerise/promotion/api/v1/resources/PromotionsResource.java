@@ -7,8 +7,11 @@ import org.fortunerise.promotion.services.TransactionDto;
 
 import javax.inject.Inject;
 import javax.ws.rs.*;
+import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import javax.ws.rs.core.UriInfo;
+import com.kumuluz.ee.rest.beans.QueryParameters;
 import java.util.List;
 
 @Path("/promotions")
@@ -16,13 +19,17 @@ import java.util.List;
 @Consumes(MediaType.APPLICATION_JSON)
 public class PromotionsResource {
 
+    @Context
+    private UriInfo uriInfo;
+
     @Inject
     PromotionBean promotionBean;
 
     @GET
     public Response getPromotions() {
+        QueryParameters queryParameters = QueryParameters.query(uriInfo.getRequestUri().getQuery()).build();
         try {
-            List<PromotionDto> result = promotionBean.getPromotionDtos();
+            List<PromotionDto> result = promotionBean.getPromotionDtos(queryParameters);
             return Response.ok(result).build();
         } catch (IllegalArgumentException | BadRequestException e) {
             return Response.status(Response.Status.BAD_REQUEST).entity(e.getMessage()).build();
@@ -33,15 +40,18 @@ public class PromotionsResource {
     }
 
     @GET
-    @Path("/{userId}")
-    public Response getPromotionsByUserId(@PathParam("userId") Integer userId, @QueryParam("trigger_scenario") String triggerScenarioParam) {
+    @Path("/{userId}/{triggerScenario}")
+    public Response getPromotionsByUserId(@PathParam("userId") Integer userId, @PathParam("triggerScenario") String triggerScenarioParam) {
+        QueryParameters queryParameters = QueryParameters.query(uriInfo.getRequestUri().getQuery()).build();
         try {
-            List<PromotionDto> result = switch (triggerScenarioParam) {
-                case "all" -> promotionBean.getPromotionDtosByUserId(userId, PromotionBean.TriggerScenario.ALL);
-                case "deposit" -> promotionBean.getPromotionDtosByUserId(userId, PromotionBean.TriggerScenario.DEPOSIT);
-                case "bet" -> promotionBean.getPromotionDtosByUserId(userId, PromotionBean.TriggerScenario.BET);
+            PromotionBean.TriggerScenario triggerScenario = switch (triggerScenarioParam) {
+                case "all" -> PromotionBean.TriggerScenario.ALL;
+                case "deposit" -> PromotionBean.TriggerScenario.DEPOSIT;
+                case "bet" -> PromotionBean.TriggerScenario.BET;
                 default -> throw new IllegalArgumentException("Invalid trigger scenario: " + triggerScenarioParam);
             };
+
+            List<PromotionDto> result = promotionBean.getPromotionDtosByUserId(userId, triggerScenario);
 
             return Response.ok(result).build();
         } catch (IllegalArgumentException | BadRequestException e) {
@@ -53,8 +63,8 @@ public class PromotionsResource {
     }
 
     @POST
-    @Path("/{userId}")
-    public Response addPromotionToUser(@PathParam("userId") Integer userId, @QueryParam("promotion_id") Integer promotionId) {
+    @Path("/{userId}/{promotionId}")
+    public Response addPromotionToUser(@PathParam("userId") Integer userId, @PathParam("promotionId") Integer promotionId) {
         try {
             promotionBean.addPromotionToUser(userId, promotionId);
             return Response.ok().build();
@@ -69,8 +79,8 @@ public class PromotionsResource {
     }
 
     @POST
-    @Path("/verify")
-    public Response verifyPromotion(@QueryParam("user_id") Integer userId, @QueryParam("promotion_id") Integer promotionId, TransactionDto transactionDto) {
+    @Path("/{userId}/{promotionId}/verify")
+    public Response verifyPromotion(@PathParam("userId") Integer userId, @PathParam("promotionId") Integer promotionId, TransactionDto transactionDto) {
         try {
             Boolean result = promotionBean.verifyPromotion(userId, promotionId, transactionDto);
             return Response.ok(result).build();
@@ -100,8 +110,8 @@ public class PromotionsResource {
     }
 
     @PUT
-    @Path("/{userId}")
-    public Response applyPromotion(@PathParam("userId") Integer userId, @QueryParam("promotion_id") Integer promotionId) {
+    @Path("/{userId}/{promotionId}")
+    public Response applyPromotion(@PathParam("userId") Integer userId, @PathParam("promotionId") Integer promotionId) {
         try {
             return promotionBean.applyPromotion(userId, promotionId);
         }

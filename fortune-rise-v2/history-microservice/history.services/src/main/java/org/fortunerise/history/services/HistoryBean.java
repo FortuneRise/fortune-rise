@@ -1,5 +1,7 @@
 package org.fortunerise.history.services;
 
+import com.kumuluz.ee.rest.beans.QueryParameters;
+import com.kumuluz.ee.rest.utils.JPAUtils;
 import org.fortunerise.history.entities.Bet;
 import org.fortunerise.history.entities.Game;
 import org.fortunerise.history.entities.Transaction;
@@ -12,6 +14,7 @@ import javax.enterprise.context.ApplicationScoped;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
+import javax.persistence.TypedQuery;
 import javax.transaction.Transactional;
 import java.util.Date;
 import java.util.List;
@@ -40,9 +43,9 @@ public class HistoryBean {
     }
 
     @Transactional(Transactional.TxType.REQUIRED)
-    public List<GameDto> getGameDtosByUserId(Integer userId){
+    public List<GameDto> getGameDtosByUserId(Integer userId, QueryParameters queryParameters){
         String queryString = "SELECT new org.fortunerise.history.services.GameDto(g) FROM Game g WHERE g.userId = :userId";
-        Query query = em.createQuery(queryString);
+        TypedQuery<GameDto> query = JPAUtils.queryEntities(em, GameDto.class, queryString, queryParameters);
         query.setParameter("userId", userId);
 
         return (List<GameDto>) query.getResultList();

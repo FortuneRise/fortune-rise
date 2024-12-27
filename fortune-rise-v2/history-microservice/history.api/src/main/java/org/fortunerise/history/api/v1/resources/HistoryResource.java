@@ -7,14 +7,20 @@ import org.fortunerise.history.services.TransactionDto;
 import javax.inject.Inject;
 import javax.persistence.NoResultException;
 import javax.ws.rs.*;
+import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import javax.ws.rs.core.UriInfo;
 import java.util.List;
+import com.kumuluz.ee.rest.beans.QueryParameters;
 
 @Path("/history")
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
 public class HistoryResource {
+
+    @Context
+    private UriInfo uriInfo;
 
     @Inject
     private HistoryBean historyBean;
@@ -22,8 +28,9 @@ public class HistoryResource {
     @GET
     @Path("/games/{usrId}")
     public Response getGameHistory(@PathParam("usrId") Integer userId) {
+        QueryParameters queryParameters = QueryParameters.query(uriInfo.getRequestUri().getQuery()).build();
         try{
-            List<GameDto> gameHistory = historyBean.getGameDtosByUserId(userId);
+            List<GameDto> gameHistory = historyBean.getGameDtosByUserId(userId, queryParameters);
             return Response.ok(gameHistory).build();
         }
         catch (NoResultException e){

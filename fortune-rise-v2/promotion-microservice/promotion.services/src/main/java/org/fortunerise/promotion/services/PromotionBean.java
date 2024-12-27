@@ -5,6 +5,8 @@ import org.fortunerise.promotion.entities.UserLink;
 import org.fortunerise.promotion.entities.promotions.ExtraMoneyPromotion;
 import org.fortunerise.promotion.entities.promotions.FreeBetPromotion;
 
+import com.kumuluz.ee.rest.utils.JPAUtils;
+import com.kumuluz.ee.rest.beans.QueryParameters;
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 import javax.enterprise.context.ApplicationScoped;
@@ -17,6 +19,7 @@ import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.client.Entity;
 import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.Response;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Logger;
 
@@ -44,6 +47,17 @@ public class PromotionBean {
     @PreDestroy
     private void destroy() {
         log.info("Bean deinitialization: " + PromotionBean.class.getSimpleName());
+    }
+
+    @Transactional
+    public List<PromotionDto> getPromotionDtos(QueryParameters queryParameters) {
+        List<Promotion> promotions = JPAUtils.queryEntities(em, Promotion.class, queryParameters);
+        List<PromotionDto> promotionDtos = new ArrayList<>();
+        for (Promotion promotion : promotions) {
+            promotionDtos.add(new PromotionDto(promotion));
+        }
+
+        return promotionDtos;
     }
 
     @Transactional
@@ -134,11 +148,6 @@ public class PromotionBean {
         em.flush();
     }
 
-    @Transactional
-    public List<PromotionDto> getPromotionDtos() {
-        String QueryString = "SELECT new org.fortunerise.promotion.services.PromotionDto(p) FROM Promotion p";
-        return (List<PromotionDto>) em.createQuery(QueryString).getResultList();
-    }
 
     @Transactional
     public PromotionDto createPromotion(PromotionDto promotionDto) {

@@ -1,5 +1,8 @@
 package org.fortunerise.notification.services;
 
+import com.kumuluz.ee.rest.beans.QueryFilterExpression;
+import com.kumuluz.ee.rest.beans.QueryParameters;
+import com.kumuluz.ee.rest.utils.JPAUtils;
 import org.fortunerise.notification.entities.Notification;
 
 import javax.annotation.PostConstruct;
@@ -12,6 +15,7 @@ import javax.transaction.Transactional;
 import java.util.Date;
 import java.util.List;
 import java.util.logging.Logger;
+import java.util.stream.Collectors;
 
 @ApplicationScoped
 public class NotificationBean {
@@ -36,12 +40,11 @@ public class NotificationBean {
     }
 
     @Transactional(Transactional.TxType.REQUIRED)
-    public List<NotificationDto> getAllNotifiacationsByUsrId(Integer userId){
-        String queryString = "SELECT new org.fortunerise.notification.services.NotificationDto(n) FROM Notification n WHERE n.userId = :userId";
-        Query query = em.createQuery(queryString);
-        query.setParameter("userId", userId);
+    public List<NotificationDto> getAllNotifiacationsByUsrId(Integer userId, QueryParameters queryParameters){
+        List<Notification> allNotifications = JPAUtils.queryEntities(em, Notification.class, (p, cb, r) -> cb.and(p, cb.equal(r.get("id"), userId)));
+        List<NotificationDto> notificationDtos = allNotifications.stream().map(el -> new NotificationDto(el)).collect(java.util.stream.Collectors.toList());
 
-        return (List<NotificationDto>) query.getResultList();
+        return notificationDtos;
     }
 
     @Transactional(Transactional.TxType.REQUIRED)

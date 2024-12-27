@@ -1,14 +1,17 @@
 package org.fortunerise.user.api.v1.resources;
 
+import com.kumuluz.ee.rest.beans.QueryParameters;
 import org.fortunerise.user.services.UserBean;
 import org.fortunerise.user.services.UserDto;
 
 import javax.inject.Inject;
 import javax.persistence.NoResultException;
 import javax.ws.rs.*;
+import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
+import javax.ws.rs.core.UriInfo;
 import java.util.List;
 
 @Path("/users")
@@ -16,13 +19,17 @@ import java.util.List;
 @Consumes(MediaType.APPLICATION_JSON)
 public class UsersResource {
 
+    @Context
+    private UriInfo uriInfo;
+
     @Inject
     private UserBean userBean;
 
     @GET
     public Response getUsers() {
+        QueryParameters queryParameters = QueryParameters.query(uriInfo.getRequestUri().getQuery()).build();
         try {
-            List<UserDto> userDtos = userBean.getUsers();
+            List<UserDto> userDtos = userBean.getUsers(queryParameters);
             return Response.ok(userDtos).build();
         }
         catch (NoResultException e) {
