@@ -41,7 +41,7 @@ public class NotificationBean {
 
     @Transactional(Transactional.TxType.REQUIRED)
     public List<NotificationDto> getAllNotifiacationsByUsrId(Integer userId, QueryParameters queryParameters){
-        List<Notification> allNotifications = JPAUtils.queryEntities(em, Notification.class, (p, cb, r) -> cb.and(p, cb.equal(r.get("id"), userId)));
+        List<Notification> allNotifications = JPAUtils.queryEntities(em, Notification.class, (p, cb, r) -> cb.and(p, cb.equal(r.get("userId"), userId)));
         List<NotificationDto> notificationDtos = allNotifications.stream().map(el -> new NotificationDto(el)).collect(java.util.stream.Collectors.toList());
 
         return notificationDtos;

@@ -47,8 +47,7 @@ public class UserBean {
     @Transactional(Transactional.TxType.REQUIRED)
     public List<UserDto> getUsers(QueryParameters queryParameters) {
         List<User> users = JPAUtils.queryEntities(em, User.class, queryParameters);
-        List<UserDto> userDtos = users.stream().map(el -> new UserDto(el)).collect(java.util.stream.Collectors.toList());
-        return userDtos;
+        return users.stream().map(UserDto::new).collect(java.util.stream.Collectors.toList());
     }
 
     @Transactional(Transactional.TxType.REQUIRED)

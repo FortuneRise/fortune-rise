@@ -57,8 +57,9 @@ public class HistoryResource {
     @GET
     @Path("/transactions/{usrId}")
     public Response getTransactionHistory(@PathParam("usrId") Integer userId) {
+        QueryParameters queryParameters = QueryParameters.query(uriInfo.getRequestUri().getQuery()).build();
         try{
-            List<TransactionDto> transactionHistory = historyBean.getTransactionDtosByUseId(userId);
+            List<TransactionDto> transactionHistory = historyBean.getTransactionDtosByUseId(userId, queryParameters);
             return Response.ok(transactionHistory).build();
         }
         catch (NoResultException e){

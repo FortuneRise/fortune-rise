@@ -44,11 +44,17 @@ public class HistoryBean {
 
     @Transactional(Transactional.TxType.REQUIRED)
     public List<GameDto> getGameDtosByUserId(Integer userId, QueryParameters queryParameters){
+        /*
         String queryString = "SELECT new org.fortunerise.history.services.GameDto(g) FROM Game g WHERE g.userId = :userId";
-        TypedQuery<GameDto> query = JPAUtils.queryEntities(em, GameDto.class, queryString, queryParameters);
+        TypedQuery<GameDto> query = JPAUtils.queryEntities(em, Game.class, queryString, queryParameters);
         query.setParameter("userId", userId);
+        */
+        List<Game> allGames = JPAUtils.queryEntities(em, Game.class, (p, cb, r) -> cb.and(p, cb.equal(r.get("userId"), userId)));
+        List<GameDto> gameDtos = allGames.stream().map(el -> new GameDto(el)).collect(java.util.stream.Collectors.toList());
 
-        return (List<GameDto>) query.getResultList();
+
+
+        return gameDtos;
     }
 
     @Transactional(Transactional.TxType.REQUIRED)
@@ -70,12 +76,17 @@ public class HistoryBean {
     }
 
     @Transactional(Transactional.TxType.REQUIRED)
-    public List<TransactionDto> getTransactionDtosByUseId(Integer userId){
+    public List<TransactionDto> getTransactionDtosByUseId(Integer userId, QueryParameters queryParameters){
+        /*
         String queryString = "SELECT new org.fortunerise.history.services.TransactionDto(t) FROM Transaction t WHERE t.userId = :userId";
         Query query = em.createQuery(queryString);
         query.setParameter("userId", userId);
+        */
 
-        return (List<TransactionDto>) query.getResultList();
+        List<Transaction> allTransactions = JPAUtils.queryEntities(em, Transaction.class, (p, cb, r) -> cb.and(p, cb.equal(r.get("userId"), userId)));
+        List<TransactionDto> transactionDtos = allTransactions.stream().map(el -> new TransactionDto(el)).collect(java.util.stream.Collectors.toList());
+
+        return transactionDtos;
     }
 
     @Transactional(Transactional.TxType.REQUIRED)
