@@ -1,2 +1,3 @@
 org\fortunerise\game\api\GameApp.class
+META-INF\services\javax.ws.rs.core.Application
 org\fortunerise\game\api\v1\resources\GamesResource.class

@@ -20,6 +20,11 @@
         <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <kumuluzee.version>4.1.0</kumuluzee.version>
+        <kumuluzee-openapi-mp.version>1.4.0</kumuluzee-openapi-mp.version>
+        <kumuluzee-config-mp.version>2.0.0</kumuluzee-config-mp.version>
+        <kumuluzee-cors.version>2.0.0</kumuluzee-cors.version>
+        <kumuluzee-health.version>2.4.4</kumuluzee-health.version>
+        <kumuluzee-rest-client.version>2.0.0</kumuluzee-rest-client.version>
 
         <postgresql.version>42.5.1</postgresql.version>
 
@@ -33,6 +38,39 @@
                 <version>${kumuluzee.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>com.kumuluz.ee.openapi</groupId>
+                <artifactId>kumuluzee-openapi-mp</artifactId>
+                <version>${kumuluzee-openapi-mp.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.kumuluz.ee.openapi</groupId>
+                <artifactId>kumuluzee-openapi-mp-ui</artifactId>
+                <version>${kumuluzee-openapi-mp.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.kumuluz.ee.config</groupId>
+                <artifactId>kumuluzee-config-mp</artifactId>
+                <version>${kumuluzee-config-mp.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.kumuluz.ee.cors</groupId>
+                <artifactId>kumuluzee-cors</artifactId>
+                <version>${kumuluzee-cors.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.kumuluz.ee.health</groupId>
+                <artifactId>kumuluzee-health</artifactId>
+                <version>${kumuluzee-health.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.kumuluz.ee.rest-client</groupId>
+                <artifactId>kumuluzee-rest-client</artifactId>
+                <version>${kumuluzee-rest-client.version}</version>
             </dependency>
 
             <dependency>
