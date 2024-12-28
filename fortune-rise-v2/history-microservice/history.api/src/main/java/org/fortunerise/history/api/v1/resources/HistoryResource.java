@@ -67,9 +67,8 @@ public class HistoryResource {
                     schema = @Schema(type = SchemaType.INTEGER)
             )
             @PathParam("userId") Integer userId) {
-        QueryParameters queryParameters = QueryParameters.query(uriInfo.getRequestUri().getQuery()).build();
         try {
-            List<GameDto> gameHistory = historyBean.getGameDtosByUserId(userId, queryParameters);
+            List<GameDto> gameHistory = historyBean.getGameDtosByUserId(userId, uriInfo);
             return Response.ok(gameHistory).build();
         } catch (NoResultException e) {
             return Response.status(Response.Status.NOT_FOUND).build();

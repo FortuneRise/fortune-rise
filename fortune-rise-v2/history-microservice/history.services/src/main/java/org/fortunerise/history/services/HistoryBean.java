@@ -16,9 +16,13 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 import javax.transaction.Transactional;
+import javax.ws.rs.core.MultivaluedMap;
+import javax.ws.rs.core.UriInfo;
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 import java.util.logging.Logger;
+import java.util.stream.Collectors;
 
 @ApplicationScoped
 public class HistoryBean {
@@ -43,18 +47,28 @@ public class HistoryBean {
     }
 
     @Transactional(Transactional.TxType.REQUIRED)
-    public List<GameDto> getGameDtosByUserId(Integer userId, QueryParameters queryParameters){
+    public List<GameDto> getGameDtosByUserId(Integer userId, UriInfo uriInfo){
         /*
         String queryString = "SELECT new org.fortunerise.history.services.GameDto(g) FROM Game g WHERE g.userId = :userId";
         TypedQuery<GameDto> query = JPAUtils.queryEntities(em, Game.class, queryString, queryParameters);
         query.setParameter("userId", userId);
         */
-        List<Game> allGames = JPAUtils.queryEntities(em, Game.class, (p, cb, r) -> cb.and(p, cb.equal(r.get("userId"), userId)));
-        List<GameDto> gameDtos = allGames.stream().map(el -> new GameDto(el)).collect(java.util.stream.Collectors.toList());
+        MultivaluedMap<String, String> paramMultiMap = uriInfo.getQueryParameters();
+        String paramString = paramMultiMap.entrySet().stream()
+                .flatMap(entry -> entry.getValue().stream().map(value -> entry.getKey() + "=" + value))
+                .collect(Collectors.joining("&"));
+        if (paramString.isEmpty()) {
+            paramString += "?";
+        }
+        else {
+            paramString += "&";
+        }
+        paramString += "userId=" + userId;
+        QueryParameters queryParameters = QueryParameters.query(paramString).build();
 
+        List<Game> games = JPAUtils.queryEntities(em, Game.class, queryParameters);
 
-
-        return gameDtos;
+        return games.stream().map(GameDto::new).collect(Collectors.toList());
     }
 
     @Transactional(Transactional.TxType.REQUIRED)
