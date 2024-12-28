@@ -116,7 +116,7 @@ public class GameBean {
         log.info(responseHistory.getStatusInfo().toString());
         log.info(responseHistory.readEntity(String.class));
 
-        if (responseHistory.getStatus() != 200) {
+        if (responseHistory.getStatus() != 201) {
             throw new RuntimeException("Problem with history");
         }
 

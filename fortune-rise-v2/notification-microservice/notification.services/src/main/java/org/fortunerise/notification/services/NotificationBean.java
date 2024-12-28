@@ -12,6 +12,8 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import javax.transaction.Transactional;
+import javax.ws.rs.core.MultivaluedMap;
+import javax.ws.rs.core.UriInfo;
 import java.util.Date;
 import java.util.List;
 import java.util.logging.Logger;
@@ -39,12 +41,30 @@ public class NotificationBean {
         // zapiranje virov
     }
 
-    @Transactional(Transactional.TxType.REQUIRED)
-    public List<NotificationDto> getAllNotifiacationsByUsrId(Integer userId, QueryParameters queryParameters){
-        List<Notification> allNotifications = JPAUtils.queryEntities(em, Notification.class, (p, cb, r) -> cb.and(p, cb.equal(r.get("userId"), userId)));
-        List<NotificationDto> notificationDtos = allNotifications.stream().map(el -> new NotificationDto(el)).collect(java.util.stream.Collectors.toList());
+    @Transactional
+    private String getParameterString(UriInfo uriInfo) {
+        MultivaluedMap<String, String> paramMultiMap = uriInfo.getQueryParameters();
+        String paramString = paramMultiMap.entrySet().stream()
+                .flatMap(entry -> entry.getValue().stream().map(value -> entry.getKey() + "=" + value))
+                .collect(Collectors.joining("&"));
+        if (paramString.isEmpty()) {
+            paramString += "?";
+        }
+        else {
+            paramString += "&";
+        }
 
-        return notificationDtos;
+        return paramString;
+    }
+
+    @Transactional(Transactional.TxType.REQUIRED)
+    public List<NotificationDto> getAllNotificationsByUserId(Integer userId, UriInfo uriInfo){
+        String paramString = getParameterString(uriInfo);
+        paramString += "userId=" + userId;
+        QueryParameters queryParameters = QueryParameters.query(paramString).build();
+        List<Notification> notifications = JPAUtils.queryEntities(em, Notification.class, queryParameters);
+
+        return notifications.stream().map(NotificationDto::new).collect(java.util.stream.Collectors.toList());
     }
 
     @Transactional(Transactional.TxType.REQUIRED)

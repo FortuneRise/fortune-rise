@@ -43,9 +43,8 @@ public class UsersResource {
             @APIResponse(responseCode = "500", description = "Internal server error.")
     })
     public Response getUsers() {
-        QueryParameters queryParameters = QueryParameters.query(uriInfo.getRequestUri().getQuery()).build();
         try {
-            List<UserDto> userDtos = userBean.getUsers(queryParameters);
+            List<UserDto> userDtos = userBean.getUsers(uriInfo);
             return Response.ok(userDtos).build();
         }
         catch (NoResultException e) {

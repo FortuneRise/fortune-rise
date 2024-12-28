@@ -1,2 +1,3 @@
 org\fortunerise\notification\api\NotificationApp.class
+META-INF\services\javax.ws.rs.core.Application
 org\fortunerise\notification\api\v1\resources\NotificationsResource.class

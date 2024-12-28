@@ -17,6 +17,7 @@ import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.client.Entity;
 import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.Response;
+import javax.ws.rs.core.UriInfo;
 import java.util.List;
 import java.util.logging.Logger;
 
@@ -45,9 +46,10 @@ public class UserBean {
     }
 
     @Transactional(Transactional.TxType.REQUIRED)
-    public List<UserDto> getUsers(QueryParameters queryParameters) {
+    public List<UserDto> getUsers(UriInfo uriInfo) {
+        QueryParameters queryParameters = QueryParameters.query(uriInfo.getRequestUri().getQuery()).build();
         List<User> users = JPAUtils.queryEntities(em, User.class, queryParameters);
-        return users.stream().map(UserDto::new).collect(java.util.stream.Collectors.toList());
+    return users.stream().map(UserDto::new).collect(java.util.stream.Collectors.toList());
     }
 
     @Transactional(Transactional.TxType.REQUIRED)
@@ -55,6 +57,8 @@ public class UserBean {
         User user = userDto.convertToUser();
         em.persist(user);
         em.flush();
+
+        log.info("User persisted: " + user.getId());
 
         WebTarget base = client.target("http://localhost:8081/api");
         WebTarget target = base.path("/wallets");
@@ -64,9 +68,11 @@ public class UserBean {
         Response response = endTarget.request().post(null);
         int status = response.getStatus();
 
+        log.info("Wallet created!");
+
         if (status == 400) {
             throw new BadRequestException("Wallet for this user already exists!");
-        }else if (status != 200) {
+        }else if (status != 201) {
             throw new RuntimeException();
         }
 

@@ -18,10 +18,13 @@ import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.client.Entity;
 import javax.ws.rs.client.WebTarget;
+import javax.ws.rs.core.MultivaluedMap;
 import javax.ws.rs.core.Response;
+import javax.ws.rs.core.UriInfo;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Logger;
+import java.util.stream.Collectors;
 
 @ApplicationScoped
 public class PromotionBean {
@@ -50,27 +53,48 @@ public class PromotionBean {
     }
 
     @Transactional
-    public List<PromotionDto> getPromotionDtos(QueryParameters queryParameters) {
-        List<Promotion> promotions = JPAUtils.queryEntities(em, Promotion.class, queryParameters);
-        List<PromotionDto> promotionDtos = new ArrayList<>();
-        for (Promotion promotion : promotions) {
-            promotionDtos.add(new PromotionDto(promotion));
+    private String getParameterString(UriInfo uriInfo) {
+        MultivaluedMap<String, String> paramMultiMap = uriInfo.getQueryParameters();
+        String paramString = paramMultiMap.entrySet().stream()
+                .flatMap(entry -> entry.getValue().stream().map(value -> entry.getKey() + "=" + value))
+                .collect(Collectors.joining("&"));
+        if (paramString.isEmpty()) {
+            paramString += "?";
+        }
+        else {
+            paramString += "&";
         }
 
-        return promotionDtos;
+        return paramString;
     }
 
     @Transactional
-    public List<PromotionDto> getPromotionDtosByUserId(Integer userId, TriggerScenario triggerScenario) {
-        String queryString = switch (triggerScenario) {
-            case ALL -> "SELECT new org.fortunerise.promotion.services.PromotionDto(ul.promotion) FROM UserLink ul WHERE ul.userId = :userId";
-            case DEPOSIT ->
-                    "SELECT new org.fortunerise.promotion.services.PromotionDto(ul.promotion) FROM UserLink ul WHERE ul.userId = :userId AND ul.promotion.triggerScenario = 'DEPOSIT'";
-            case BET ->
-                    "SELECT new org.fortunerise.promotion.services.PromotionDto(ul.promotion) FROM UserLink ul WHERE ul.userId = :userId AND ul.promotion.triggerScenario = 'BET'";
-        };
+    public List<PromotionDto> getPromotionDtos(UriInfo uriInfo) {
+        QueryParameters queryParameters = QueryParameters.query(uriInfo.getRequestUri().getQuery()).build();
+        List<Promotion> promotions = JPAUtils.queryEntities(em, Promotion.class, queryParameters);
+        return promotions.stream().map(PromotionDto::new).collect(java.util.stream.Collectors.toList());
+    }
 
-        return (List<PromotionDto>) em.createQuery(queryString).setParameter("userId", userId).getResultList();
+    @Transactional
+    public List<PromotionDto> getPromotionDtosByUserId(Integer userId, TriggerScenario triggerScenario, UriInfo uriInfo) {
+        String paramString = getParameterString(uriInfo);
+        paramString += "userId=" + userId;
+        switch (triggerScenario) {
+            case DEPOSIT:
+                paramString += "&triggerScenario=DEPOSIT";
+                break;
+            case BET:
+                paramString += "&triggerScenario=BET";
+                break;
+            default:
+                break;
+        }
+
+        QueryParameters queryParameters = QueryParameters.query(paramString).build();
+
+        List<UserLink> userLinks = JPAUtils.queryEntities(em, UserLink.class, queryParameters);
+
+        return userLinks.stream().map(UserLink::getPromotion).map(PromotionDto::new).toList();
     }
 
     @Transactional

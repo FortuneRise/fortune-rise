@@ -45,7 +45,7 @@ public class PromotionsResource {
     public Response getPromotions() {
         QueryParameters queryParameters = QueryParameters.query(uriInfo.getRequestUri().getQuery()).build();
         try {
-            List<PromotionDto> result = promotionBean.getPromotionDtos(queryParameters);
+            List<PromotionDto> result = promotionBean.getPromotionDtos(uriInfo);
             return Response.ok(result).build();
         }
         catch (IllegalArgumentException | BadRequestException e) {
@@ -77,7 +77,7 @@ public class PromotionsResource {
                 default -> throw new IllegalArgumentException("Invalid trigger scenario: " + triggerScenarioParam);
             };
 
-            List<PromotionDto> result = promotionBean.getPromotionDtosByUserId(userId, triggerScenario);
+            List<PromotionDto> result = promotionBean.getPromotionDtosByUserId(userId, triggerScenario, uriInfo);
             return Response.ok(result).build();
         }
         catch (IllegalArgumentException | BadRequestException e) {

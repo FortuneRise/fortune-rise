@@ -145,9 +145,8 @@ public class HistoryResource {
                     schema = @Schema(type = SchemaType.INTEGER)
             )
             @PathParam("userId") Integer userId) {
-        QueryParameters queryParameters = QueryParameters.query(uriInfo.getRequestUri().getQuery()).build();
         try {
-            List<TransactionDto> transactionHistory = historyBean.getTransactionDtosByUseId(userId, queryParameters);
+            List<TransactionDto> transactionHistory = historyBean.getTransactionDtosByUseId(userId, uriInfo);
             return Response.ok(transactionHistory).build();
         } catch (NoResultException e) {
             return Response.status(Response.Status.NOT_FOUND).build();

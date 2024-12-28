@@ -76,7 +76,7 @@ public class WalletBean {
 
         Response responseHistory = endTargetHistory.request().post(Entity.json(transaction));
 
-        if (responseHistory.getStatus() != 200) {
+        if (responseHistory.getStatus() != 201) {
             throw new RuntimeException("Problem with history");
         }
 

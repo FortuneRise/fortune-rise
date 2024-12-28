@@ -53,16 +53,7 @@ public class HistoryBean {
         TypedQuery<GameDto> query = JPAUtils.queryEntities(em, Game.class, queryString, queryParameters);
         query.setParameter("userId", userId);
         */
-        MultivaluedMap<String, String> paramMultiMap = uriInfo.getQueryParameters();
-        String paramString = paramMultiMap.entrySet().stream()
-                .flatMap(entry -> entry.getValue().stream().map(value -> entry.getKey() + "=" + value))
-                .collect(Collectors.joining("&"));
-        if (paramString.isEmpty()) {
-            paramString += "?";
-        }
-        else {
-            paramString += "&";
-        }
+        String paramString = getParameterString(uriInfo);
         paramString += "userId=" + userId;
         QueryParameters queryParameters = QueryParameters.query(paramString).build();
 
@@ -90,17 +81,36 @@ public class HistoryBean {
     }
 
     @Transactional(Transactional.TxType.REQUIRED)
-    public List<TransactionDto> getTransactionDtosByUseId(Integer userId, QueryParameters queryParameters){
+    public List<TransactionDto> getTransactionDtosByUseId(Integer userId, UriInfo uriInfo){
         /*
         String queryString = "SELECT new org.fortunerise.history.services.TransactionDto(t) FROM Transaction t WHERE t.userId = :userId";
         Query query = em.createQuery(queryString);
         query.setParameter("userId", userId);
         */
 
-        List<Transaction> allTransactions = JPAUtils.queryEntities(em, Transaction.class, (p, cb, r) -> cb.and(p, cb.equal(r.get("userId"), userId)));
-        List<TransactionDto> transactionDtos = allTransactions.stream().map(el -> new TransactionDto(el)).collect(java.util.stream.Collectors.toList());
+        String paramString = getParameterString(uriInfo);
+        paramString += "userId=" + userId;
+        QueryParameters queryParameters = QueryParameters.query(paramString).build();
 
-        return transactionDtos;
+        List<Transaction> allTransactions = JPAUtils.queryEntities(em, Transaction.class, queryParameters);
+
+        return allTransactions.stream().map(TransactionDto::new).collect(Collectors.toList());
+    }
+
+    @Transactional
+    private String getParameterString(UriInfo uriInfo) {
+        MultivaluedMap<String, String> paramMultiMap = uriInfo.getQueryParameters();
+        String paramString = paramMultiMap.entrySet().stream()
+                .flatMap(entry -> entry.getValue().stream().map(value -> entry.getKey() + "=" + value))
+                .collect(Collectors.joining("&"));
+        if (paramString.isEmpty()) {
+            paramString += "?";
+        }
+        else {
+            paramString += "&";
+        }
+
+        return paramString;
     }
 
     @Transactional(Transactional.TxType.REQUIRED)

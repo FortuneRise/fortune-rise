@@ -46,9 +46,8 @@ public class NotificationsResource {
     public Response getAllNotifications(
             @Parameter(name = "userId", description = "The ID of the user.", required = true)
             @PathParam("userId") Integer userId) {
-        QueryParameters queryParameters = QueryParameters.query(uriInfo.getRequestUri().getQuery()).build();
         try {
-            List<NotificationDto> notificationList = notificationBean.getAllNotifiacationsByUsrId(userId, queryParameters);
+            List<NotificationDto> notificationList = notificationBean.getAllNotificationsByUserId(userId, uriInfo);
             return Response.ok(notificationList).build();
         }
         catch (NoResultException e) {
