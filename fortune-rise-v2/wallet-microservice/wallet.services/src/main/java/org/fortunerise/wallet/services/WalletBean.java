@@ -104,7 +104,7 @@ public class WalletBean {
 
         wallet.setBalance(balance.add(change));
 
-        WebTarget baseHistory = client.target("http://localhost:8085/api");
+        WebTarget baseHistory = client.target("http://history:8085/api");
         WebTarget targetHistory = baseHistory.path("/history/transactions");
         WebTarget endTargetHistory = targetHistory.path("/{userId}").resolveTemplate("userId", userId);
 

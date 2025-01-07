@@ -60,7 +60,7 @@ public class UserBean {
 
         log.info("User persisted: " + user.getId());
 
-        WebTarget base = client.target("http://localhost:8081/api");
+        WebTarget base = client.target("http://wallet:8081/api");
         WebTarget target = base.path("/wallets");
         WebTarget endTarget = target.path("/{userId}").resolveTemplate("userId", user.getId());
 

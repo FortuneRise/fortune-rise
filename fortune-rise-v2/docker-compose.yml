@@ -1,0 +1,73 @@
+services:
+  # User
+  user:
+    build:
+      context: ./user-microservice
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
+
+  # Wallet
+  wallet:
+    build:
+      context: ./wallet-microservice
+    ports:
+      - "8081:8081"
+    depends_on:
+      - db
+    env_file:
+      - ./wallet-microservice/.env
+    volumes:
+      - ./wallet-microservice/.env:/app/.env
+
+  # Game
+  game:
+    build:
+      context: ./game-microservice
+    ports:
+      - "8082:8082"
+    depends_on:
+      - db
+
+  # Notification
+  notification:
+    build:
+      context: ./notification-microservice
+    ports:
+      - "8083:8083"
+    depends_on:
+      - db
+
+  # Promotion
+  promotion:
+    build:
+      context: ./promotion-microservice
+    ports:
+      - "8084:8084"
+    depends_on:
+      - db
+
+  # History
+  history:
+    build:
+      context: ./history-microservice
+    ports:
+      - "8085:8085"
+    depends_on:
+      - db
+
+  # Database
+  db:
+    image: postgres:13
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=fortunerise
+    volumes:
+      - db-data:/var/lib/postgresql/data
+
+volumes:
+  db-data:

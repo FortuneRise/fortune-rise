@@ -62,8 +62,8 @@ public class GameBean {
 
         // Creating base for http requests
 
-        WebTarget baseWallet = client.target("http://localhost:8081/api");
-        WebTarget baseHistory = client.target("http://localhost:8085/api");
+        WebTarget baseWallet = client.target("http://wallet:8081/api");
+        WebTarget baseHistory = client.target("http://history:8085/api");
 
         WebTarget targetWallet = baseWallet.path("/wallets");
         WebTarget endTargetWallet = targetWallet.path("/{userId}").resolveTemplate("userId", userId);

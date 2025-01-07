@@ -150,7 +150,7 @@ public class PromotionBean {
             throw new IllegalArgumentException("Unknown subclass of Promotion: " + promotion.getClass().getSimpleName());
         }
 
-        WebTarget base = client.target("http://localhost:8081/api");
+        WebTarget base = client.target("http://wallet:8081/api");
         WebTarget target = base.path("/wallets");
         WebTarget endTarget = target.path("/{userId}").resolveTemplate("userId", userId);
 
