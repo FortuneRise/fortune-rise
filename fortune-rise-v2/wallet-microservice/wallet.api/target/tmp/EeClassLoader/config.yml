@@ -1,0 +1,21 @@
+kumuluzee:
+  server:
+    http:
+      port: 8081
+  name: fortune-rise
+  version: 1.0.0
+  env:
+    name: dev
+  datasources:
+   - jndi-name : jdbc/FortuneRiseDS
+     connection-url: jdbc:postgresql://localhost:5432/fortunerise
+     username: postgres
+     password: postgres
+     max-pool-size: 20
+  health:
+    - checks:
+        data-source-health-check:
+          type: liveness
+          jndi-name: jdbc/FortuneRiseDS
+        http-health-check:
+          connection-url: https//v6.exchangerate-api.com/v6

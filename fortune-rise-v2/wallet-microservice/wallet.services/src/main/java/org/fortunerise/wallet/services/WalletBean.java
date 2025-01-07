@@ -1,6 +1,9 @@
 package org.fortunerise.wallet.services;
 
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.eclipse.persistence.exceptions.DatabaseException;
 import org.fortunerise.wallet.entities.Wallet;
 import org.postgresql.util.PSQLException;
@@ -14,6 +17,7 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.PersistenceException;
 import javax.persistence.Query;
 import javax.transaction.Transactional;
+import javax.ws.rs.InternalServerErrorException;
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.client.Entity;
@@ -21,6 +25,7 @@ import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.Response;
 import java.math.BigDecimal;
 import java.util.logging.Logger;
+import io.github.cdimascio.dotenv.Dotenv;
 
 @ApplicationScoped
 public class WalletBean {
@@ -33,11 +38,15 @@ public class WalletBean {
 
     private Client client;
 
+    private String apiKey;
+
     @PostConstruct
     private void init() {
         log.info("Bean initialization" + WalletBean.class.getSimpleName());
         client = ClientBuilder.newClient();
-        // inicializacija virov
+        Dotenv dotenv = Dotenv.load();
+        apiKey = dotenv.get("API_KEY");
+        log.info("API KEY: " + apiKey);
     }
 
     @PreDestroy
@@ -53,6 +62,35 @@ public class WalletBean {
         Wallet wallet = getWalletByUserId(userId);
         BigDecimal balance = wallet.getBalance();
         BigDecimal change = transactionDto.getAmount();
+
+        if (transactionDto.getCurrency() != null) {
+            WebTarget base = client.target("https://v6.exchangerate-api.com/v6");
+            WebTarget target = base.path("/" + apiKey + "/latest");
+            WebTarget endTarget = target.path("/{currency}").resolveTemplate("currency", transactionDto.getCurrency());
+
+            Response response = endTarget.request().get();
+            try {
+                String jsonResponse = response.readEntity(String.class);
+                ObjectMapper mapper = new ObjectMapper();
+                JsonNode jsonNode = mapper.readTree(jsonResponse);
+                String result = jsonNode.get("result").asText();
+                if (result.equals("error")) {
+                    if (jsonNode.get("error-type").asText().equals("unsupported-code")) {
+                        throw new IllegalArgumentException("Illegal currency: " + transactionDto.getCurrency());
+                    }
+                    else {
+                        throw new RuntimeException();
+                    }
+                }
+                JsonNode conversionRatesNode = jsonNode.get("conversion_rates");
+                BigDecimal conversionRate = conversionRatesNode.get("USD").decimalValue();
+                change = change.multiply(conversionRate);
+            }
+            catch (JsonProcessingException e) {
+                throw new RuntimeException(e);
+            }
+
+        }
 
         log.info("Balance: " + balance);
         log.info("Change: " + change);

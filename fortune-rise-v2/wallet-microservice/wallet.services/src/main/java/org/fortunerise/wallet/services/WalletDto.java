@@ -8,7 +8,6 @@ public class WalletDto {
 
     private BigDecimal balance;
 
-
     public WalletDto() {}
 
     public WalletDto(BigDecimal balance) {

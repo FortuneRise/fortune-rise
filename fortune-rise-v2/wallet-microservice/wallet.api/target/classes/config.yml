@@ -12,3 +12,10 @@ kumuluzee:
      username: postgres
      password: postgres
      max-pool-size: 20
+  health:
+    - checks:
+        data-source-health-check:
+          type: liveness
+          jndi-name: jdbc/FortuneRiseDS
+        http-health-check:
+          connection-url: https//v6.exchangerate-api.com/v6

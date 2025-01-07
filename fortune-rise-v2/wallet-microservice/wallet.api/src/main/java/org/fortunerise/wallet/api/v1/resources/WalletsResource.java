@@ -101,6 +101,7 @@ public class WalletsResource {
             return Response.status(Status.NOT_FOUND).entity(e.getMessage()).build();
         }
         catch (Exception e) {
+            System.out.println(e.getMessage());
             return Response.status(Status.INTERNAL_SERVER_ERROR).build();
         }
     }

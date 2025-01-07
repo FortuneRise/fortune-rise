@@ -8,6 +8,7 @@ public class TransactionDto {
     private Integer id;
     private BigDecimal amount;
     private Integer walletId;
+    private String currency;
 
     private Integer userId;
 
@@ -62,5 +63,13 @@ public class TransactionDto {
 
     public String toString() {
         return "TransactionDto [id=" + id + ", amount=" + amount + "]";
+    }
+
+    public String getCurrency() {
+        return currency;
+    }
+
+    public void setCurrency(String currency) {
+        this.currency = currency;
     }
 }
