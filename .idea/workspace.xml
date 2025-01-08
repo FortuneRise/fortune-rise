@@ -6,7 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="79f18f5f-1c17-4232-8daa-509782a9b6e5" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.github/workflows/build_and_deploy.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/build_and_deploy.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <list id="142b4e9b-e41e-42ae-af0b-6b596d1abc0b" name="Changes by jan" comment="" />
     <list id="bc662434-0975-48b2-b46a-6b00f48df91e" name="Changes by Jan" comment="" />
@@ -121,7 +120,7 @@
       <workItem from="1736187533469" duration="8046000" />
       <workItem from="1736245855020" duration="16182000" />
       <workItem from="1736326958600" duration="21026000" />
-      <workItem from="1736355896966" duration="7930000" />
+      <workItem from="1736355896966" duration="8714000" />
     </task>
     <servers />
   </component>
