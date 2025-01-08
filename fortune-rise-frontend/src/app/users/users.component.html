@@ -1,0 +1,37 @@
+<h2>Users</h2>
+
+<div *ngIf="user">
+  <form (ngSubmit)="submitUserForm()">
+    <table>
+      <tr>
+        <td><label for="name">Name</label></td>
+        <td><input [(ngModel)]="user.name" id="name" name="name"></td>
+      </tr>
+      <tr>
+        <td><label for="surname">Surame</label></td>
+        <td><input [(ngModel)]="user.surname" id="surname" name="surname"></td>
+      </tr>
+      <tr>
+        <td><label for="username">Userame</label></td>
+        <td><input [(ngModel)]="user.username" id="username" name="username"></td>
+      </tr>
+    </table>
+
+    <button type="submit">Dodaj</button>
+  </form>
+</div>
+
+<ul class="users">
+  <li *ngFor="let user of users">
+    <p>{{user.id}}</p>
+    <p>{{user.name}}</p>
+    <p>{{user.surname}}</p>
+    <p>{{user.username}}</p>
+  </li>
+</ul>
+
+<!--
+<div *ngIf="clicked">
+  <h3>{{user.username}}</h3>
+</div>
+-->
