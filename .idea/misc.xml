@@ -4,12 +4,9 @@
   <component name="MavenProjectsManager">
     <option name="originalFiles">
       <list>
-        <option value="$PROJECT_DIR$/wallet-microservice/pom.xml" />
-        <option value="$PROJECT_DIR$/user-microservice/pom.xml" />
-        <option value="$PROJECT_DIR$/game-microservice/pom.xml" />
-        <option value="$PROJECT_DIR$/history-microservice/pom.xml" />
-        <option value="$PROJECT_DIR$/notification-microservice/pom.xml" />
-        <option value="$PROJECT_DIR$/promotion-microservice/pom.xml" />
+        <option value="$PROJECT_DIR$/fortune-rise/pom.xml" />
+        <option value="$PROJECT_DIR$/api/pom.xml" />
+        <option value="$PROJECT_DIR$/pom.xml" />
       </list>
     </option>
   </component>
