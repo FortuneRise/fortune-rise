@@ -4,65 +4,126 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f75d254a-e03b-45f6-9b21-4e3e9dd4c842" name="Changes" comment="" />
+    <list default="true" id="79f18f5f-1c17-4232-8daa-509782a9b6e5" name="Changes" comment="" />
+    <list id="bc662434-0975-48b2-b46a-6b00f48df91e" name="Changes by Jan" comment="" />
+    <list id="142b4e9b-e41e-42ae-af0b-6b596d1abc0b" name="Changes by jan" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+        <option value="Dockerfile" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;andhrib&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;git@github.com:FortuneRise/fortune-rise.git&quot;,
+    &quot;accountId&quot;: &quot;6b25e2b4-e29d-46d8-acd9-cefc018b953f&quot;
+  }
+}</component>
+  <component name="KubernetesApiPersistence">{}</component>
+  <component name="KubernetesApiProvider">{
+  &quot;isMigrated&quot;: true
+}</component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectColorInfo">{
-  &quot;associatedIndex&quot;: 7
+  &quot;associatedIndex&quot;: 3
 }</component>
-  <component name="ProjectId" id="2qi51sUrSBBcq2EueRjCitxfDlH" />
+  <component name="ProjectId" id="2qkEyMrrOHGskvcyL7GPxSMZr2F" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Jan/Documents/GitHub/fortune-rise-v2&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/andra/OneDrive/3. letnik/1. semester/Postopki razvoja programske opreme/vaje/fortune-rise/fortune-rise-v2/user-microservice",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\andra\OneDrive\3. letnik\1. semester\Postopki razvoja programske opreme\vaje\fortune-rise\fortune-rise-v2\user-microservice" />
+      <recent name="C:\Users\andra\OneDrive\3. letnik\1. semester\Postopki razvoja programske opreme\vaje\fortune-rise\fortune-rise-v2\promotion-microservice" />
+      <recent name="C:\Users\andra\OneDrive\3. letnik\1. semester\Postopki razvoja programske opreme\vaje\fortune-rise\fortune-rise-v2\notification-microservice" />
+      <recent name="C:\Users\andra\OneDrive\3. letnik\1. semester\Postopki razvoja programske opreme\vaje\fortune-rise\fortune-rise-v2\history-microservice" />
+      <recent name="C:\Users\andra\OneDrive\3. letnik\1. semester\Postopki razvoja programske opreme\vaje\fortune-rise\fortune-rise-v2\kubernetes" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\andra\OneDrive\3. letnik\1. semester\Postopki razvoja programske opreme\vaje\fortune-rise\fortune-rise-v2" />
+      <recent name="C:\Users\andra\OneDrive\3. letnik\1. semester\Postopki razvoja programske opreme\vaje\fortune-rise\fortune-rise-v2\kubernetes" />
+      <recent name="C:\Users\andra\OneDrive\3. letnik\1. semester\Postopki razvoja programske opreme\vaje\fortune-rise\fortune-rise-v2\wallet-microservice" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="org.fortunerise.promotion.services" />
+      <recent name="org.fortunerise.history.services" />
+    </key>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9823dce3aa75-fdfe4dae3a2d-intellij.indexing.shared.core-IU-243.22562.218" />
-        <option value="bundled-js-predefined-d6986cc7102b-deb605915726-JavaScript-IU-243.22562.218" />
+        <option value="bundled-jdk-9823dce3aa75-28b599e66164-intellij.indexing.shared.core-IU-242.23339.11" />
+        <option value="bundled-js-predefined-d6986cc7102b-5c90d61e3bab-JavaScript-IU-242.23339.11" />
       </set>
     </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="f75d254a-e03b-45f6-9b21-4e3e9dd4c842" name="Changes" comment="" />
-      <created>1735132343381</created>
+      <changelist id="79f18f5f-1c17-4232-8daa-509782a9b6e5" name="Changes" comment="" />
+      <created>1735198429001</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1735132343381</updated>
-      <workItem from="1735132344423" duration="1720000" />
-      <workItem from="1735134079449" duration="11000" />
-      <workItem from="1735135079928" duration="5456000" />
-      <workItem from="1735148732028" duration="4261000" />
-      <workItem from="1735204556634" duration="39000" />
-      <workItem from="1735204653757" duration="737000" />
+      <updated>1735198429001</updated>
+      <workItem from="1735198431781" duration="9248000" />
+      <workItem from="1735218898787" duration="1030000" />
+      <workItem from="1735220106309" duration="7615000" />
+      <workItem from="1735291646728" duration="8259000" />
+      <workItem from="1735308529832" duration="11000" />
+      <workItem from="1735322025054" duration="4991000" />
+      <workItem from="1735328305737" duration="761000" />
+      <workItem from="1735375185510" duration="7280000" />
+      <workItem from="1736187533469" duration="8046000" />
+      <workItem from="1736245855020" duration="16182000" />
+      <workItem from="1736326958600" duration="21026000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="com.intellij.fileTypeFactory" implementationName=".env" />
   </component>
 </project>

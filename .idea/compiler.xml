@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="wallet.api" />
+        <module name="promotion.api" />
+        <module name="game.api" />
+        <module name="history.api" />
+        <module name="services" />
+        <module name="notification.api" />
+        <module name="notification.services" />
+        <module name="promotion.services" />
+        <module name="history.entities" />
+        <module name="notification.entities" />
+        <module name="promotion.entities" />
+        <module name="history.services" />
+        <module name="wallet.services" />
+        <module name="wallet.entities" />
+        <module name="game.services" />
+        <module name="user.entities" />
+        <module name="api" />
+        <module name="user.api" />
+        <module name="game.entities" />
+        <module name="user.services" />
+      </profile>
+    </annotationProcessing>
+  </component>
+</project>

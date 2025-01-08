@@ -1,0 +1,64 @@
+name: CI/CD for Microservices
+
+on:
+  workflow_dispatch:  # Allows manual triggering from GitHub UI
+  # Or use push or schedule if needed:
+  # push:
+  #   branches:
+  #     - main
+  # schedule:
+  #   - cron: '0 0 * * *'  # Optional: Run every day at midnight UTC
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. Checkout the code
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      # 2. Set up Maven (Java) environment
+      - name: Set up JDK 11
+        uses: actions/setup-java@v2
+        with:
+          java-version: '11'
+          distribution: 'adoptopenjdk'
+
+      # 3. Build each microservice with Maven
+      - name: Build microservice 1
+        run: |
+          cd microservice1
+          mvn clean install
+
+      - name: Build microservice 2
+        run: |
+          cd microservice2
+          mvn clean install
+
+      # 4. Build Docker images for each microservice
+      - name: Build Docker images
+        run: |
+          docker build -t fortunerise.azurecr.io/microservice1:latest ./microservice1
+          docker build -t fortunerise.azurecr.io/microservice2:latest ./microservice2
+
+      # 5. Login to Azure Container Registry
+      - name: Login to ACR
+        uses: azure/docker-login@v1
+        with:
+          login-server: fortunerise.azurecr.io
+          username: ${{ secrets.ACR_USERNAME }}  # Add these secrets in GitHub
+          password: ${{ secrets.ACR_PASSWORD }}
+
+      # 6. Push Docker images to ACR
+      - name: Push Docker images
+        run: |
+          docker push fortunerise.azurecr.io/microservice1:latest
+          docker push fortunerise.azurecr.io/microservice2:latest
+
+      # 7. Use docker-compose to recreate services (locally for testing or on a server)
+      - name: Deploy with Docker Compose
+        run: |
+          docker-compose -f docker-compose.yml down   # Shut down the previous services
+          docker-compose -f docker-compose.yml up -d  # Recreate and start the services in detached mode
+
