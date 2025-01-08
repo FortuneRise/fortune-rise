@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: notification
-          image: fortunerise.azurecr.io/fortune-rise-notification # Replace with your ACR image and tag
+          image: andhrib/fortune-rise-notification # Replace with your ACR image and tag
           env:
             - name: DATABASE_HOSTNAME
               value: postgres

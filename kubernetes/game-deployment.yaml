@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: game
-          image: fortunerise.azurecr.io/fortune-rise-game
+          image: andhrib/fortune-rise-game
           env:
             - name: DATABASE_HOSTNAME
               value: postgres

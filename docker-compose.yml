@@ -1,7 +1,7 @@
 services:
   # User
   user:
-    image: fortunerise.azurecr.io/fortune-rise-user
+    image: andhrib/fortune-rise-user
     build:
       context: ./user-microservice
     ports:
@@ -15,7 +15,7 @@ services:
 
   # Wallet
   wallet:
-    image: fortunerise.azurecr.io/fortune-rise-wallet
+    image: andhrib/fortune-rise-wallet
     build:
       context: ./wallet-microservice
     ports:
@@ -31,7 +31,7 @@ services:
 
   # Game
   game:
-    image: fortunerise.azurecr.io/fortune-rise-game
+    image: andhrib/fortune-rise-game
     build:
       context: ./game-microservice
     ports:
@@ -45,7 +45,7 @@ services:
 
   # Notification
   notification:
-    image: fortunerise.azurecr.io/fortune-rise-notification
+    image: andhrib/fortune-rise-notification
     build:
       context: ./notification-microservice
     ports:
@@ -59,7 +59,7 @@ services:
 
   # Promotion
   promotion:
-    image: fortunerise.azurecr.io/fortune-rise-promotion
+    image: andhrib/fortune-rise-promotion
     build:
       context: ./promotion-microservice
     ports:
@@ -73,7 +73,7 @@ services:
 
   # History
   history:
-    image: fortunerise.azurecr.io/fortune-rise-history
+    image: andhrib/fortune-rise-history
     build:
       context: ./history-microservice
     ports:

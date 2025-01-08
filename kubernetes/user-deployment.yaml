@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: user
-          image: fortunerise.azurecr.io/fortune-rise-user # Replace with your ACR image and tag
+          image: andhrib/fortune-rise-user # Replace with your ACR image and tag
           env:
             - name: DATABASE_HOSTNAME
               value: postgres

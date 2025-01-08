@@ -19,46 +19,59 @@ jobs:
         uses: actions/checkout@v2
 
       # 2. Set up Maven (Java) environment
-      - name: Set up JDK 11
+      - name: Set up JDK 17
         uses: actions/setup-java@v2
         with:
-          java-version: '11'
+          java-version: '17'
           distribution: 'adoptopenjdk'
 
       # 3. Build each microservice with Maven
-      - name: Build microservice 1
+      - name: Build user
         run: |
-          cd microservice1
-          mvn clean install
+          cd user-microservice
+          mvn clean package
 
-      - name: Build microservice 2
+      - name: Build wallet
         run: |
-          cd microservice2
-          mvn clean install
+          cd wallet-microservice
+          mvn clean package
 
-      # 4. Build Docker images for each microservice
-      - name: Build Docker images
+      - name: Build game
         run: |
-          docker build -t fortunerise.azurecr.io/microservice1:latest ./microservice1
-          docker build -t fortunerise.azurecr.io/microservice2:latest ./microservice2
+          cd game-microservice
+          mvn clean package
 
-      # 5. Login to Azure Container Registry
+      - name: Build notification
+        run: |
+          cd notification-microservice
+          mvn clean package
+
+      - name: Build promotion
+        run: |
+          cd promotion-microservice
+          mvn clean package
+
+      - name: Build history
+        run: |
+          cd history-microservice
+          mvn clean package
+
+
+      # 4. Execute the docker compose
+      - name: Execute docker compose
+        run: |
+          docker-compose build
+
+      # 5. Login to Docker Hub
       - name: Login to ACR
         uses: azure/docker-login@v1
         with:
-          login-server: fortunerise.azurecr.io
-          username: ${{ secrets.ACR_USERNAME }}  # Add these secrets in GitHub
-          password: ${{ secrets.ACR_PASSWORD }}
+          login-server: andhrib
+          username: ${{ secrets.DOCKER_HUB_USERNAME }}  # Add these secrets in GitHub
+          password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
 
       # 6. Push Docker images to ACR
       - name: Push Docker images
         run: |
-          docker push fortunerise.azurecr.io/microservice1:latest
-          docker push fortunerise.azurecr.io/microservice2:latest
-
-      # 7. Use docker-compose to recreate services (locally for testing or on a server)
-      - name: Deploy with Docker Compose
-        run: |
-          docker-compose -f docker-compose.yml down   # Shut down the previous services
-          docker-compose -f docker-compose.yml up -d  # Recreate and start the services in detached mode
+          docker-compose push
 

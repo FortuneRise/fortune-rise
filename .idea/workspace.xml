@@ -4,9 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="79f18f5f-1c17-4232-8daa-509782a9b6e5" name="Changes" comment="" />
-    <list id="142b4e9b-e41e-42ae-af0b-6b596d1abc0b" name="Changes by jan" comment="" />
+    <list default="true" id="79f18f5f-1c17-4232-8daa-509782a9b6e5" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.github/workflows/build_and_deploy.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/build_and_deploy.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kubernetes/game-deployment.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/kubernetes/game-deployment.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kubernetes/history-deployment.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/kubernetes/history-deployment.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kubernetes/notification-deployment.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/kubernetes/notification-deployment.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kubernetes/promotion-deployment.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/kubernetes/promotion-deployment.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kubernetes/user-deployment.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/kubernetes/user-deployment.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kubernetes/wallet-deployment.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/kubernetes/wallet-deployment.yaml" afterDir="false" />
+    </list>
     <list id="bc662434-0975-48b2-b46a-6b00f48df91e" name="Changes by Jan" comment="" />
+    <list id="142b4e9b-e41e-42ae-af0b-6b596d1abc0b" name="Changes by jan" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -118,7 +128,7 @@
       <workItem from="1736187533469" duration="8046000" />
       <workItem from="1736245855020" duration="16182000" />
       <workItem from="1736326958600" duration="21026000" />
-      <workItem from="1736355896966" duration="322000" />
+      <workItem from="1736355896966" duration="6714000" />
     </task>
     <servers />
   </component>
