@@ -1,5 +1,6 @@
 package org.fortunerise.promotion.services;
 
+import io.github.cdimascio.dotenv.Dotenv;
 import org.fortunerise.promotion.entities.Promotion;
 import org.fortunerise.promotion.entities.UserLink;
 import org.fortunerise.promotion.entities.promotions.ExtraMoneyPromotion;
@@ -35,6 +36,9 @@ public class PromotionBean {
 
     private Client client;
 
+    private String walletHost;
+    private String walletPort;
+
     @PersistenceContext(unitName = "fortune-rise-jpa")
     private EntityManager em;
 
@@ -45,6 +49,15 @@ public class PromotionBean {
         log.info("Bean initialization: " + PromotionBean.class.getSimpleName());
 
         client = ClientBuilder.newClient();
+        if (System.getenv("KUBERNETES_SERVICE_HOST") == null) {
+            Dotenv dotenv = Dotenv.load();
+            walletHost = dotenv.get("WALLET_HOST");
+            walletPort = dotenv.get("WALLET_PORT");
+        }
+        else {
+            walletHost = System.getenv("WALLET_HOST");
+            walletPort = System.getenv("WALLET_PORT");
+        }
     }
 
     @PreDestroy
@@ -150,7 +163,7 @@ public class PromotionBean {
             throw new IllegalArgumentException("Unknown subclass of Promotion: " + promotion.getClass().getSimpleName());
         }
 
-        WebTarget base = client.target("http://wallet:8081/api");
+        WebTarget base = client.target("http://" + walletHost + ":" + walletPort + "/api");
         WebTarget target = base.path("/wallets");
         WebTarget endTarget = target.path("/{userId}").resolveTemplate("userId", userId);
 

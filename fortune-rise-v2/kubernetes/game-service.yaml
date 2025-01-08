@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: game
+  labels:
+    app: game
+spec:
+  type: ClusterIP # Internal access only
+  selector:
+    app: game # Must match pod labels
+  ports:
+    - port: 80 # Port exposed by the Service
+      targetPort: 8082 # Container port to route to
+      protocol: TCP

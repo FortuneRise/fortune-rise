@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: user
+  labels:
+    app: user
+spec:
+  type: ClusterIP # Internal access only
+  selector:
+    app: user # Must match pod labels
+  ports:
+    - port: 80 # Port exposed by the Service
+      targetPort: 8080 # Container port to route to
+      protocol: TCP

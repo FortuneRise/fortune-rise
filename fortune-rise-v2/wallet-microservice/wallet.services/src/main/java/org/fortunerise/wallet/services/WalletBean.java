@@ -40,13 +40,25 @@ public class WalletBean {
 
     private String apiKey;
 
+    private String historyHost;
+    private String historyPort;
+
     @PostConstruct
     private void init() {
         log.info("Bean initialization" + WalletBean.class.getSimpleName());
         client = ClientBuilder.newClient();
-        Dotenv dotenv = Dotenv.load();
-        apiKey = dotenv.get("API_KEY");
-        log.info("API KEY: " + apiKey);
+        if (System.getenv("KUBERNETES_SERVICE_HOST") == null) {
+            Dotenv dotenv = Dotenv.load();
+            apiKey = dotenv.get("API_KEY");
+            log.info("API KEY: " + apiKey);
+            historyHost = dotenv.get("HISTORY_HOST");
+            historyPort = dotenv.get("HISTORY_PORT");
+        }
+        else {
+            apiKey = System.getenv("API_KEY");
+            historyHost = System.getenv("HISTORY_HOST");
+            historyPort = System.getenv("HISTORY_PORT");
+        }
     }
 
     @PreDestroy
@@ -104,7 +116,7 @@ public class WalletBean {
 
         wallet.setBalance(balance.add(change));
 
-        WebTarget baseHistory = client.target("http://history:8085/api");
+        WebTarget baseHistory = client.target("http://" + historyHost + ":" + historyPort + "/api");
         WebTarget targetHistory = baseHistory.path("/history/transactions");
         WebTarget endTargetHistory = targetHistory.path("/{userId}").resolveTemplate("userId", userId);
 

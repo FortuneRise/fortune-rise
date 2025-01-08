@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: history
+  labels:
+    app: history
+spec:
+  replicas: 1 # Number of replicas
+  selector:
+    matchLabels:
+      app: history # Must match pod labels
+  template:
+    metadata:
+      labels:
+        app: history
+    spec:
+      containers:
+        - name: history
+          image: fortunerise.azurecr.io/fortune-rise-history # Replace with your ACR image and tag
+          env:
+            - name: DATABASE_HOSTNAME
+              value: postgres
+            - name: DATABASE_PORT
+              value: "5432"
+            - name: DATABASE_USERNAME
+              value: "postgres"
+            - name: DATABASE_PASSWORD
+              value: "postgres"
+            - name: DATABASE_NAME
+              value: "postgres"
+          ports:
+            - containerPort: 8085
+          resources:
+            requests:
+              cpu: 100m # Minimum CPU required
+            limits:
+              cpu: 500m # Maximum CPU the container can use

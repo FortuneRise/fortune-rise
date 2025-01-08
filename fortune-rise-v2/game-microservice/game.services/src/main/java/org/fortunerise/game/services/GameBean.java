@@ -1,6 +1,7 @@
 package org.fortunerise.game.services;
 
 
+import io.github.cdimascio.dotenv.Dotenv;
 import org.fortunerise.game.services.dtos.BetDto;
 import org.fortunerise.game.services.dtos.GameDto;
 import org.fortunerise.game.services.dtos.TransactionDto;
@@ -33,6 +34,11 @@ public class GameBean {
     private Client client;
     private JsonBuilderFactory jsonBuilderFactory;
 
+    private String walletHost;
+    private String walletPort;
+    private String historyHost;
+    private String historyPort;
+
 
     @Inject
     private BetBean betBean;
@@ -43,7 +49,19 @@ public class GameBean {
         random = new Random();
         client = ClientBuilder.newClient();
         jsonBuilderFactory = javax.json.Json.createBuilderFactory(null);
-        // inicializacija virov
+        if (System.getenv("KUBERNETES_SERVICE_HOST") == null) {
+            Dotenv dotenv = Dotenv.load();
+            walletHost = dotenv.get("WALLET_HOST");
+            walletPort = dotenv.get("WALLET_PORT");
+            historyHost = dotenv.get("HISTORY_HOST");
+            historyPort = dotenv.get("HISTORY_PORT");
+        }
+        else {
+            walletHost = System.getenv("WALLET_HOST");
+            walletPort = System.getenv("WALLET_PORT");
+            historyHost = System.getenv("HISTORY_HOST");
+            historyPort = System.getenv("HISTORY_PORT");
+        }
     }
 
     @PreDestroy
@@ -62,8 +80,8 @@ public class GameBean {
 
         // Creating base for http requests
 
-        WebTarget baseWallet = client.target("http://wallet:8081/api");
-        WebTarget baseHistory = client.target("http://history:8085/api");
+        WebTarget baseWallet = client.target("http://" + walletHost +":" + walletPort + "/api");
+        WebTarget baseHistory = client.target("http://" + historyHost +":" + historyPort + "/api");
 
         WebTarget targetWallet = baseWallet.path("/wallets");
         WebTarget endTargetWallet = targetWallet.path("/{userId}").resolveTemplate("userId", userId);

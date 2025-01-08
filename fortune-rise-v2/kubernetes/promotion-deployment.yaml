@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: promotion
+  labels:
+    app: promotion
+spec:
+  replicas: 1 # Number of replicas
+  selector:
+    matchLabels:
+      app: promotion # Must match pod labels
+  template:
+    metadata:
+      labels:
+        app: promotion
+    spec:
+      containers:
+        - name: promotion
+          image: fortunerise.azurecr.io/fortune-rise-promotion # Replace with your ACR image and tag
+          env:
+            - name: DATABASE_HOSTNAME
+              value: postgres
+            - name: DATABASE_PORT
+              value: "5432"
+            - name: DATABASE_USERNAME
+              value: "postgres"
+            - name: DATABASE_PASSWORD
+              value: "postgres"
+            - name: DATABASE_NAME
+              value: "postgres"
+            - name: WALLET_HOST
+              value: "wallet"
+            - name: WALLET_PORT
+              value: "80"
+          ports:
+            - containerPort: 8084
+          resources:
+            requests:
+              cpu: 100m # Minimum CPU required
+            limits:
+              cpu: 500m # Maximum CPU the container can use

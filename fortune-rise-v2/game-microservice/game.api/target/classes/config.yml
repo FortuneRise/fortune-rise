@@ -8,9 +8,9 @@ kumuluzee:
     name: dev
   datasources:
    - jndi-name : jdbc/FortuneRiseDS
-     connection-url: jdbc:postgresql://db:5432/fortunerise
-     username: postgres
-     password: postgres
+     connection-url: jdbc:postgresql://${DATABASE_HOSTNAME}:${DATABASE_PORT}/${DATABASE_NAME}
+     username: ${DATABASE_USERNAME}
+     password: ${DATABASE_PASSWORD}
      max-pool-size: 20
   health:
   - checks:

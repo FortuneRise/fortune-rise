@@ -1,21 +1,29 @@
 services:
   # User
   user:
+    image: fortunerise.azurecr.io/fortune-rise-user
     build:
       context: ./user-microservice
     ports:
       - "8080:8080"
     depends_on:
-      - db
+      - postgres
+    env_file:
+      - ./user-microservice/.env
+    volumes:
+      - ./user-microservice/.env:/app/.env
 
   # Wallet
   wallet:
+    image: fortunerise.azurecr.io/fortune-rise-wallet
     build:
       context: ./wallet-microservice
     ports:
       - "8081:8081"
     depends_on:
-      - db
+      - postgres
+    environment:
+      - API_KEY=${API_KEY}
     env_file:
       - ./wallet-microservice/.env
     volumes:
@@ -23,42 +31,62 @@ services:
 
   # Game
   game:
+    image: fortunerise.azurecr.io/fortune-rise-game
     build:
       context: ./game-microservice
     ports:
       - "8082:8082"
     depends_on:
-      - db
+      - postgres
+    env_file:
+      - ./game-microservice/.env
+    volumes:
+      - ./game-microservice/.env:/app/.env
 
   # Notification
   notification:
+    image: fortunerise.azurecr.io/fortune-rise-notification
     build:
       context: ./notification-microservice
     ports:
       - "8083:8083"
     depends_on:
-      - db
+      - postgres
+    env_file:
+      - ./notification-microservice/.env
+    volumes:
+      - ./notification-microservice/.env:/app/.env
 
   # Promotion
   promotion:
+    image: fortunerise.azurecr.io/fortune-rise-promotion
     build:
       context: ./promotion-microservice
     ports:
       - "8084:8084"
     depends_on:
-      - db
+      - postgres
+    env_file:
+      - ./promotion-microservice/.env
+    volumes:
+      - ./promotion-microservice/.env:/app/.env
 
   # History
   history:
+    image: fortunerise.azurecr.io/fortune-rise-history
     build:
       context: ./history-microservice
     ports:
       - "8085:8085"
     depends_on:
-      - db
+      - postgres
+    env_file:
+      - ./history-microservice/.env
+    volumes:
+      - ./history-microservice/.env:/app/.env
 
   # Database
-  db:
+  postgres:
     image: postgres:13
     ports:
       - "5432:5432"

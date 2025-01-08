@@ -2,6 +2,7 @@ package org.fortunerise.user.services;
 
 import com.kumuluz.ee.rest.beans.QueryParameters;
 import com.kumuluz.ee.rest.utils.JPAUtils;
+import io.github.cdimascio.dotenv.Dotenv;
 import org.fortunerise.user.entities.User;
 
 import javax.annotation.PostConstruct;
@@ -28,6 +29,9 @@ public class UserBean {
 
     private Client client;
 
+    private String walletHost;
+    private String walletPort;
+
     @PersistenceContext(unitName = "fortune-rise-jpa")
     private EntityManager em;
 
@@ -35,7 +39,16 @@ public class UserBean {
     private void init() {
         log.info("Bean initialization: " + UserBean.class.getSimpleName());
         client = ClientBuilder.newClient();
-        // inicializacija virov
+
+        if (System.getenv("KUBERNETES_SERVICE_HOST") == null) {
+            Dotenv dotenv = Dotenv.load();
+            walletHost = dotenv.get("WALLET_HOST");
+            walletPort = dotenv.get("WALLET_PORT");
+        }
+        else {
+            walletHost = System.getenv("WALLET_HOST");
+            walletPort = System.getenv("WALLET_PORT");
+        }
     }
 
     @PreDestroy
@@ -60,7 +73,7 @@ public class UserBean {
 
         log.info("User persisted: " + user.getId());
 
-        WebTarget base = client.target("http://wallet:8081/api");
+        WebTarget base = client.target("http://" + walletHost + ":" + walletPort + "/api");
         WebTarget target = base.path("/wallets");
         WebTarget endTarget = target.path("/{userId}").resolveTemplate("userId", user.getId());
 

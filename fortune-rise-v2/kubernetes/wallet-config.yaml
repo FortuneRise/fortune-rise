@@ -1,0 +1,7 @@
+apiVersion: v1
+data:
+  API_KEY: bef293325cddf0f90583168d
+kind: ConfigMap
+metadata:
+  creationTimestamp: null
+  name: wallet-config
