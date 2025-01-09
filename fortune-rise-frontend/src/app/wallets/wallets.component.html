@@ -1,0 +1,21 @@
+<h3>Wallet</h3>
+
+<p>Your wallet has: {{wallet.balance}} USD</p>
+
+
+<div *ngIf="transaction">
+  <form (ngSubmit)="submitTransaction()">
+    <table>
+      <tr>
+        <td><label for="amount">Amount</label></td>
+        <td><input [(ngModel)]="transaction.amount" type="number" id="amount" name="amount"></td>
+      </tr>
+      <tr>
+        <td><label for="currency">Currency</label></td>
+        <td><input [(ngModel)]="transaction.currency" id="currency" name="currency"></td>
+      </tr>
+    </table>
+
+    <button type="submit">Dodaj</button>
+  </form>
+</div>

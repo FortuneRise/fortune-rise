@@ -1,0 +1,20 @@
+<div *ngIf="user">
+  <form (ngSubmit)="submitUserForm()">
+    <table>
+      <tr>
+        <td><label for="name">Name</label></td>
+        <td><input [(ngModel)]="user.name" id="name" name="name"></td>
+      </tr>
+      <tr>
+        <td><label for="surname">Surame</label></td>
+        <td><input [(ngModel)]="user.surname" id="surname" name="surname"></td>
+      </tr>
+      <tr>
+        <td><label for="username">Userame</label></td>
+        <td><input [(ngModel)]="user.username" id="username" name="username"></td>
+      </tr>
+    </table>
+
+    <button type="submit">Add user</button>
+  </form>
+</div>

@@ -1,3 +1,2 @@
-META-INF\services\javax.ws.rs.core.Application
-org\fortunerise\history\api\HistoryApp.class
-org\fortunerise\history\api\v1\resources\HistoryResource.class
+org/fortunerise/history/api/HistoryApp.class
+org/fortunerise/history/api/v1/resources/HistoryResource.class

@@ -21,6 +21,7 @@ import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
 import javax.ws.rs.core.UriInfo;
 import java.util.List;
+import java.util.logging.Logger;
 
 @Path("/users")
 @Produces(MediaType.APPLICATION_JSON)
@@ -33,6 +34,8 @@ public class UsersResource {
 
     @Inject
     private UserBean userBean;
+
+    private Logger log = Logger.getLogger(UsersResource.class.getName());
 
     @GET
     @Operation(summary = "Get all users", description = "Retrieve a list of all users.")
@@ -89,6 +92,7 @@ public class UsersResource {
     public Response createUser(
             @Parameter(name = "UserDto", description = "Details of the user to be created.", required = true) UserDto userDto) {
         try {
+            //log.info("recieved user:");
             UserDto responseUserDto = userBean.insertUser(userDto);
             return Response.status(Status.CREATED).entity(responseUserDto).build();
         }

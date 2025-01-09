@@ -1,8 +1,8 @@
 export class User{
-  id?: number;
-  name?: string;
-  surname?: string;
-  username?: string
+  id!: number;
+  name!: string;
+  surname!: string;
+  username!: string
 
   /*
   constructor(id:number,name:string,surname:string,username:string) {

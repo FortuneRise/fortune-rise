@@ -19,7 +19,13 @@ export class UsersService {
   }
 
   createUser(user: User):Observable<User>{
+    //console.log("function was called");
     return this.http.post<User>(this.url,JSON.stringify(user), {headers: this.headers}).pipe(catchError(this.handleError));
+  }
+
+  getUser(id: number):Observable<User>{
+    const newurl = `${this.url}/${id}`;
+    return  this.http.get<User>(newurl).pipe(catchError(this.handleError));
   }
 
   private handleError(error: any): Promise<any> {

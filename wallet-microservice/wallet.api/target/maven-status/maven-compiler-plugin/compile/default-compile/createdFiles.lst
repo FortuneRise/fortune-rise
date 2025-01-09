@@ -1,3 +1,2 @@
-org\fortunerise\wallet\api\v1\resources\WalletsResource.class
-META-INF\services\javax.ws.rs.core.Application
-org\fortunerise\wallet\api\WalletApp.class
+org/fortunerise/wallet/api/WalletApp.class
+org/fortunerise/wallet/api/v1/resources/WalletsResource.class

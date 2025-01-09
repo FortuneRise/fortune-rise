@@ -8,15 +8,12 @@ import {FormsModule} from '@angular/forms';
 @Component({
   selector: 'users-home',
   imports: [
-    NgForOf,
-    NgIf,
-    FormsModule
+    NgForOf
   ],
   templateUrl: 'users.component.html'
 })
 export class UsersComponent implements OnInit{
   users?: User[];
-  user: User = new User;
 
   ngOnInit(): void {
     this.getUsers();
@@ -30,10 +27,6 @@ export class UsersComponent implements OnInit{
     this.userService.getUsers().subscribe(users => this.users = users);
   }
 
-  submitUserForm(): void {
-    this.user.id = 0;
-    this.userService.createUser(this.user);
-  }
 
 
 
