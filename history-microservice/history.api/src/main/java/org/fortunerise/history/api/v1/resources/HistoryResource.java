@@ -1,5 +1,6 @@
 package org.fortunerise.history.api.v1.resources;
 
+import org.fortunerise.history.services.BetDto;
 import org.fortunerise.history.services.HistoryBean;
 import org.fortunerise.history.services.GameDto;
 import org.fortunerise.history.services.TransactionDto;
@@ -13,6 +14,8 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriInfo;
 import java.util.List;
+import java.util.logging.Logger;
+
 import com.kumuluz.ee.rest.beans.QueryParameters;
 import org.eclipse.microprofile.openapi.annotations.Operation;
 import org.eclipse.microprofile.openapi.annotations.enums.SchemaType;
@@ -37,6 +40,8 @@ public class HistoryResource {
 
     @Inject
     private HistoryBean historyBean;
+
+    private Logger log = Logger.getLogger(HistoryResource.class.getName());
 
     @GET
     @Path("/games/{userId}")
@@ -68,7 +73,25 @@ public class HistoryResource {
             )
             @PathParam("userId") Integer userId) {
         try {
-            List<GameDto> gameHistory = historyBean.getGameDtosByUserId(userId, uriInfo);
+            QueryParameters query = QueryParameters.query(uriInfo.getRequestUri().getQuery()).build();
+            List<GameDto> gameHistory = historyBean.getGameDtosByUserId(userId, query);
+            Long gameTotalCount = historyBean.getGameCount(userId, query);
+            return Response.ok(gameHistory).header("X-Total-Count", gameTotalCount).build();
+        } catch (NoResultException e) {
+            log.info(e.getMessage());
+            return Response.status(Response.Status.NOT_FOUND).build();
+        } catch (Exception e) {
+            log.info(e.getMessage());
+            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).build();
+        }
+    }
+
+    @GET
+    @Path("/games/{gameId}/bets")
+    public Response getGameHistoryBets(@PathParam("gameId") Integer gameId) {
+        try {
+            QueryParameters query = QueryParameters.query(uriInfo.getRequestUri().getQuery()).build();
+            List<BetDto> gameHistory = historyBean.getBetDtosByGameId(gameId, query);
             return Response.ok(gameHistory).build();
         } catch (NoResultException e) {
             return Response.status(Response.Status.NOT_FOUND).build();
@@ -146,9 +169,12 @@ public class HistoryResource {
             )
             @PathParam("userId") Integer userId) {
         try {
-            List<TransactionDto> transactionHistory = historyBean.getTransactionDtosByUseId(userId, uriInfo);
-            return Response.ok(transactionHistory).build();
+            QueryParameters query = QueryParameters.query(uriInfo.getRequestUri().getQuery()).build();
+            List<TransactionDto> transactionHistory = historyBean.getTransactionDtosByUseId(userId, query);
+            Long transactionTotalCount = historyBean.getTransactionCount(userId, query);
+            return Response.ok(transactionHistory).header("X-Total-Count", transactionTotalCount).build();
         } catch (NoResultException e) {
+
             return Response.status(Response.Status.NOT_FOUND).build();
         } catch (Exception e) {
             return Response.status(Response.Status.INTERNAL_SERVER_ERROR).build();

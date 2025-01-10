@@ -1,6 +1,10 @@
 package org.fortunerise.history.services;
 
+import com.kumuluz.ee.rest.beans.QueryFilter;
+import com.kumuluz.ee.rest.beans.QueryFilterExpression;
 import com.kumuluz.ee.rest.beans.QueryParameters;
+import com.kumuluz.ee.rest.enums.FilterExpressionOperation;
+import com.kumuluz.ee.rest.enums.FilterOperation;
 import com.kumuluz.ee.rest.utils.JPAUtils;
 import org.fortunerise.history.entities.Bet;
 import org.fortunerise.history.entities.Game;
@@ -47,19 +51,37 @@ public class HistoryBean {
     }
 
     @Transactional(Transactional.TxType.REQUIRED)
-    public List<GameDto> getGameDtosByUserId(Integer userId, UriInfo uriInfo){
-        /*
-        String queryString = "SELECT new org.fortunerise.history.services.GameDto(g) FROM Game g WHERE g.userId = :userId";
-        TypedQuery<GameDto> query = JPAUtils.queryEntities(em, Game.class, queryString, queryParameters);
-        query.setParameter("userId", userId);
-        */
-        String paramString = getParameterString(uriInfo);
-        paramString += "userId=" + userId;
-        QueryParameters queryParameters = QueryParameters.query(paramString).build();
+    public List<GameDto> getGameDtosByUserId(Integer userId, QueryParameters query){
 
-        List<Game> games = JPAUtils.queryEntities(em, Game.class, queryParameters);
+        QueryFilter newqf = new QueryFilter("userId", FilterOperation.EQ,userId.toString());
+        QueryFilterExpression nqfe = new QueryFilterExpression(newqf);
+        QueryFilterExpression qfe = query.getFilterExpression();
+        QueryFilterExpression endqfe = null;
 
+        if(qfe != null){
+            endqfe = new QueryFilterExpression(FilterExpressionOperation.AND, nqfe, qfe);
+        }else {
+            endqfe = nqfe;
+        }
+
+        query.setFilterExpression(endqfe);
+
+
+        List<Game> games = JPAUtils.queryEntities(em, Game.class, query);
         return games.stream().map(GameDto::new).collect(Collectors.toList());
+    }
+
+    @Transactional(Transactional.TxType.REQUIRED)
+    public List<BetDto> getBetDtosByGameId(Integer gameId, QueryParameters query){
+        List<Game> games = JPAUtils.queryEntities(em, Game.class, (p, cb, r) -> cb.and(p, cb.equal(r.get("id"), gameId)));
+        List<Bet> gameBets = games.get(0).getBets();
+        return gameBets.stream().map(BetDto::new).collect(Collectors.toList());
+    }
+
+    @Transactional(Transactional.TxType.REQUIRED)
+    public Long getGameCount(Integer userId, QueryParameters query){
+        Long count = JPAUtils.queryEntitiesCount(em, Game.class, (p, cb, r) -> cb.and(p, cb.equal(r.get("userId"), userId)));
+        return count;
     }
 
     @Transactional(Transactional.TxType.REQUIRED)
@@ -67,12 +89,10 @@ public class HistoryBean {
         Game game = new Game(gameDto.getDate(), gameDto.getRoll(), gameDto.getUserId());
         game.setPayout(gameDto.getPayout());
 
-        List<Bet> bets = gameDto.getBets().stream().map(el -> {
-                                                                        Bet bet = el.convertToBet(gameDto.getRoll());
-                                                                        bet.setGame(game);
-                                                                        return bet;
-                                                                     })
-                                                                     .collect(java.util.stream.Collectors.toList());
+        List<Bet> bets = gameDto.getBets().stream().map(el -> {  Bet bet = el.convertToBet(gameDto.getRoll());
+                                                                 bet.setGame(game);
+                                                                 return bet;
+                                                                }).collect(java.util.stream.Collectors.toList());
         game.setBets(bets);
         em.persist(game);
         em.flush();
@@ -81,37 +101,31 @@ public class HistoryBean {
     }
 
     @Transactional(Transactional.TxType.REQUIRED)
-    public List<TransactionDto> getTransactionDtosByUseId(Integer userId, UriInfo uriInfo){
-        /*
-        String queryString = "SELECT new org.fortunerise.history.services.TransactionDto(t) FROM Transaction t WHERE t.userId = :userId";
-        Query query = em.createQuery(queryString);
-        query.setParameter("userId", userId);
-        */
+    public List<TransactionDto> getTransactionDtosByUseId(Integer userId, QueryParameters query){
 
-        String paramString = getParameterString(uriInfo);
-        paramString += "userId=" + userId;
-        QueryParameters queryParameters = QueryParameters.query(paramString).build();
+        QueryFilter newqf = new QueryFilter("userId", FilterOperation.EQ,userId.toString());
+        QueryFilterExpression nqfe = new QueryFilterExpression(newqf);
+        QueryFilterExpression qfe = query.getFilterExpression();
+        QueryFilterExpression endqfe = null;
 
-        List<Transaction> allTransactions = JPAUtils.queryEntities(em, Transaction.class, queryParameters);
+        if(qfe != null){
+            endqfe = new QueryFilterExpression(FilterExpressionOperation.AND, nqfe, qfe);
+        }else {
+            endqfe = nqfe;
+        }
 
+        query.setFilterExpression(endqfe);
+
+        List<Transaction> allTransactions = JPAUtils.queryEntities(em, Transaction.class, (p, cb, r) -> cb.and(p, cb.equal(r.get("userId"), userId)));
         return allTransactions.stream().map(TransactionDto::new).collect(Collectors.toList());
     }
 
-    @Transactional
-    private String getParameterString(UriInfo uriInfo) {
-        MultivaluedMap<String, String> paramMultiMap = uriInfo.getQueryParameters();
-        String paramString = paramMultiMap.entrySet().stream()
-                .flatMap(entry -> entry.getValue().stream().map(value -> entry.getKey() + "=" + value))
-                .collect(Collectors.joining("&"));
-        if (paramString.isEmpty()) {
-            paramString += "?";
-        }
-        else {
-            paramString += "&";
-        }
-
-        return paramString;
+    @Transactional(Transactional.TxType.REQUIRED)
+    public Long getTransactionCount(Integer userId, QueryParameters query){
+        Long count = JPAUtils.queryEntitiesCount(em, Transaction.class, (p, cb, r) -> cb.and(p, cb.equal(r.get("userId"), userId)));
+        return count;
     }
+
 
     @Transactional(Transactional.TxType.REQUIRED)
     public TransactionDto addTransactionByUser(Integer userId, TransactionDto transactionDto){

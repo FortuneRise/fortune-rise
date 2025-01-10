@@ -140,6 +140,7 @@ public class PromotionBean {
 
         boolean eligible = true;
         if (promotion instanceof ExtraMoneyPromotion extraMoneyPromotion) {
+
             eligible = transactionDto.getAmount().compareTo(extraMoneyPromotion.getAmount()) >= 0;
         }
 

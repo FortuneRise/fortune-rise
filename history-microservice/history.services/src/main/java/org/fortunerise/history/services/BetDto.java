@@ -46,6 +46,31 @@ public class BetDto {
     // Default constructor for JSON deserialization
     public BetDto() {}
 
+    public BetDto(Bet bet) {
+        this.betAmount = bet.getBetAmount();
+        if(bet instanceof StraightBet) {
+            this.type = BetType.STRAIGHT;
+        }else if(bet instanceof SplitBet) {
+            this.type = BetType.SPLIT;
+        }else if(bet instanceof StreetBet) {
+            this.type = BetType.STREET;
+        }else if(bet instanceof CornerBet) {
+            this.type = BetType.CORNER;
+        }else if(bet instanceof SixLineBet) {
+            this.type = BetType.SIX_LINE;
+        }else if(bet instanceof ColorBet) {
+            this.type = BetType.COLOR;
+        }else if(bet instanceof ParityBet) {
+            this.type = BetType.PARITY;
+        }else if(bet instanceof ColumnBet) {
+            this.type = BetType.COLUMN;
+        }else if(bet instanceof DozenBet) {
+            this.type = BetType.DOZEN;
+        }else if(bet instanceof HighLowBet) {
+            this.type = BetType.HIGH_LOW;
+        }
+    }
+
     public Bet convertToBet(Integer roll) {
         return switch (type) {
             case STRAIGHT -> new StraightBet(betAmount, roll, fields.get(0));

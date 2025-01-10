@@ -1,6 +1,9 @@
 <h3>Wallet</h3>
 
-<p>Your wallet has: {{wallet.balance}} USD</p>
+<div *ngIf="wallet">
+  <p>Your wallet has: {{wallet.balance}} USD</p>
+
+</div>
 
 
 <div *ngIf="transaction">
@@ -12,7 +15,12 @@
       </tr>
       <tr>
         <td><label for="currency">Currency</label></td>
-        <td><input [(ngModel)]="transaction.currency" id="currency" name="currency"></td>
+        <td>
+          <select [(ngModel)]="transaction.currency" id="currency" name="currency">
+            <option value="USD">USD</option>
+            <option value="EUR">EUR</option>
+          </select>
+        </td>
       </tr>
     </table>
 

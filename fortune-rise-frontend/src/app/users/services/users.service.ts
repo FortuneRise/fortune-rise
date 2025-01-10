@@ -28,6 +28,11 @@ export class UsersService {
     return  this.http.get<User>(newurl).pipe(catchError(this.handleError));
   }
 
+  getUserByUsername(username:string):Observable<User[]>{
+    const newurl = `${this.url}/?filter=userName:EQ:${username}`;
+    return this.http.get<User[]>(newurl).pipe(catchError(this.handleError));
+  }
+
   private handleError(error: any): Promise<any> {
     console.error('Prišlo je do napake', error);
     return Promise.reject(error.message || error);

@@ -1,0 +1,31 @@
+<h3>Notifications</h3>
+
+
+<div *ngIf="notifications.length > 0">
+  <table>
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Date</th>
+        <th>Content</th>
+      </tr>
+    </thead>
+    <tbody>
+     <tr *ngFor="let notification of notifications">
+       <th>{{notification.id}}</th>
+       <th>{{notification.date}}</th>
+       <th>{{notification.content}}</th>
+     </tr>
+    </tbody>
+  </table>
+
+  <div class="pagination-controls">
+    <button [disabled]="currentPage === 1" (click)="changePage(currentPage - 1)">Previous</button>
+    <span>Page {{ currentPage }} of {{ Math.ceil(totalNotifications / limit) }}</span>
+    <button [disabled]="currentPage === Math.ceil(totalNotifications / limit)" (click)="changePage(currentPage + 1)">Next</button>
+  </div>
+</div>
+
+<div *ngIf="notifications.length === 0">
+  <p>No data available.</p>
+</div>

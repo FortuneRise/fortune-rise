@@ -4,12 +4,25 @@
   <form (ngSubmit)="submitBetForm()">
     <table>
       <tr>
-        <td><label for="type">Type</label></td>
-        <td><input [(ngModel)]="currentBet.type" id="type" name="type"></td>
-      </tr>
-      <tr>
         <td><label for="betAmount">Amount</label></td>
         <td><input [(ngModel)]="currentBet.betAmount" id="betAmount" name="betAmount"></td>
+      </tr>
+      <tr>
+        <td><label for="type">Type</label></td>
+        <td>
+        <select [(ngModel)]="currentBet.type" id="type" name="type">
+              <option value="STRAIGHT">STRAIGHT</option>
+              <option value="SPLIT">SPLIT</option>
+              <option value="STREET">STREET</option>
+              <option value="CORNER">CORNER</option>
+              <option value="SIX_LINE">SIX_LINE</option>
+              <option value="COLOR">COLOR</option>
+              <option value="PARITY">PARITY</option>
+              <option value="COLUMN">COLUMN</option>
+              <option value="DOZEN">DOZEN</option>
+              <option value="HIGH_LOW">HIGH_LOW</option>
+            </select>
+        </td>
       </tr>
       <tr>
         <td><label for="tempField">List of bets</label></td>

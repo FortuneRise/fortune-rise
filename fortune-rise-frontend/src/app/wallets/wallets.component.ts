@@ -20,7 +20,7 @@ import {NgIf} from '@angular/common';
 export class WalletsComponent implements OnInit{
   wallet!: Wallet;
   transaction: Transaction = new Transaction()
-  userId!: number;
+  userId: number  = +(sessionStorage.getItem("username")?? 0);
 
   constructor(private walletService: WalletService,
               private router: Router,
@@ -28,7 +28,6 @@ export class WalletsComponent implements OnInit{
   }
 
   ngOnInit() {
-    this.route.params.subscribe(params => {this.userId = +params['userId']});
     this.getWallet()
   }
 

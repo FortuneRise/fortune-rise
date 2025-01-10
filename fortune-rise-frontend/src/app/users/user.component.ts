@@ -12,7 +12,7 @@ import {NgIf} from '@angular/common';
 })
 export class UserComponent implements OnInit{
   user! : User;
-  userId!: number;
+  userId: number = +(sessionStorage.getItem("username")?? 0);
 
   constructor(private userService: UsersService,
               private router: Router,
@@ -20,7 +20,7 @@ export class UserComponent implements OnInit{
   }
 
   ngOnInit() {
-    this.route.params.subscribe(params => {this.userId = +params['id']});
+    //this.route.params.subscribe(params => {this.userId = +params['id']});
     this.getUser();
   }
 

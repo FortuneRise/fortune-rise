@@ -21,7 +21,25 @@ export class GamesComponent implements OnInit{
   currentBets: Bet[] = []
   currentBet: Bet = new Bet()
   tempField!: string
-  userId!:number
+  userId:number  = +(sessionStorage.getItem("username")?? 0);
+
+  betTypes: string[] = ['STRAIGHT','SPLIT','STREET','CORNER','SIX_LINE','COLOR','PARITY','COLUMN','DOZEN','HIGH_LOW'];
+  values: string[] = [];
+  selectedType: string = '';
+  selectedValue: string = '';
+
+  betTypeToValue = {
+    STRAIGHT: ['0','1','2','3','4','5','6','7','8','9','10', '11','12','13','14','15','16','17','18','19','20','21','22','23','24','25','26','27','28','29','30','31','32','33','34','35','36'],
+    SPLIT: ['Delhi', 'Mumbai', 'Bangalore'],
+    STREET: ['1,2,3', '4,5,6', '7,8,9','10,11,12','13,14,15','16,17,18','19,20,21','22,23,24','25,26,27','28,29,30','31,32,33','34,35,36'],
+    CORNER: ['Toronto', 'Vancouver', 'Montreal'],
+    SIX_LINE: ['Toronto', 'Vancouver', 'Montreal'],
+    COLOR: ['Red', 'Black'],
+    PARITY: ['Odd', 'Even'],
+    COLUMN: ['Column 1', 'Column 2', 'Column 3'],
+    DOZEN: ['1-12', '13-24', '25-36'],
+    HIGH_LOW: ['1-18', '19-36']
+  };
 
   constructor(private gameService: GamesService,
               private router: Router,
@@ -29,8 +47,12 @@ export class GamesComponent implements OnInit{
   }
 
   ngOnInit() {
-    this.route.params.subscribe(params => {this.userId = +params['userId']});
   }
+
+  isValidKey(key: string): key is keyof typeof this.betTypeToValue {
+    return key in this.betTypeToValue;
+  }
+  
 
   submitBetForm(){
     this.currentBet.fields = this.tempField.split(',')
