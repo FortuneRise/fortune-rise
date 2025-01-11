@@ -5,72 +5,186 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="79f18f5f-1c17-4232-8daa-509782a9b6e5" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/fortune-rise-frontend/src/app/history/gamehistory.component.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/fortune-rise-frontend/src/app/history/gamehistory.component.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/fortune-rise-frontend/src/app/history/services/history.service.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/fortune-rise-frontend/src/app/history/transactionhistory.component.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/fortune-rise-frontend/src/app/history/transactionhistory.component.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/fortune-rise-frontend/src/app/notifications/models/notification.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/fortune-rise-frontend/src/app/notifications/services/notification.service.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/history-microservice/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/history-microservice/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/history-microservice/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/history-microservice/.idea/jarRepositories.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/history-microservice/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/history-microservice/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/notification-microservice/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/notification-microservice/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/notification-microservice/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/notification-microservice/.idea/jarRepositories.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/notification-microservice/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/notification-microservice/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fortune-rise-frontend/src/app/app.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/fortune-rise-frontend/src/app/app.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fortune-rise-frontend/src/app/app.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/fortune-rise-frontend/src/app/app.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fortune-rise-frontend/src/app/app.routes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/fortune-rise-frontend/src/app/app.routes.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fortune-rise-frontend/src/app/games/games.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/fortune-rise-frontend/src/app/games/games.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fortune-rise-frontend/src/app/games/games.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/fortune-rise-frontend/src/app/games/games.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fortune-rise-frontend/src/app/users/adduser.component.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fortune-rise-frontend/src/app/users/adduser.component.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fortune-rise-frontend/src/app/users/services/users.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/fortune-rise-frontend/src/app/users/services/users.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fortune-rise-frontend/src/app/users/user.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/fortune-rise-frontend/src/app/users/user.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fortune-rise-frontend/src/app/users/user.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/fortune-rise-frontend/src/app/users/user.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fortune-rise-frontend/src/app/wallets/wallets.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/fortune-rise-frontend/src/app/wallets/wallets.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fortune-rise-frontend/src/app/wallets/wallets.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/fortune-rise-frontend/src/app/wallets/wallets.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/history-microservice/history.api/src/main/java/org/fortunerise/history/api/v1/resources/HistoryResource.java" beforeDir="false" afterPath="$PROJECT_DIR$/history-microservice/history.api/src/main/java/org/fortunerise/history/api/v1/resources/HistoryResource.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/history-microservice/history.api/src/main/resources/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/history-microservice/history.api/src/main/resources/config.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/history-microservice/history.api/target/classes/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/history-microservice/history.api/target/classes/config.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/history-microservice/history.api/target/classes/lib/history.entities-1.0.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/history-microservice/history.api/target/classes/lib/history.entities-1.0.0-SNAPSHOT.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/history-microservice/history.api/target/classes/lib/history.services-1.0.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/history-microservice/history.api/target/classes/lib/history.services-1.0.0-SNAPSHOT.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/history-microservice/history.api/target/classes/org/fortunerise/history/api/v1/resources/HistoryResource.class" beforeDir="false" afterPath="$PROJECT_DIR$/history-microservice/history.api/target/classes/org/fortunerise/history/api/v1/resources/HistoryResource.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/history-microservice/history.api/target/history.api-1.0.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/history-microservice/history.api/target/history.api-1.0.0-SNAPSHOT.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/history-microservice/history.api/target/history.api-1.0.0-SNAPSHOT.jar.original" beforeDir="false" afterPath="$PROJECT_DIR$/history-microservice/history.api/target/history.api-1.0.0-SNAPSHOT.jar.original" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/history-microservice/history.entities/target/history.entities-1.0.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/history-microservice/history.entities/target/history.entities-1.0.0-SNAPSHOT.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/history-microservice/history.entities/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/history-microservice/history.entities/target/maven-archiver/pom.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/history-microservice/history.services/src/main/java/org/fortunerise/history/services/BetDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/history-microservice/history.services/src/main/java/org/fortunerise/history/services/BetDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/history-microservice/history.services/src/main/java/org/fortunerise/history/services/HistoryBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/history-microservice/history.services/src/main/java/org/fortunerise/history/services/HistoryBean.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/history-microservice/history.services/target/classes/org/fortunerise/history/services/BetDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/history-microservice/history.services/target/classes/org/fortunerise/history/services/BetDto.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/history-microservice/history.services/target/classes/org/fortunerise/history/services/HistoryBean.class" beforeDir="false" afterPath="$PROJECT_DIR$/history-microservice/history.services/target/classes/org/fortunerise/history/services/HistoryBean.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/history-microservice/history.services/target/history.services-1.0.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/history-microservice/history.services/target/history.services-1.0.0-SNAPSHOT.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/history-microservice/history.services/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/history-microservice/history.services/target/maven-archiver/pom.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notification-microservice/notification.api/src/main/java/org/fortunerise/notification/api/v1/resources/NotificationsResource.java" beforeDir="false" afterPath="$PROJECT_DIR$/notification-microservice/notification.api/src/main/java/org/fortunerise/notification/api/v1/resources/NotificationsResource.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notification-microservice/notification.api/src/main/resources/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/notification-microservice/notification.api/src/main/resources/config.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notification-microservice/notification.api/target/classes/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/notification-microservice/notification.api/target/classes/config.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notification-microservice/notification.api/target/classes/lib/notification.entities-1.0.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/notification-microservice/notification.api/target/classes/lib/notification.entities-1.0.0-SNAPSHOT.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notification-microservice/notification.api/target/classes/lib/notification.services-1.0.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/notification-microservice/notification.api/target/classes/lib/notification.services-1.0.0-SNAPSHOT.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notification-microservice/notification.api/target/classes/org/fortunerise/notification/api/v1/resources/NotificationsResource.class" beforeDir="false" afterPath="$PROJECT_DIR$/notification-microservice/notification.api/target/classes/org/fortunerise/notification/api/v1/resources/NotificationsResource.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notification-microservice/notification.api/target/notification.api-1.0.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/notification-microservice/notification.api/target/notification.api-1.0.0-SNAPSHOT.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notification-microservice/notification.api/target/notification.api-1.0.0-SNAPSHOT.jar.original" beforeDir="false" afterPath="$PROJECT_DIR$/notification-microservice/notification.api/target/notification.api-1.0.0-SNAPSHOT.jar.original" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notification-microservice/notification.entities/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/notification-microservice/notification.entities/target/maven-archiver/pom.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notification-microservice/notification.entities/target/notification.entities-1.0.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/notification-microservice/notification.entities/target/notification.entities-1.0.0-SNAPSHOT.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notification-microservice/notification.services/src/main/java/org/fortunerise/notification/services/NotificationBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/notification-microservice/notification.services/src/main/java/org/fortunerise/notification/services/NotificationBean.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notification-microservice/notification.services/target/classes/org/fortunerise/notification/services/NotificationBean.class" beforeDir="false" afterPath="$PROJECT_DIR$/notification-microservice/notification.services/target/classes/org/fortunerise/notification/services/NotificationBean.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notification-microservice/notification.services/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/notification-microservice/notification.services/target/maven-archiver/pom.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notification-microservice/notification.services/target/notification.services-1.0.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/notification-microservice/notification.services/target/notification.services-1.0.0-SNAPSHOT.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/promotion-microservice/promotion.services/src/main/java/org/fortunerise/promotion/services/PromotionBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/promotion-microservice/promotion.services/src/main/java/org/fortunerise/promotion/services/PromotionBean.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortune-rise-v2/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortune-rise-v2/user-microservice/user.api/target/classes/META-INF/beans.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortune-rise-v2/user-microservice/user.api/target/classes/META-INF/kumuluzee/boot-loader.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortune-rise-v2/user-microservice/user.api/target/classes/com/kumuluz/ee/loader/EeBootLoader.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortune-rise-v2/user-microservice/user.api/target/classes/com/kumuluz/ee/loader/EeClassLoader.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortune-rise-v2/user-microservice/user.api/target/classes/com/kumuluz/ee/loader/exception/EeClassLoaderException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortune-rise-v2/user-microservice/user.api/target/classes/com/kumuluz/ee/loader/jar/FileInfo.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortune-rise-v2/user-microservice/user.api/target/classes/com/kumuluz/ee/loader/jar/JarEntryInfo.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortune-rise-v2/user-microservice/user.api/target/classes/com/kumuluz/ee/loader/jar/JarFileInfo.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortune-rise-v2/user-microservice/user.api/target/classes/config.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortune-rise-v2/user-microservice/user.api/target/classes/lib/HikariCP-3.4.5.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortune-rise-v2/user-microservice/user.api/target/classes/lib/activation-1.1.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortune-rise-v2/user-microservice/user.api/target/classes/lib/agroal-api-1.9.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortune-rise-v2/user-microservice/user.api/target/classes/lib/agroal-hikari-1.9.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortune-rise-v2/user-microservice/user.api/target/classes/lib/agroal-narayana-1.9.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortune-rise-v2/user-microservice/user.api/target/classes/lib/agroal-pool-1.9.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortune-rise-v2/user-microservice/user.api/target/classes/lib/aopalliance-repackaged-2.6.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortune-rise-v2/user-microservice/user.api/target/classes/lib/asm-9.2.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortune-rise-v2/user-microservice/user.api/target/classes/lib/asm-analysis-7.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortune-rise-v2/user-microservice/user.api/target/classes/lib/asm-commons-9.2.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortune-rise-v2/user-microservice/user.api/target/classes/lib/asm-tree-7.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortune-rise-v2/user-microservice/user.api/target/classes/lib/asm-util-7.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortune-rise-v2/user-microservice/user.api/target/classes/lib/cdi-api-2.0.SP1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortune-rise-v2/user-microservice/user.api/target/classes/lib/checker-qual-3.5.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortune-rise-v2/user-microservice/user.api/target/classes/lib/classgraph-4.8.90.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortune-rise-v2/user-microservice/user.api/target/classes/lib/cors-filter-2.9.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortune-rise-v2/user-microservice/user.api/target/classes/lib/dotenv-java-3.0.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortune-rise-v2/user-microservice/user.api/target/classes/lib/hk2-api-2.6.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortune-rise-v2/user-microservice/user.api/target/classes/lib/hk2-locator-2.6.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortune-rise-v2/user-microservice/user.api/target/classes/lib/hk2-utils-2.6.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortune-rise-v2/user-microservice/user.api/target/classes/lib/http2-client-10.0.9.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortune-rise-v2/user-microservice/user.api/target/classes/lib/http2-common-10.0.9.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortune-rise-v2/user-microservice/user.api/target/classes/lib/http2-hpack-10.0.9.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortune-rise-v2/user-microservice/user.api/target/classes/lib/http2-http-client-transport-10.0.9.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortune-rise-v2/user-microservice/user.api/target/classes/lib/http2-server-10.0.9.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortune-rise-v2/user-microservice/user.api/target/classes/lib/jackson-annotations-2.12.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortune-rise-v2/user-microservice/user.api/target/classes/lib/jackson-core-2.12.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortune-rise-v2/user-microservice/user.api/target/classes/lib/jackson-databind-2.12.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortune-rise-v2/user-microservice/user.api/target/classes/lib/jackson-dataformat-yaml-2.12.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortune-rise-v2/user-microservice/user.api/target/classes/lib/jackson-datatype-jdk8-2.12.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortune-rise-v2/user-microservice/user.api/target/classes/lib/jackson-jaxrs-base-2.12.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortune-rise-v2/user-microservice/user.api/target/classes/lib/jackson-jaxrs-json-provider-2.12.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortune-rise-v2/user-microservice/user.api/target/classes/lib/jackson-module-jaxb-annotations-2.12.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortune-rise-v2/user-microservice/user.api/target/classes/lib/jakarta.activation-api-1.2.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortune-rise-v2/user-microservice/user.api/target/classes/lib/jakarta.annotation-api-1.3.5.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortune-rise-v2/user-microservice/user.api/target/classes/lib/jakarta.el-api-3.0.3.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortune-rise-v2/user-microservice/user.api/target/classes/lib/jakarta.enterprise.cdi-api-2.0.2.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortune-rise-v2/user-microservice/user.api/target/classes/lib/jakarta.inject-2.6.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortune-rise-v2/user-microservice/user.api/target/classes/lib/jakarta.inject-api-1.0.3.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortune-rise-v2/user-microservice/user.api/target/classes/lib/jakarta.interceptor-api-1.2.5.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortune-rise-v2/user-microservice/user.api/target/classes/lib/jakarta.persistence-2.2.3.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortune-rise-v2/user-microservice/user.api/target/classes/lib/jakarta.persistence-api-2.2.3.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortune-rise-v2/user-microservice/user.api/target/classes/lib/jakarta.resource-api-1.7.4.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortune-rise-v2/user-microservice/user.api/target/classes/lib/jakarta.servlet-api-4.0.4.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortune-rise-v2/user-microservice/user.api/target/classes/lib/jakarta.transaction-api-1.3.3.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortune-rise-v2/user-microservice/user.api/target/classes/lib/jakarta.validation-api-2.0.2.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortune-rise-v2/user-microservice/user.api/target/classes/lib/jakarta.ws.rs-api-2.1.6.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortune-rise-v2/user-microservice/user.api/target/classes/lib/jakarta.xml.bind-api-2.3.2.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortune-rise-v2/user-microservice/user.api/target/classes/lib/jandex-2.4.2.Final.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortune-rise-v2/user-microservice/user.api/target/classes/lib/java-property-utils-1.13.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortune-rise-v2/user-microservice/user.api/target/classes/lib/javassist-3.27.0-GA.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortune-rise-v2/user-microservice/user.api/target/classes/lib/javax.activation-api-1.2.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortune-rise-v2/user-microservice/user.api/target/classes/lib/javax.inject-1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortune-rise-v2/user-microservice/user.api/target/classes/lib/javax.interceptor-api-1.2.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortune-rise-v2/user-microservice/user.api/target/classes/lib/jaxb-api-2.3.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortune-rise-v2/user-microservice/user.api/target/classes/lib/jboss-classfilewriter-1.2.5.Final.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortune-rise-v2/user-microservice/user.api/target/classes/lib/jboss-logging-3.3.2.Final.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortune-rise-v2/user-microservice/user.api/target/classes/lib/jboss-transaction-spi-7.6.0.Final.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortune-rise-v2/user-microservice/user.api/target/classes/lib/jersey-cdi1x-2.34.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortune-rise-v2/user-microservice/user.api/target/classes/lib/jersey-cdi1x-ban-custom-hk2-binding-2.34.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortune-rise-v2/user-microservice/user.api/target/classes/lib/jersey-cdi1x-servlet-2.34.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortune-rise-v2/user-microservice/user.api/target/classes/lib/jersey-client-2.34.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortune-rise-v2/user-microservice/user.api/target/classes/lib/jersey-common-2.34.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortune-rise-v2/user-microservice/user.api/target/classes/lib/jersey-container-servlet-2.34.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortune-rise-v2/user-microservice/user.api/target/classes/lib/jersey-container-servlet-core-2.34.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortune-rise-v2/user-microservice/user.api/target/classes/lib/jersey-entity-filtering-2.34.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortune-rise-v2/user-microservice/user.api/target/classes/lib/jersey-hk2-2.34.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortune-rise-v2/user-microservice/user.api/target/classes/lib/jersey-jetty-connector-2.34.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortune-rise-v2/user-microservice/user.api/target/classes/lib/jersey-media-json-jackson-2.34.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortune-rise-v2/user-microservice/user.api/target/classes/lib/jersey-media-sse-2.34.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortune-rise-v2/user-microservice/user.api/target/classes/lib/jersey-server-2.34.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortune-rise-v2/user-microservice/user.api/target/classes/lib/jetty-alpn-client-10.0.9.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortune-rise-v2/user-microservice/user.api/target/classes/lib/jetty-alpn-java-client-10.0.9.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortune-rise-v2/user-microservice/user.api/target/classes/lib/jetty-alpn-java-server-10.0.9.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortune-rise-v2/user-microservice/user.api/target/classes/lib/jetty-alpn-server-10.0.9.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortune-rise-v2/user-microservice/user.api/target/classes/lib/jetty-annotations-10.0.9.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortune-rise-v2/user-microservice/user.api/target/classes/lib/jetty-client-10.0.9.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortune-rise-v2/user-microservice/user.api/target/classes/lib/jetty-http-10.0.9.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortune-rise-v2/user-microservice/user.api/target/classes/lib/jetty-io-10.0.9.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortune-rise-v2/user-microservice/user.api/target/classes/lib/jetty-jndi-10.0.9.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortune-rise-v2/user-microservice/user.api/target/classes/lib/jetty-plus-10.0.9.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortune-rise-v2/user-microservice/user.api/target/classes/lib/jetty-security-10.0.9.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortune-rise-v2/user-microservice/user.api/target/classes/lib/jetty-server-10.0.9.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortune-rise-v2/user-microservice/user.api/target/classes/lib/jetty-servlet-10.0.9.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortune-rise-v2/user-microservice/user.api/target/classes/lib/jetty-servlet-api-4.0.6.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortune-rise-v2/user-microservice/user.api/target/classes/lib/jetty-util-10.0.9.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortune-rise-v2/user-microservice/user.api/target/classes/lib/jetty-webapp-10.0.9.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortune-rise-v2/user-microservice/user.api/target/classes/lib/jetty-xml-10.0.9.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortune-rise-v2/user-microservice/user.api/target/classes/lib/kumuluzee-cdi-weld-4.1.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortune-rise-v2/user-microservice/user.api/target/classes/lib/kumuluzee-common-4.1.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortune-rise-v2/user-microservice/user.api/target/classes/lib/kumuluzee-config-mp-2.0.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortune-rise-v2/user-microservice/user.api/target/classes/lib/kumuluzee-core-4.1.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortune-rise-v2/user-microservice/user.api/target/classes/lib/kumuluzee-cors-2.0.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortune-rise-v2/user-microservice/user.api/target/classes/lib/kumuluzee-health-2.4.4.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortune-rise-v2/user-microservice/user.api/target/classes/lib/kumuluzee-jax-rs-jersey-4.1.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortune-rise-v2/user-microservice/user.api/target/classes/lib/kumuluzee-jpa-common-4.1.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortune-rise-v2/user-microservice/user.api/target/classes/lib/kumuluzee-jpa-eclipselink-4.1.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortune-rise-v2/user-microservice/user.api/target/classes/lib/kumuluzee-jta-common-4.1.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortune-rise-v2/user-microservice/user.api/target/classes/lib/kumuluzee-jta-narayana-4.1.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortune-rise-v2/user-microservice/user.api/target/classes/lib/kumuluzee-openapi-mp-1.4.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortune-rise-v2/user-microservice/user.api/target/classes/lib/kumuluzee-openapi-mp-common-1.4.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortune-rise-v2/user-microservice/user.api/target/classes/lib/kumuluzee-openapi-mp-ui-1.4.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortune-rise-v2/user-microservice/user.api/target/classes/lib/kumuluzee-rest-core-1.5.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortune-rise-v2/user-microservice/user.api/target/classes/lib/kumuluzee-servlet-jetty-4.1.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortune-rise-v2/user-microservice/user.api/target/classes/lib/microprofile-config-api-2.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortune-rise-v2/user-microservice/user.api/target/classes/lib/microprofile-health-api-2.2.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortune-rise-v2/user-microservice/user.api/target/classes/lib/microprofile-openapi-api-1.1.2.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortune-rise-v2/user-microservice/user.api/target/classes/lib/narayana-jta-5.10.6.Final.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortune-rise-v2/user-microservice/user.api/target/classes/lib/org.eclipse.persistence.antlr-2.7.10.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortune-rise-v2/user-microservice/user.api/target/classes/lib/org.eclipse.persistence.asm-9.2.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortune-rise-v2/user-microservice/user.api/target/classes/lib/org.eclipse.persistence.core-2.7.10.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortune-rise-v2/user-microservice/user.api/target/classes/lib/org.eclipse.persistence.jpa-2.7.10.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortune-rise-v2/user-microservice/user.api/target/classes/lib/org.eclipse.persistence.jpa.jpql-2.7.10.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortune-rise-v2/user-microservice/user.api/target/classes/lib/org.osgi.annotation.versioning-1.0.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortune-rise-v2/user-microservice/user.api/target/classes/lib/osgi-resource-locator-1.0.3.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortune-rise-v2/user-microservice/user.api/target/classes/lib/parboiled-core-1.3.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortune-rise-v2/user-microservice/user.api/target/classes/lib/parboiled-java-1.3.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortune-rise-v2/user-microservice/user.api/target/classes/lib/postgresql-42.5.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortune-rise-v2/user-microservice/user.api/target/classes/lib/slf4j-api-2.0.0-alpha6.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortune-rise-v2/user-microservice/user.api/target/classes/lib/slf4j-jdk14-2.0.0-alpha6.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortune-rise-v2/user-microservice/user.api/target/classes/lib/smallrye-open-api-core-2.0.14.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortune-rise-v2/user-microservice/user.api/target/classes/lib/smallrye-open-api-jaxrs-2.0.14.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortune-rise-v2/user-microservice/user.api/target/classes/lib/snakeyaml-1.27.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortune-rise-v2/user-microservice/user.api/target/classes/lib/user.entities-1.0.0-SNAPSHOT.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortune-rise-v2/user-microservice/user.api/target/classes/lib/user.services-1.0.0-SNAPSHOT.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortune-rise-v2/user-microservice/user.api/target/classes/lib/weld-api-3.1.SP4.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortune-rise-v2/user-microservice/user.api/target/classes/lib/weld-core-impl-3.1.8.Final.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortune-rise-v2/user-microservice/user.api/target/classes/lib/weld-environment-common-3.1.8.Final.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortune-rise-v2/user-microservice/user.api/target/classes/lib/weld-jsf-3.1.8.Final.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortune-rise-v2/user-microservice/user.api/target/classes/lib/weld-jta-3.1.8.Final.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortune-rise-v2/user-microservice/user.api/target/classes/lib/weld-probe-core-3.1.8.Final.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortune-rise-v2/user-microservice/user.api/target/classes/lib/weld-servlet-core-3.1.8.Final.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortune-rise-v2/user-microservice/user.api/target/classes/lib/weld-spi-3.1.SP4.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortune-rise-v2/user-microservice/user.api/target/classes/lib/weld-web-3.1.8.Final.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortune-rise-v2/user-microservice/user.api/target/classes/org/fortunerise/user/api/UserApp.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortune-rise-v2/user-microservice/user.api/target/classes/org/fortunerise/user/api/v1/resources/UsersResource.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortune-rise-v2/user-microservice/user.api/target/maven-archiver/pom.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortune-rise-v2/user-microservice/user.api/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortune-rise-v2/user-microservice/user.api/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortune-rise-v2/user-microservice/user.api/target/user.api-1.0.0-SNAPSHOT.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortune-rise-v2/user-microservice/user.api/target/user.api-1.0.0-SNAPSHOT.jar.original" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortune-rise-v2/user-microservice/user.entities/target/classes/META-INF/persistence.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortune-rise-v2/user-microservice/user.entities/target/classes/org/fortunerise/user/entities/User.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortune-rise-v2/user-microservice/user.entities/target/classes/sql-scripts/init-db.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortune-rise-v2/user-microservice/user.entities/target/maven-archiver/pom.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortune-rise-v2/user-microservice/user.entities/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortune-rise-v2/user-microservice/user.entities/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortune-rise-v2/user-microservice/user.entities/target/user.entities-1.0.0-SNAPSHOT.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortune-rise-v2/user-microservice/user.services/target/classes/META-INF/beans.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortune-rise-v2/user-microservice/user.services/target/classes/org/fortunerise/user/services/UserBean.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortune-rise-v2/user-microservice/user.services/target/classes/org/fortunerise/user/services/UserDto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortune-rise-v2/user-microservice/user.services/target/maven-archiver/pom.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortune-rise-v2/user-microservice/user.services/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortune-rise-v2/user-microservice/user.services/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortune-rise-v2/user-microservice/user.services/target/user.services-1.0.0-SNAPSHOT.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/game-microservice/game.entities/src/main/resources/META-INF/persistence.xml" beforeDir="false" afterPath="$PROJECT_DIR$/game-microservice/game.entities/src/main/resources/META-INF/persistence.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game-microservice/game.entities/target/classes/META-INF/persistence.xml" beforeDir="false" afterPath="$PROJECT_DIR$/game-microservice/game.entities/target/classes/META-INF/persistence.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/history-microservice/history.entities/src/main/resources/META-INF/persistence.xml" beforeDir="false" afterPath="$PROJECT_DIR$/history-microservice/history.entities/src/main/resources/META-INF/persistence.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/history-microservice/history.entities/target/classes/META-INF/persistence.xml" beforeDir="false" afterPath="$PROJECT_DIR$/history-microservice/history.entities/target/classes/META-INF/persistence.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/notification-microservice/notification.entities/src/main/resources/META-INF/persistence.xml" beforeDir="false" afterPath="$PROJECT_DIR$/notification-microservice/notification.entities/src/main/resources/META-INF/persistence.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/notification-microservice/notification.entities/target/classes/META-INF/persistence.xml" beforeDir="false" afterPath="$PROJECT_DIR$/notification-microservice/notification.entities/target/classes/META-INF/persistence.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/promotion-microservice/promotion.entities/src/main/resources/META-INF/persistence.xml" beforeDir="false" afterPath="$PROJECT_DIR$/promotion-microservice/promotion.entities/src/main/resources/META-INF/persistence.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/promotion-microservice/promotion.entities/target/classes/META-INF/persistence.xml" beforeDir="false" afterPath="$PROJECT_DIR$/promotion-microservice/promotion.entities/target/classes/META-INF/persistence.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-microservice/user.entities/src/main/resources/META-INF/persistence.xml" beforeDir="false" afterPath="$PROJECT_DIR$/user-microservice/user.entities/src/main/resources/META-INF/persistence.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wallet-microservice/wallet.entities/src/main/resources/META-INF/persistence.xml" beforeDir="false" afterPath="$PROJECT_DIR$/wallet-microservice/wallet.entities/src/main/resources/META-INF/persistence.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wallet-microservice/wallet.entities/target/classes/META-INF/persistence.xml" beforeDir="false" afterPath="$PROJECT_DIR$/wallet-microservice/wallet.entities/target/classes/META-INF/persistence.xml" afterDir="false" />
     </list>
-    <list id="142b4e9b-e41e-42ae-af0b-6b596d1abc0b" name="Changes by jan" comment="" />
     <list id="bc662434-0975-48b2-b46a-6b00f48df91e" name="Changes by Jan" comment="" />
+    <list id="142b4e9b-e41e-42ae-af0b-6b596d1abc0b" name="Changes by jan" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -122,7 +236,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "frontend",
+    "git-widget-placeholder": "main",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "/home/jan/Faks/PRPO/fortune-rise/fortune-rise/notification-microservice",
@@ -194,6 +308,11 @@
   </component>
   <component name="UnknownFeatures">
     <option featureType="com.intellij.fileTypeFactory" implementationName=".env" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <ignored-roots>
+      <path value="$PROJECT_DIR$/.." />
+    </ignored-roots>
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
