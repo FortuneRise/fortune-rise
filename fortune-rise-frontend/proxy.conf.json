@@ -8,49 +8,44 @@
     }
   },
   "/wallet-proxy": {
-    "target": "wallet.default.svc.cluster.local",
+    "target": "http://wallet.default.svc.cluster.local",
     "secure": false,
     "logLevel": "debug",
     "pathRewrite": {
       "^/wallet-proxy": ""
     },
-    "changeOrigin" : true
   },
   "/game-proxy": {
-    "target": "game.default.svc.cluster.local",
+    "target": "http://game.default.svc.cluster.local",
     "secure": false,
     "logLevel": "debug",
     "pathRewrite": {
       "^/game-proxy": ""
-    },
-    "changeOrigin" : true
+    }
   },
   "/notification-proxy": {
-    "target": "notification.default.svc.cluster.local",
+    "target": "http://notification.default.svc.cluster.local",
     "secure": false,
     "logLevel": "debug",
     "pathRewrite": {
       "^/notification-proxy": ""
-    },
-    "changeOrigin" : true
+    }
   },
   "/promotion-proxy": {
-    "target": "promotion.default.svc.cluster.local",
+    "target": "http://promotion.default.svc.cluster.local",
     "secure": false,
+    "logLevel": "debug",
     "pathRewrite": {
       "^/promotion-proxy": ""
-    },
-    "logLevel": "debug",
-    "changeOrigin" : true
+    }
   },
   "/history-proxy": {
-    "target": "history.default.svc.cluster.local",
+    "target": "http://history.default.svc.cluster.local",
     "secure": false,
     "logLevel": "debug",
     "pathRewrite": {
       "^/history-proxy": ""
-    },
-    "changeOrigin" : true
+    }
   }
 }
 
