@@ -5,6 +5,11 @@ import com.kumuluz.ee.rest.beans.QueryParameters;
 import com.kumuluz.ee.rest.utils.JPAUtils;
 import org.fortunerise.notification.entities.Notification;
 
+import com.kumuluz.ee.rest.beans.QueryFilter;
+import com.kumuluz.ee.rest.beans.QueryFilterExpression;
+import com.kumuluz.ee.rest.beans.QueryParameters;
+import com.kumuluz.ee.rest.enums.FilterExpressionOperation;
+import com.kumuluz.ee.rest.enums.FilterOperation;
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 import javax.enterprise.context.ApplicationScoped;
@@ -41,32 +46,32 @@ public class NotificationBean {
         // zapiranje virov
     }
 
-    @Transactional
-    private String getParameterString(UriInfo uriInfo) {
-        MultivaluedMap<String, String> paramMultiMap = uriInfo.getQueryParameters();
-        String paramString = paramMultiMap.entrySet().stream()
-                .flatMap(entry -> entry.getValue().stream().map(value -> entry.getKey() + "=" + value))
-                .collect(Collectors.joining("&"));
-        if (paramString.isEmpty()) {
-            paramString += "?";
-        }
-        else {
-            paramString += "&";
-        }
-
-        return paramString;
-    }
 
     @Transactional(Transactional.TxType.REQUIRED)
-    public List<NotificationDto> getAllNotificationsByUserId(Integer userId, UriInfo uriInfo){
-        String paramString = getParameterString(uriInfo);
-        paramString += "userId=" + userId;
-        QueryParameters queryParameters = QueryParameters.query(paramString).build();
-        List<Notification> notifications = JPAUtils.queryEntities(em, Notification.class, queryParameters);
+    public List<NotificationDto> getAllNotificationsByUserId(Integer userId, QueryParameters query){
 
+        QueryFilter newqf = new QueryFilter("userId", FilterOperation.EQ,userId.toString());
+        QueryFilterExpression nqfe = new QueryFilterExpression(newqf);
+        QueryFilterExpression qfe = query.getFilterExpression();
+        QueryFilterExpression endqfe = null;
+
+        if(qfe != null){
+            endqfe = new QueryFilterExpression(FilterExpressionOperation.AND, nqfe, qfe);
+        }else {
+            endqfe = nqfe;
+        }
+
+        query.setFilterExpression(endqfe);
+
+        List<Notification> notifications = JPAUtils.queryEntities(em, Notification.class, query);
         return notifications.stream().map(NotificationDto::new).collect(java.util.stream.Collectors.toList());
     }
 
+    @Transactional(Transactional.TxType.REQUIRED)
+    public Long getNotificationCount(Integer userId, QueryParameters query){
+        Long count = JPAUtils.queryEntitiesCount(em, Notification.class, (p, cb, r) -> cb.and(p, cb.equal(r.get("userId"), userId)));
+        return count;
+    }
     @Transactional(Transactional.TxType.REQUIRED)
     public NotificationDto readNotificationDto(Integer notificationId, Integer userId){
         return new NotificationDto(readNotification(notificationId, userId));

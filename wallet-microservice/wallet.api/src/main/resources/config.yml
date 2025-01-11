@@ -12,6 +12,13 @@ kumuluzee:
      username: ${DATABASE_USERNAME}
      password: ${DATABASE_PASSWORD}
      max-pool-size: 20
+  cors-filter:
+    servlet:
+      enabled: true
+      allow-generic-http-requests: true
+      allow-origin: "*"
+      allow-subdomains: true
+      supported-methods: "GET, POST, HEAD, OPTIONS, PUT"
   health:
     - checks:
         data-source-health-check:

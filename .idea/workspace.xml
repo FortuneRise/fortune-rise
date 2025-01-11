@@ -5,7 +5,69 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="79f18f5f-1c17-4232-8daa-509782a9b6e5" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/fortune-rise-frontend/src/app/history/gamehistory.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fortune-rise-frontend/src/app/history/gamehistory.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fortune-rise-frontend/src/app/history/services/history.service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fortune-rise-frontend/src/app/history/transactionhistory.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fortune-rise-frontend/src/app/history/transactionhistory.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fortune-rise-frontend/src/app/notifications/models/notification.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fortune-rise-frontend/src/app/notifications/services/notification.service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/history-microservice/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/history-microservice/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/history-microservice/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/history-microservice/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/history-microservice/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/history-microservice/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notification-microservice/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notification-microservice/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notification-microservice/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notification-microservice/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notification-microservice/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notification-microservice/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortune-rise-frontend/src/app/app.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/fortune-rise-frontend/src/app/app.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortune-rise-frontend/src/app/app.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/fortune-rise-frontend/src/app/app.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortune-rise-frontend/src/app/app.routes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/fortune-rise-frontend/src/app/app.routes.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortune-rise-frontend/src/app/games/games.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/fortune-rise-frontend/src/app/games/games.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortune-rise-frontend/src/app/games/games.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/fortune-rise-frontend/src/app/games/games.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortune-rise-frontend/src/app/users/adduser.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortune-rise-frontend/src/app/users/adduser.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortune-rise-frontend/src/app/users/services/users.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/fortune-rise-frontend/src/app/users/services/users.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortune-rise-frontend/src/app/users/user.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/fortune-rise-frontend/src/app/users/user.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortune-rise-frontend/src/app/users/user.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/fortune-rise-frontend/src/app/users/user.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortune-rise-frontend/src/app/wallets/wallets.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/fortune-rise-frontend/src/app/wallets/wallets.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortune-rise-frontend/src/app/wallets/wallets.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/fortune-rise-frontend/src/app/wallets/wallets.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/history-microservice/history.api/src/main/java/org/fortunerise/history/api/v1/resources/HistoryResource.java" beforeDir="false" afterPath="$PROJECT_DIR$/history-microservice/history.api/src/main/java/org/fortunerise/history/api/v1/resources/HistoryResource.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/history-microservice/history.api/src/main/resources/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/history-microservice/history.api/src/main/resources/config.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/history-microservice/history.api/target/classes/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/history-microservice/history.api/target/classes/config.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/history-microservice/history.api/target/classes/lib/history.entities-1.0.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/history-microservice/history.api/target/classes/lib/history.entities-1.0.0-SNAPSHOT.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/history-microservice/history.api/target/classes/lib/history.services-1.0.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/history-microservice/history.api/target/classes/lib/history.services-1.0.0-SNAPSHOT.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/history-microservice/history.api/target/classes/org/fortunerise/history/api/v1/resources/HistoryResource.class" beforeDir="false" afterPath="$PROJECT_DIR$/history-microservice/history.api/target/classes/org/fortunerise/history/api/v1/resources/HistoryResource.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/history-microservice/history.api/target/history.api-1.0.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/history-microservice/history.api/target/history.api-1.0.0-SNAPSHOT.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/history-microservice/history.api/target/history.api-1.0.0-SNAPSHOT.jar.original" beforeDir="false" afterPath="$PROJECT_DIR$/history-microservice/history.api/target/history.api-1.0.0-SNAPSHOT.jar.original" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/history-microservice/history.entities/target/history.entities-1.0.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/history-microservice/history.entities/target/history.entities-1.0.0-SNAPSHOT.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/history-microservice/history.entities/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/history-microservice/history.entities/target/maven-archiver/pom.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/history-microservice/history.services/src/main/java/org/fortunerise/history/services/BetDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/history-microservice/history.services/src/main/java/org/fortunerise/history/services/BetDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/history-microservice/history.services/src/main/java/org/fortunerise/history/services/HistoryBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/history-microservice/history.services/src/main/java/org/fortunerise/history/services/HistoryBean.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/history-microservice/history.services/target/classes/org/fortunerise/history/services/BetDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/history-microservice/history.services/target/classes/org/fortunerise/history/services/BetDto.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/history-microservice/history.services/target/classes/org/fortunerise/history/services/HistoryBean.class" beforeDir="false" afterPath="$PROJECT_DIR$/history-microservice/history.services/target/classes/org/fortunerise/history/services/HistoryBean.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/history-microservice/history.services/target/history.services-1.0.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/history-microservice/history.services/target/history.services-1.0.0-SNAPSHOT.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/history-microservice/history.services/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/history-microservice/history.services/target/maven-archiver/pom.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/notification-microservice/notification.api/src/main/java/org/fortunerise/notification/api/v1/resources/NotificationsResource.java" beforeDir="false" afterPath="$PROJECT_DIR$/notification-microservice/notification.api/src/main/java/org/fortunerise/notification/api/v1/resources/NotificationsResource.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/notification-microservice/notification.api/src/main/resources/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/notification-microservice/notification.api/src/main/resources/config.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/notification-microservice/notification.api/target/classes/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/notification-microservice/notification.api/target/classes/config.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/notification-microservice/notification.api/target/classes/lib/notification.entities-1.0.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/notification-microservice/notification.api/target/classes/lib/notification.entities-1.0.0-SNAPSHOT.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/notification-microservice/notification.api/target/classes/lib/notification.services-1.0.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/notification-microservice/notification.api/target/classes/lib/notification.services-1.0.0-SNAPSHOT.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/notification-microservice/notification.api/target/classes/org/fortunerise/notification/api/v1/resources/NotificationsResource.class" beforeDir="false" afterPath="$PROJECT_DIR$/notification-microservice/notification.api/target/classes/org/fortunerise/notification/api/v1/resources/NotificationsResource.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/notification-microservice/notification.api/target/notification.api-1.0.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/notification-microservice/notification.api/target/notification.api-1.0.0-SNAPSHOT.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/notification-microservice/notification.api/target/notification.api-1.0.0-SNAPSHOT.jar.original" beforeDir="false" afterPath="$PROJECT_DIR$/notification-microservice/notification.api/target/notification.api-1.0.0-SNAPSHOT.jar.original" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/notification-microservice/notification.entities/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/notification-microservice/notification.entities/target/maven-archiver/pom.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/notification-microservice/notification.entities/target/notification.entities-1.0.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/notification-microservice/notification.entities/target/notification.entities-1.0.0-SNAPSHOT.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/notification-microservice/notification.services/src/main/java/org/fortunerise/notification/services/NotificationBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/notification-microservice/notification.services/src/main/java/org/fortunerise/notification/services/NotificationBean.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/notification-microservice/notification.services/target/classes/org/fortunerise/notification/services/NotificationBean.class" beforeDir="false" afterPath="$PROJECT_DIR$/notification-microservice/notification.services/target/classes/org/fortunerise/notification/services/NotificationBean.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/notification-microservice/notification.services/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/notification-microservice/notification.services/target/maven-archiver/pom.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/notification-microservice/notification.services/target/notification.services-1.0.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/notification-microservice/notification.services/target/notification.services-1.0.0-SNAPSHOT.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/promotion-microservice/promotion.services/src/main/java/org/fortunerise/promotion/services/PromotionBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/promotion-microservice/promotion.services/src/main/java/org/fortunerise/promotion/services/PromotionBean.java" afterDir="false" />
     </list>
     <list id="142b4e9b-e41e-42ae-af0b-6b596d1abc0b" name="Changes by jan" comment="" />
     <list id="bc662434-0975-48b2-b46a-6b00f48df91e" name="Changes by Jan" comment="" />
@@ -58,11 +120,12 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "frontend",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/andra/OneDrive/3. letnik/1. semester/Postopki razvoja programske opreme/vaje/fortune-rise/fortune-rise-v2/user-microservice",
+    "last_opened_file_path": "/home/jan/Faks/PRPO/fortune-rise/fortune-rise/notification-microservice",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -96,8 +159,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9823dce3aa75-28b599e66164-intellij.indexing.shared.core-IU-242.23339.11" />
-        <option value="bundled-js-predefined-d6986cc7102b-5c90d61e3bab-JavaScript-IU-242.23339.11" />
+        <option value="bundled-jdk-9823dce3aa75-fdfe4dae3a2d-intellij.indexing.shared.core-IU-243.22562.218" />
+        <option value="bundled-js-predefined-d6986cc7102b-deb605915726-JavaScript-IU-243.22562.218" />
       </set>
     </attachedChunks>
   </component>
@@ -120,7 +183,9 @@
       <workItem from="1736187533469" duration="8046000" />
       <workItem from="1736245855020" duration="16182000" />
       <workItem from="1736326958600" duration="21026000" />
-      <workItem from="1736355896966" duration="9161000" />
+      <workItem from="1736355896966" duration="7930000" />
+      <workItem from="1736418884874" duration="22887000" />
+      <workItem from="1736505217640" duration="27995000" />
     </task>
     <servers />
   </component>
@@ -129,5 +194,16 @@
   </component>
   <component name="UnknownFeatures">
     <option featureType="com.intellij.fileTypeFactory" implementationName=".env" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/history-microservice/history.api/src/main/java/org/fortunerise/history/api/v1/resources/HistoryResource.java</url>
+          <line>192</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

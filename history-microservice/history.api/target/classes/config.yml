@@ -17,3 +17,9 @@ kumuluzee:
         data-source-health-check:
           type: liveness
           jndi-name: jdbc/FortuneRiseDS
+  cors-filter:
+    servlet:
+      enabled: true
+      allow-generic-http-requests: true
+      allow-origin: "*"
+      exposed-headers: "*"

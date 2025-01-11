@@ -1,0 +1,36 @@
+<h3>Login into account:</h3>
+<div>
+  <form (ngSubmit)="logInUser()">
+    <table>
+      <tr>
+        <td><label for="username">Name</label></td>
+        <td><input [(ngModel)]="username" id="username" name="username"></td>
+      </tr>
+    </table>
+
+    <button type="submit">Select user</button>
+  </form>
+</div>
+
+<h3>Create new account:</h3>
+<div *ngIf="user">
+  <form (ngSubmit)="addNewUser()">
+    <table>
+      <tr>
+        <td><label for="name">Name</label></td>
+        <td><input [(ngModel)]="user.name" id="name" name="name"></td>
+      </tr>
+      <tr>
+        <td><label for="surname">Surame</label></td>
+        <td><input [(ngModel)]="user.surname" id="surname" name="surname"></td>
+      </tr>
+      <tr>
+        <td><label for="username">Userame</label></td>
+        <td><input [(ngModel)]="user.username" id="username" name="username"></td>
+      </tr>
+    </table>
+
+    <button type="submit">Add user</button>
+  </form>
+</div>
+

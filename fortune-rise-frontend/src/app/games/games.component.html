@@ -1,0 +1,52 @@
+<h3>Games</h3>
+
+<div *ngIf="currentBet">
+  <form (ngSubmit)="submitBetForm()">
+    <table>
+      <tr>
+        <td><label for="betAmount">Amount</label></td>
+        <td><input [(ngModel)]="currentBet.betAmount" id="betAmount" name="betAmount"></td>
+      </tr>
+      <tr>
+        <td><label for="type">Type</label></td>
+        <td>
+        <select [(ngModel)]="currentBet.type" id="type" name="type">
+              <option value="STRAIGHT">STRAIGHT</option>
+              <option value="SPLIT">SPLIT</option>
+              <option value="STREET">STREET</option>
+              <option value="CORNER">CORNER</option>
+              <option value="SIX_LINE">SIX_LINE</option>
+              <option value="COLOR">COLOR</option>
+              <option value="PARITY">PARITY</option>
+              <option value="COLUMN">COLUMN</option>
+              <option value="DOZEN">DOZEN</option>
+              <option value="HIGH_LOW">HIGH_LOW</option>
+            </select>
+        </td>
+      </tr>
+      <tr>
+        <td><label for="tempField">List of bets</label></td>
+        <td><input [(ngModel)]="tempField" id="tempField" name="tempField"></td>
+      </tr>
+    </table>
+
+    <button type="submit">Add bet</button>
+  </form>
+</div>
+
+
+<ul class="currentBets">
+  <li *ngFor="let bet of currentBets">
+    <p>{{bet.type}}</p>
+    <p>{{bet.betAmount}}</p>
+    <p>{{bet.fields}}</p>
+  </li>
+</ul>
+
+<button (click)="playBets()">Play bets</button>
+
+<div *ngIf="game">
+  <p>Payout: {{game.payout}}</p>
+  <p>Roll: {{game.roll}}</p>
+  <p>Date: {{game.date}}</p>
+</div>

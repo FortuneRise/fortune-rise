@@ -1,0 +1,25 @@
+kumuluzee:
+  server:
+    http:
+      port: 8080
+  name: fortune-rise
+  version: 1.0.0
+  env:
+    name: dev
+  datasources:
+   - jndi-name : jdbc/FortuneRiseDS
+     connection-url: jdbc:postgresql://${DATABASE_HOSTNAME}:${DATABASE_PORT}/${DATABASE_NAME}
+     username: ${DATABASE_USERNAME}
+     password: ${DATABASE_PASSWORD}
+     max-pool-size: 20
+  health:
+    - checks:
+        data-source-health-check:
+          type: liveness
+          jndi-name: jdbc/FortuneRiseDS
+
+  cors-filter:
+   servlet:
+    enabled: true
+    allow-generic-http-requests: true
+    allow-origin: "*"

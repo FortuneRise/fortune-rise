@@ -47,8 +47,10 @@ public class NotificationsResource {
             @Parameter(name = "userId", description = "The ID of the user.", required = true)
             @PathParam("userId") Integer userId) {
         try {
-            List<NotificationDto> notificationList = notificationBean.getAllNotificationsByUserId(userId, uriInfo);
-            return Response.ok(notificationList).build();
+            QueryParameters query = QueryParameters.query(uriInfo.getRequestUri().getQuery()).build();
+            List<NotificationDto> notificationList = notificationBean.getAllNotificationsByUserId(userId, query);
+            Long notificationCount = notificationBean.getNotificationCount(userId, query);
+            return Response.ok(notificationList).header("X-Total-Count", notificationCount).build();
         }
         catch (NoResultException e) {
             return Response.status(Response.Status.NOT_FOUND).entity(e.getMessage()).build();
