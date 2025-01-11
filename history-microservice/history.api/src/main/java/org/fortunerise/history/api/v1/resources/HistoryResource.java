@@ -73,7 +73,6 @@ public class HistoryResource {
             )
             @PathParam("userId") Integer userId) {
         try {
-            log.info(config.get("cors-filter"));
             QueryParameters query = QueryParameters.query(uriInfo.getRequestUri().getQuery()).build();
             List<GameDto> gameHistory = historyBean.getGameDtosByUserId(userId, query);
             Long gameTotalCount = historyBean.getGameCount(userId, query);

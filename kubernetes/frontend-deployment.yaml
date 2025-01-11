@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend
+  labels:
+    app: frontend
+spec:
+  replicas: 1 # Number of replicas
+  selector:
+    matchLabels:
+      app: frontend # Must match pod labels
+  template:
+    metadata:
+      labels:
+        app: frontend
+    spec:
+      containers:
+        - name: frontend
+          image: andhrib/fortune-rise-frontend
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 4200
+          resources:
+            requests:
+              cpu: 100m # Minimum CPU required
+            limits:
+              cpu: 500m # Maximum CPU the container can use

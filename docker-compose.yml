@@ -57,6 +57,14 @@ services:
     volumes:
       - ./notification-microservice/.env:/app/.env
 
+  # Front end
+  frontend:
+    image: andhrib/fortune-rise-frontend
+    build:
+      context: ./fortune-rise-frontend
+    ports:
+      - "4200:4200"
+
   # Promotion
   promotion:
     image: andhrib/fortune-rise-promotion
