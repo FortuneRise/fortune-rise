@@ -1,36 +1,36 @@
 {
   "/user-proxy": {
-    "target": "http://user.default.svc.cluster.local",
+    "target": "user.default.svc.cluster.local",
     "secure": false,
     "logLevel": "debug",
     "changeOrigin" : true
   },
   "/wallet-proxy": {
-    "target": "http://wallet.default.svc.cluster.local",
+    "target": "wallet.default.svc.cluster.local",
     "secure": false,
     "logLevel": "debug",
     "changeOrigin" : true
   },
   "/game-proxy": {
-    "target": "http://game.default.svc.cluster.local",
+    "target": "game.default.svc.cluster.local",
     "secure": false,
     "logLevel": "debug",
     "changeOrigin" : true
   },
   "/notification-proxy": {
-    "target": "http://notification.default.svc.cluster.local",
+    "target": "notification.default.svc.cluster.local",
     "secure": false,
     "logLevel": "debug",
     "changeOrigin" : true
   },
   "/promotion-proxy": {
-    "target": "http://promotion.default.svc.cluster.local",
+    "target": "promotion.default.svc.cluster.local",
     "secure": false,
     "logLevel": "debug",
     "changeOrigin" : true
   },
   "/history-proxy": {
-    "target": "http://history.default.svc.cluster.local",
+    "target": "history.default.svc.cluster.local",
     "secure": false,
     "logLevel": "debug",
     "changeOrigin" : true
