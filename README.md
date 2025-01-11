@@ -1,6 +1,12 @@
 # FortuneRise
 
-FortuneRise is an online gambling app designed for those seeking to increase their fortune.
+FortuneRise is an online gambling app designed for individuals who enjoy testing their luck and increasing their fortune. The app offers a seamless user experience focused on roulette, with opportunities for users to deposit money in multiple currencies, track their game and transaction history, and receive notifications and promotions. FortuneRise combines simplicity with functionality, allowing players to enjoy their gaming experience while keeping an eye on their progress.
+
+## Features:
+- **Roulette**: The app offers an engaging roulette game where players can place bets and spin the wheel to win big.
+- **Multi-Currency Deposits**: Players can deposit money in a variety of currencies, providing flexibility for international users.
+- **Game and Transaction History**: Users can view their detailed game and transaction history, keeping track of past plays and financial activities.
+- **Notifications and Promotions**: The app features a notification system that keeps players informed about promotions, bonuses, and other relevant updates to enhance their experience.
 
 ## Installation
 
