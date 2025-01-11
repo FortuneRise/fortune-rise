@@ -9,7 +9,7 @@ import {Wallet} from '../models/wallet';
 })
 export class WalletService{
   private headers = new HttpHeaders({'Content-Type': 'application/json'});
-  private url = 'wallet.default.svc.cluster.local/api/wallets';
+  private url = 'http://72.144.96.255/wallet-proxy/api/wallets';
 
   constructor(private http: HttpClient) {
   }

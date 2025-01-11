@@ -10,7 +10,7 @@ import {Bet} from '../models/bet';
 export class GamesService {
 
   private headers = new HttpHeaders({'Content-Type': 'application/json'});
-  private url = 'game.default.svc.cluster.local/api/games';
+  private url = 'http://72.144.96.255/game-proxy/api/games';
 
   constructor(private http: HttpClient) {
   }

@@ -1,0 +1,33 @@
+{
+  "/user-proxy/*": {
+    "target": "http://user",
+    "secure": false,
+    "logLevel": "debug"
+  },
+  "/wallet-proxy/*": {
+    "target": "http://wallet",
+    "secure": false,
+    "logLevel": "debug"
+  },
+  "/game-proxy/*": {
+    "target": "http://game",
+    "secure": false,
+    "logLevel": "debug"
+  },
+  "/notification-proxy/*": {
+    "target": "http://notification",
+    "secure": false,
+    "logLevel": "debug"
+  },
+  "/promotion-proxy/*": {
+    "target": "http://promotion",
+    "secure": false,
+    "logLevel": "debug"
+  },
+  "/history-proxy/*": {
+    "target": "http://history",
+    "secure": false,
+    "logLevel": "debug"
+  }
+}
+

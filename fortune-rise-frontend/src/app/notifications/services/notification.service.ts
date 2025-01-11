@@ -8,7 +8,7 @@ import {Notification} from '../models/notification';
 })
 export class NotificationService {
   private headers = new HttpHeaders({'Content-Type': 'application/json'});
-  private url = 'notification.default.svc.cluster.local/api/notifications';
+  private url = 'http://72.144.96.255/notification-proxy/api/notifications';
 
   constructor(private http: HttpClient) {
   }

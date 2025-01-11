@@ -9,7 +9,7 @@ import {User} from '../models/user';
 export class UsersService {
 
   private headers = new HttpHeaders({'Content-Type': 'application/json'});
-  private url = 'user.default.svc.cluster.local/api/users';
+  private url = 'http://72.144.96.255/user-proxy/api/users';
 
   constructor(private http: HttpClient) {
   }

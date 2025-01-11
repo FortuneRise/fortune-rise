@@ -58,6 +58,9 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
+            "options": {
+              "proxyConfig": "proxy.conf.json"
+            },
             "production": {
               "buildTarget": "fortune-rise-frontend:build:production"
             },
