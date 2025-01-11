@@ -9,7 +9,7 @@ import {Wallet} from '../models/wallet';
 })
 export class WalletService{
   private headers = new HttpHeaders({'Content-Type': 'application/json'});
-  private url = 'http://wallet:8081/api/wallets';
+  private url = 'http://wallet:80/api/wallets';
 
   constructor(private http: HttpClient) {
   }
