@@ -44,4 +44,4 @@ spec:
             requests:
               cpu: 100m # Minimum CPU required
             limits:
-              cpu: 350m # Maximum CPU the container can use
+              cpu: 200m # Maximum CPU the container can use
