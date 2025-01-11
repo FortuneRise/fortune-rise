@@ -16,7 +16,8 @@ spec:
     spec:
       containers:
         - name: history
-          image: andhrib/fortune-rise-history # Replace with your ACR image and tag
+          image: andhrib/fortune-rise-history
+          imagePullPolicy: Always
           env:
             - name: DATABASE_HOSTNAME
               value: postgres

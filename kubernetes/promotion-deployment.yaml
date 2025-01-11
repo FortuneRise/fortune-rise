@@ -16,7 +16,8 @@ spec:
     spec:
       containers:
         - name: promotion
-          image: andhrib/fortune-rise-promotion # Replace with your ACR image and tag
+          image: andhrib/fortune-rise-promotion
+          imagePullPolicy: Always
           env:
             - name: DATABASE_HOSTNAME
               value: postgres

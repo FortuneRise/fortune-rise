@@ -17,6 +17,7 @@ spec:
       containers:
         - name: game
           image: andhrib/fortune-rise-game
+          imagePullPolicy: Always
           env:
             - name: DATABASE_HOSTNAME
               value: postgres

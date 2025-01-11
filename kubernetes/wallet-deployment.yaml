@@ -16,7 +16,8 @@ spec:
     spec:
       containers:
         - name: wallet
-          image: andhrib/fortune-rise-wallet # Replace with your ACR image and tag
+          image: andhrib/fortune-rise-wallet
+          imagePullPolicy: Always
           env:
             - name: DATABASE_HOSTNAME
               value: postgres
