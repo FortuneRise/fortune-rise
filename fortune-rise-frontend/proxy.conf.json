@@ -3,29 +3,44 @@
     "target": "user.default.svc.cluster.local",
     "secure": false,
     "logLevel": "debug",
+    "pathRewrite": {
+      "^/user-proxy": ""
+    },
     "changeOrigin" : true
   },
   "/wallet-proxy": {
     "target": "wallet.default.svc.cluster.local",
     "secure": false,
     "logLevel": "debug",
+    "pathRewrite": {
+      "^/wallet-proxy": ""
+    },
     "changeOrigin" : true
   },
   "/game-proxy": {
     "target": "game.default.svc.cluster.local",
     "secure": false,
     "logLevel": "debug",
+    "pathRewrite": {
+      "^/game-proxy": ""
+    },
     "changeOrigin" : true
   },
   "/notification-proxy": {
     "target": "notification.default.svc.cluster.local",
     "secure": false,
     "logLevel": "debug",
+    "pathRewrite": {
+      "^/notification-proxy": ""
+    },
     "changeOrigin" : true
   },
   "/promotion-proxy": {
     "target": "promotion.default.svc.cluster.local",
     "secure": false,
+    "pathRewrite": {
+      "^/promotion-proxy": ""
+    },
     "logLevel": "debug",
     "changeOrigin" : true
   },
@@ -33,6 +48,9 @@
     "target": "history.default.svc.cluster.local",
     "secure": false,
     "logLevel": "debug",
+    "pathRewrite": {
+      "^/history-proxy": ""
+    },
     "changeOrigin" : true
   }
 }
