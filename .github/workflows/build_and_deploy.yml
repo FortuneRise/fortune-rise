@@ -3,9 +3,9 @@ name: CI/CD for Microservices
 on:
   workflow_dispatch:  # Allows manual triggering from GitHub UI
   # Or use push or schedule if needed:
-  # push:
-  #   branches:
-  #     - main
+  push:
+    branches:
+      - main
   # schedule:
   #   - cron: '0 0 * * *'  # Optional: Run every day at midnight UTC
 
