@@ -10,7 +10,7 @@ import {Notification} from '../../notifications/models/notification';
 })
 export class HistoryService {
   private headers = new HttpHeaders({'Content-Type': 'application/json'});
-  private url = 'http://history.default.svc.cluster.local:80/api/history';
+  private url = 'http://history.default.svc.cluster.local/api/history';
 
   constructor(private http: HttpClient) {
   }

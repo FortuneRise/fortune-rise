@@ -11,8 +11,6 @@
       <change beforePath="$PROJECT_DIR$/fortune-rise-frontend/src/app/notifications/services/notification.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/fortune-rise-frontend/src/app/notifications/services/notification.service.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/fortune-rise-frontend/src/app/users/services/users.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/fortune-rise-frontend/src/app/users/services/users.service.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/fortune-rise-frontend/src/app/wallets/services/wallet.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/fortune-rise-frontend/src/app/wallets/services/wallet.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kubernetes/frontend-deployment.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/kubernetes/frontend-deployment.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-microservice/user.api/src/main/resources/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/user-microservice/user.api/src/main/resources/config.yml" afterDir="false" />
     </list>
     <list id="142b4e9b-e41e-42ae-af0b-6b596d1abc0b" name="Changes by jan" comment="" />
     <list id="bc662434-0975-48b2-b46a-6b00f48df91e" name="Changes by Jan" comment="" />
