@@ -22,4 +22,6 @@ kumuluzee:
       enabled: true
       allow-generic-http-requests: true
       allow-origin: "*"
+      allow-subdomains: true
+      supported-methods: "GET, POST, HEAD, OPTIONS, PUT"
       exposed-headers: "*"
