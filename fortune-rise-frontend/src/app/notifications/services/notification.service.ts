@@ -8,7 +8,7 @@ import {Notification} from '../models/notification';
 })
 export class NotificationService {
   private headers = new HttpHeaders({'Content-Type': 'application/json'});
-  private url = 'http://localhost:8083/api/notifications';
+  private url = 'http://notification:8083/api/notifications';
 
   constructor(private http: HttpClient) {
   }

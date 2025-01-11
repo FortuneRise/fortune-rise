@@ -5,15 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="79f18f5f-1c17-4232-8daa-509782a9b6e5" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/fortune-rise-frontend/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/kubernetes/frontend-deployment.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/kubernetes/frontend-service.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/history-microservice/history.api/src/main/java/org/fortunerise/history/api/v1/resources/HistoryResource.java" beforeDir="false" afterPath="$PROJECT_DIR$/history-microservice/history.api/src/main/java/org/fortunerise/history/api/v1/resources/HistoryResource.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortune-rise-frontend/src/app/games/services/games.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/fortune-rise-frontend/src/app/games/services/games.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortune-rise-frontend/src/app/history/services/history.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/fortune-rise-frontend/src/app/history/services/history.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortune-rise-frontend/src/app/notifications/services/notification.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/fortune-rise-frontend/src/app/notifications/services/notification.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortune-rise-frontend/src/app/users/services/users.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/fortune-rise-frontend/src/app/users/services/users.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fortune-rise-frontend/src/app/wallets/services/wallet.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/fortune-rise-frontend/src/app/wallets/services/wallet.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kubernetes/frontend-service.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/kubernetes/frontend-service.yaml" afterDir="false" />
     </list>
-    <list id="142b4e9b-e41e-42ae-af0b-6b596d1abc0b" name="Changes by jan" comment="" />
     <list id="bc662434-0975-48b2-b46a-6b00f48df91e" name="Changes by Jan" comment="" />
+    <list id="142b4e9b-e41e-42ae-af0b-6b596d1abc0b" name="Changes by jan" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />

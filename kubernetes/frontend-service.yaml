@@ -6,6 +6,8 @@ metadata:
     app: frontend
 spec:
   type: LoadBalancer
+  externalIPs:
+    - "4.182.180.67"
   selector:
     app: frontend # Must match pod labels
   ports:
