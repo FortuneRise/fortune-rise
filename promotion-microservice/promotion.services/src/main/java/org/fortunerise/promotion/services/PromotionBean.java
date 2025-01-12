@@ -101,7 +101,7 @@ public class PromotionBean {
 
     @Transactional
     public List<PromotionDto> getPromotionDtosByUserId(Integer userId, TriggerScenario triggerScenario, QueryParameters query) {
-
+        Boolean isAll = (triggerScenario == TriggerScenario.ALL);
         QueryFilter newqfUserId = new QueryFilter("userId", FilterOperation.EQ,userId.toString());
         QueryFilterExpression nqfeUI = new QueryFilterExpression(newqfUserId);
         //QueryFilter newqfTriggerScenario = new QueryFilter("triggerScenario", FilterOperation.EQ,triggerScenario.toString());
@@ -138,7 +138,7 @@ public class PromotionBean {
 
         List<UserLink> userLinks = JPAUtils.queryEntities(em, UserLink.class, query);
 
-        return userLinks.stream().map(UserLink::getPromotion).filter(promotion -> promotion.getTriggerScenario().toString().equals(triggerScenario.toString())).map(PromotionDto::new).toList();
+        return userLinks.stream().map(UserLink::getPromotion).filter(promotion -> (promotion.getTriggerScenario().toString().equals(triggerScenario.toString())) || isAll).map(PromotionDto::new).toList();
     }
 
     @Transactional
