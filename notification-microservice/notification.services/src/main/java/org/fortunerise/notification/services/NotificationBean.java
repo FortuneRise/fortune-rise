@@ -69,7 +69,20 @@ public class NotificationBean {
 
     @Transactional(Transactional.TxType.REQUIRED)
     public Long getNotificationCount(Integer userId, QueryParameters query){
-        Long count = JPAUtils.queryEntitiesCount(em, Notification.class, (p, cb, r) -> cb.and(p, cb.equal(r.get("userId"), userId)));
+        QueryFilter newqf = new QueryFilter("userId", FilterOperation.EQ,userId.toString());
+        QueryFilterExpression nqfe = new QueryFilterExpression(newqf);
+        QueryFilterExpression qfe = query.getFilterExpression();
+        QueryFilterExpression endqfe = null;
+
+        if(qfe != null){
+            endqfe = new QueryFilterExpression(FilterExpressionOperation.AND, nqfe, qfe);
+        }else {
+            endqfe = nqfe;
+        }
+
+        query.setFilterExpression(endqfe);
+
+        Long count = JPAUtils.queryEntitiesCount(em, Notification.class, query);
         return count;
     }
     @Transactional(Transactional.TxType.REQUIRED)
