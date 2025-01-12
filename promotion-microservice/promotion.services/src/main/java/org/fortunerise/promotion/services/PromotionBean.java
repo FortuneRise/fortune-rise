@@ -23,6 +23,7 @@ import javax.ws.rs.core.MultivaluedMap;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriInfo;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.logging.Logger;
 import java.util.stream.Collectors;
@@ -38,6 +39,8 @@ public class PromotionBean {
 
     private String walletHost;
     private String walletPort;
+    private String notificationHost;
+    private String notificationPort;
 
     @PersistenceContext(unitName = "fortune-rise-jpa")
     private EntityManager em;
@@ -53,10 +56,14 @@ public class PromotionBean {
             Dotenv dotenv = Dotenv.load();
             walletHost = dotenv.get("WALLET_HOST");
             walletPort = dotenv.get("WALLET_PORT");
+            notificationHost = dotenv.get("NOTIFICATION_HOST");
+            notificationPort = dotenv.get("NOTIFICATION_PORT");
         }
         else {
             walletHost = System.getenv("WALLET_HOST");
             walletPort = System.getenv("WALLET_PORT");
+            notificationHost = System.getenv("NOTIFICATION_HOST");
+            notificationPort = System.getenv("NOTIFICATION_PORT");
         }
     }
 
@@ -181,6 +188,19 @@ public class PromotionBean {
 
     @Transactional
     public void addPromotionToUser(Integer userId, Integer promotionId) {
+
+        WebTarget base = client.target("http://" + notificationHost + ":" + notificationPort + "/api");
+        WebTarget target = base.path("/notifications");
+        WebTarget endTarget = target.path("/{userId}").resolveTemplate("userId", userId);
+
+        NotificationDto notification = new NotificationDto(new Date(),"You have a new promotion!",false);
+
+        Response response = endTarget.request().post(Entity.json(promotionId));
+
+        if(response.getStatus() != 200) {
+            throw new RuntimeException();
+        }
+
         UserLink userLink = new UserLink(userId, getPromotionById(promotionId));
         em.persist(userLink);
         em.flush();

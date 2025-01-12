@@ -1,0 +1,18 @@
+<h3>Promotions</h3>
+
+<div *ngIf="newGamePromotion">
+  <form (ngSubmit)="addGamePromotionToUser()">
+    <table>
+      <tr>
+        <td><label for="amount">Amount</label></td>
+        <td><input [(ngModel)]="promotionAmount" type="number" id="amount" name="amount"></td>
+      </tr>
+      <tr>
+        <td><label for="usersId">User Id list</label></td>
+        <td><input [(ngModel)]="currentUserIds" id="usersId" name="usersId"></td>
+      </tr>
+    </table>
+
+    <button type="submit">Dodaj</button>
+  </form>
+</div>
