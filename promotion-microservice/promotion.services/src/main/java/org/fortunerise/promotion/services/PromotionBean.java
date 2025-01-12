@@ -1,5 +1,9 @@
 package org.fortunerise.promotion.services;
 
+import com.kumuluz.ee.rest.beans.QueryFilter;
+import com.kumuluz.ee.rest.beans.QueryFilterExpression;
+import com.kumuluz.ee.rest.enums.FilterExpressionOperation;
+import com.kumuluz.ee.rest.enums.FilterOperation;
 import io.github.cdimascio.dotenv.Dotenv;
 import org.fortunerise.promotion.entities.Promotion;
 import org.fortunerise.promotion.entities.UserLink;
@@ -96,7 +100,26 @@ public class PromotionBean {
     }
 
     @Transactional
-    public List<PromotionDto> getPromotionDtosByUserId(Integer userId, TriggerScenario triggerScenario, UriInfo uriInfo) {
+    public List<PromotionDto> getPromotionDtosByUserId(Integer userId, TriggerScenario triggerScenario, QueryParameters query) {
+
+        QueryFilter newqfUserId = new QueryFilter("userId", FilterOperation.EQ,userId.toString());
+        QueryFilterExpression nqfeUI = new QueryFilterExpression(newqfUserId);
+        QueryFilter newqfTriggerScenario = new QueryFilter("triggerScenario", FilterOperation.EQ,triggerScenario.toString());
+        QueryFilterExpression nqfeTS = new QueryFilterExpression(newqfTriggerScenario);
+
+        QueryFilterExpression nqfe = new QueryFilterExpression(FilterExpressionOperation.AND, nqfeUI, nqfeTS);
+
+        QueryFilterExpression qfe = query.getFilterExpression();
+        QueryFilterExpression endqfe = null;
+
+        if(qfe != null){
+            endqfe = new QueryFilterExpression(FilterExpressionOperation.AND, nqfe, qfe);
+        }else {
+            endqfe = nqfe;
+        }
+
+        query.setFilterExpression(endqfe);
+        /*
         String paramString = getParameterString(uriInfo);
         paramString += "userId=" + userId;
         switch (triggerScenario) {
@@ -111,8 +134,9 @@ public class PromotionBean {
         }
 
         QueryParameters queryParameters = QueryParameters.query(paramString).build();
+         */
 
-        List<UserLink> userLinks = JPAUtils.queryEntities(em, UserLink.class, queryParameters);
+        List<UserLink> userLinks = JPAUtils.queryEntities(em, UserLink.class, query);
 
         return userLinks.stream().map(UserLink::getPromotion).map(PromotionDto::new).toList();
     }

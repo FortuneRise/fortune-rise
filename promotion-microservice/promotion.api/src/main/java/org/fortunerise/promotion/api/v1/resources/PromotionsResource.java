@@ -72,7 +72,7 @@ public class PromotionsResource {
     public Response getPromotionsByUserId(
             @Parameter(name = "userId", description = "The ID of the user.", required = true) @PathParam("userId") Integer userId,
             @Parameter(name = "triggerScenario", description = "Trigger scenario (all, deposit, or bet).", required = true) @PathParam("triggerScenario") String triggerScenarioParam) {
-        QueryParameters queryParameters = QueryParameters.query(uriInfo.getRequestUri().getQuery()).build();
+        QueryParameters query = QueryParameters.query(uriInfo.getRequestUri().getQuery()).build();
         try {
             PromotionBean.TriggerScenario triggerScenario = switch (triggerScenarioParam) {
                 case "all" -> PromotionBean.TriggerScenario.ALL;
@@ -81,7 +81,7 @@ public class PromotionsResource {
                 default -> throw new IllegalArgumentException("Invalid trigger scenario: " + triggerScenarioParam);
             };
 
-            List<PromotionDto> result = promotionBean.getPromotionDtosByUserId(userId, triggerScenario, uriInfo);
+            List<PromotionDto> result = promotionBean.getPromotionDtosByUserId(userId, triggerScenario, query);
             return Response.ok(result).build();
         }
         catch (IllegalArgumentException | BadRequestException e) {
