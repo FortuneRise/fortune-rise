@@ -1,5 +1,6 @@
 package org.fortunerise.history.api.v1.resources;
 
+import org.fortunerise.history.entities.Bet;
 import org.fortunerise.history.services.BetDto;
 import org.fortunerise.history.services.HistoryBean;
 import org.fortunerise.history.services.GameDto;
@@ -88,7 +89,32 @@ public class HistoryResource {
 
     @GET
     @Path("/games/{gameId}/bets")
-    public Response getGameHistoryBets(@PathParam("gameId") Integer gameId) {
+    @Operation(
+            summary = "Retrieve bets for a specified game.",
+            description = "Fetches the bets given from a game id."
+    )
+    @APIResponses({
+            @APIResponse(
+                    responseCode = "200",
+                    description = "List of bets for the game.",
+                    content = @Content(schema = @Schema(implementation = BetDto.class, type = SchemaType.ARRAY))
+            ),
+            @APIResponse(
+                    responseCode = "404",
+                    description = "No bets found for the given game id."
+            ),
+            @APIResponse(
+                    responseCode = "500",
+                    description = "Internal server error."
+            )
+    })
+    public Response getGameHistoryBets(
+            @Parameter(
+            name = "gameId",
+            description = "The ID of the game whose bets are being retrieved.",
+            required = true,
+            schema = @Schema(type = SchemaType.INTEGER)
+            )@PathParam("gameId") Integer gameId) {
         try {
             QueryParameters query = QueryParameters.query(uriInfo.getRequestUri().getQuery()).build();
             List<BetDto> gameHistory = historyBean.getBetDtosByGameId(gameId, query);
