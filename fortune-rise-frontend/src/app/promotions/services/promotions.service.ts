@@ -9,7 +9,7 @@ import {Transaction} from '../../wallets/models/transaction';
 })
 export class PromotionsService {
   private headers = new HttpHeaders({'Content-Type': 'application/json'});
-  private url = 'http://72.144.96.255/promotion-proxy/api/notifications';
+  private url = 'http://72.144.96.255/promotion-proxy/api/promotions';
 
   constructor(private http: HttpClient) {
   }
