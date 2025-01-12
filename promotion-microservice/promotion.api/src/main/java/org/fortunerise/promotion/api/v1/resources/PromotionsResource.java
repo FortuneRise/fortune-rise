@@ -88,7 +88,7 @@ public class PromotionsResource {
             return Response.status(Response.Status.BAD_REQUEST).entity(e.getMessage()).build();
         }
         catch (Exception e) {
-            log.info(e.getMessage());
+            log.info("This is the problem: " + e.getMessage());
             return Response.status(Response.Status.INTERNAL_SERVER_ERROR).build();
         }
     }
