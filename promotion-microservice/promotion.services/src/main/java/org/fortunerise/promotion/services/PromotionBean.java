@@ -26,6 +26,7 @@ import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.MultivaluedMap;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriInfo;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -217,7 +218,7 @@ public class PromotionBean {
         WebTarget target = base.path("/notifications");
         WebTarget endTarget = target.path("/{userId}").resolveTemplate("userId", userId);
 
-        NotificationDto notification = new NotificationDto(new Date(),"You have a new promotion!",false);
+        NotificationDto notification = new NotificationDto(LocalDateTime.now(),"You have a new promotion!",false);
 
         Response response = endTarget.request().post(Entity.json(notification));
 

@@ -3,6 +3,7 @@ package org.fortunerise.game.services.dtos;
 //import org.fortunerise.history.entities.Game;
 
 import java.math.BigDecimal;
+import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.List;
 
@@ -11,7 +12,7 @@ public class GameDto {
     private BigDecimal payout;
     private int roll;
 
-    private Date date;
+    private LocalDateTime date;
 
     private Integer userId;
     private List<BetDto> bets;
@@ -29,7 +30,7 @@ public class GameDto {
     }
     */
 
-    public GameDto(Integer userId, BigDecimal payout, int roll, Date date) {
+    public GameDto(Integer userId, BigDecimal payout, int roll, LocalDateTime date) {
         this.userId = userId;
         this.payout = payout;
         this.roll = roll;
@@ -69,11 +70,11 @@ public class GameDto {
         this.userId = userId;
     }
 
-    public Date getDate() {
+    public LocalDateTime getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(LocalDateTime date) {
         this.date = date;
     }
 

@@ -1,6 +1,7 @@
 package org.fortunerise.notification.entities;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 import java.util.Date;
 
 @Entity
@@ -19,14 +20,14 @@ public class Notification {
 
     @Column(name = "date")
     @Temporal(TemporalType.DATE)
-    private Date date;
+    private LocalDateTime date;
 
     @Column
     private Integer userId;
 
     public Notification(){}
 
-    public Notification(Integer userId, String content, Date date){
+    public Notification(Integer userId, String content, LocalDateTime date){
         this.read = Boolean.FALSE;
         this.content = content;
         this.date = date;
@@ -57,11 +58,11 @@ public class Notification {
         this.content = content;
     }
 
-    public Date getDate() {
+    public LocalDateTime getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(LocalDateTime date) {
         this.date = date;
     }
 
