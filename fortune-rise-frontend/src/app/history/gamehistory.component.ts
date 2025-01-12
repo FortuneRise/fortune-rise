@@ -49,5 +49,9 @@ export class GameHistoryComponent implements OnInit{
     this.router.navigate(["history"]);
   }
 
+  goToBets(gameId:number){
+    this.router.navigate(["history/games/" + gameId]);
+  }
+
   protected readonly Math = Math;
 }

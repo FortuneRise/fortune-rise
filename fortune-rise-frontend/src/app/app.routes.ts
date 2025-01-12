@@ -10,6 +10,7 @@ import {TransactionhistoryComponent} from './history/transactionhistory.componen
 import {NotificationsComponent} from './notifications/notifications.component';
 import {LoginComponent} from './login/login.component';
 import {PromotionsComponent} from './promotions/promotions.component';
+import {BethistoryComponent} from './history/bethistory.component';
 
 export const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -20,7 +21,7 @@ export const routes: Routes = [
   {path: "game", component: GamesComponent},
   {path: "history", component: HistoryComponent},
   {path: "history/games", component: GameHistoryComponent},
-  {path: "history/games/:gameId", component: GameHistoryComponent},
+  {path: "history/games/:gameId", component: BethistoryComponent},
   {path: "history/transactions", component: TransactionhistoryComponent},
   {path: "notifications", component: NotificationsComponent},
   {path: "promotions", component: PromotionsComponent}

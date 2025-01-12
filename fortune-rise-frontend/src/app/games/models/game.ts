@@ -1,7 +1,7 @@
 import {Bet} from './bet';
 
 export class Game {
-  gameId?: number;
+  gameId!: number;
   payout?: number;
   roll?: number;
   date?: Date;

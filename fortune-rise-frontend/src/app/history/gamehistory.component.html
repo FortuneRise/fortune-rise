@@ -18,6 +18,7 @@
       <th>{{game.date}}</th>
       <th>{{game.roll}}</th>
       <th>{{game.payout}}</th>
+      <button (click)="goToBets(game.gameId)"></button>
     </tr>
     </tbody>
   </table>
