@@ -21,6 +21,7 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriInfo;
 import java.util.List;
+import java.util.logging.Logger;
 
 @Path("/promotions")
 @Produces(MediaType.APPLICATION_JSON)
@@ -33,6 +34,9 @@ public class PromotionsResource {
 
     @Inject
     PromotionBean promotionBean;
+
+    private Logger log = Logger.getLogger(PromotionsResource.class.getName());
+
 
     @GET
     @Operation(summary = "Get all promotions", description = "Retrieve a list of all promotions.")
@@ -107,6 +111,7 @@ public class PromotionsResource {
             return Response.status(Response.Status.BAD_REQUEST).entity(e.getMessage()).build();
         }
         catch (Exception e) {
+            log.info(e.getMessage());
             return Response.status(Response.Status.INTERNAL_SERVER_ERROR).build();
         }
     }
