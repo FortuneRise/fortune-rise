@@ -124,10 +124,10 @@ For more details or assistance, feel free to reach out!
 4. **History microservice**
    This microservice is used to store games and transactions.
    It implements the following methods:
-   -**GET /history/games/{userId}** which returns all the games of a specified user
-   -**GET /history/games/{gameId}/bets** which returns a list of all bets that were made in a specifieed game
-   -**POST /history/games/{userId}** which adds a game to a specified user
-      All of the above methods use the following JSON objects.
+   - **GET /history/games/{userId}** which returns all the games of a specified user
+   - **GET /history/games/{gameId}/bets** which returns a list of all bets that were made in a specifieed game
+   - **POST /history/games/{userId}** which adds a game to a specified user
+     All of the above methods use the following JSON objects.
       ```dotenv
       {
         "gameId": GameId,
@@ -146,8 +146,8 @@ For more details or assistance, feel free to reach out!
          "field": [fieldNumbers]
       }
       ```
-   -**GET /history/transactions/{userid}** which returns all of the users transactions
-   -**POST /history/transactions/{userid}** which adds a transaction to a specified user
+   - **GET /history/transactions/{userid}** which returns all of the users transactions
+   - **POST /history/transactions/{userid}** which adds a transaction to a specified user
    Both methods use the following JSON object
    ```dotenv
    {
@@ -163,11 +163,11 @@ For more details or assistance, feel free to reach out!
 6.**Promotions microservice**
    This microservice is used to add, apply and use promotions
    It implements six endpoints:
-   -**GET /promotions** which returns all promotions
-   -**GET /promotions/{userId}/{triggerScenario}** which returns all promotions of a user based on the trigger scenario which can be one of `all, deposit, bet`.
-   -**POST /promotions** which creates a new promotion
-   -**POST /promotions/{userId}/{promotionId}** which adds a specified promotion to the specified user
-   -**PUT /promotions/{userId}/{promotionId}** which uses the promotion and removes it from user
+   - **GET /promotions** which returns all promotions
+   - **GET /promotions/{userId}/{triggerScenario}** which returns all promotions of a user based on the trigger scenario which can be one of `all, deposit, bet`.
+   - **POST /promotions** which creates a new promotion
+   - **POST /promotions/{userId}/{promotionId}** which adds a specified promotion to the specified user
+   - **PUT /promotions/{userId}/{promotionId}** which uses the promotion and removes it from user
    All of the above methods use the following JSON object
    ```dotenv
       {
@@ -178,8 +178,8 @@ For more details or assistance, feel free to reach out!
       }
 
    ```
-   
-   **POST /promotions/{userId}/{promotionId}/verify** which in case of a `deposit` promotion verifies that the promotion is eligible
+
+   - **POST /promotions/{userId}/{promotionId}/verify** which in case of a `deposit` promotion verifies that the promotion is eligible
    This method uses
    ```dotenv
    {
