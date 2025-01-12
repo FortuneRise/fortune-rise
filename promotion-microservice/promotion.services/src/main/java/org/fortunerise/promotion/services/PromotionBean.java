@@ -212,7 +212,7 @@ public class PromotionBean {
 
     @Transactional
     public void addPromotionToUser(Integer userId, Integer promotionId) {
-        /*
+
         WebTarget base = client.target("http://" + notificationHost + ":" + notificationPort + "/api");
         WebTarget target = base.path("/notifications");
         WebTarget endTarget = target.path("/{userId}").resolveTemplate("userId", userId);
@@ -222,11 +222,12 @@ public class PromotionBean {
         Response response = endTarget.request().post(Entity.json(promotionId));
 
         if(response.getStatus() != 200) {
+            log.info("Failed while calling wallet");
             throw new RuntimeException();
         }
 
 
-         */
+
         UserLink userLink = new UserLink(userId, getPromotionById(promotionId));
         em.persist(userLink);
         em.flush();

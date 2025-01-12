@@ -4,13 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fb186cb5-53fb-457c-b32a-acebe56a8d33" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../fortune-rise-frontend/src/app/games/games.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../fortune-rise-frontend/src/app/games/games.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../fortune-rise-frontend/src/app/games/games.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../fortune-rise-frontend/src/app/games/games.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../port-forward.sh" beforeDir="false" afterPath="$PROJECT_DIR$/../port-forward.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../promotion-microservice/promotion.services/src/main/java/org/fortunerise/promotion/services/PromotionBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/../promotion-microservice/promotion.services/src/main/java/org/fortunerise/promotion/services/PromotionBean.java" afterDir="false" />
-    </list>
+    <list default="true" id="fb186cb5-53fb-457c-b32a-acebe56a8d33" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -27,21 +21,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "main",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/home/jan/Faks/PRPO/fortune-rise/fortune-rise/game-microservice",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/jan/Faks/PRPO/fortune-rise/fortune-rise/game-microservice&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration default="true" type="JetRunConfigurationType">
       <module name="game-microservice" />
@@ -73,6 +67,7 @@
       <updated>1736591911093</updated>
       <workItem from="1736591912190" duration="1295000" />
       <workItem from="1736682854637" duration="24000" />
+      <workItem from="1736696139319" duration="7000" />
     </task>
     <servers />
   </component>
