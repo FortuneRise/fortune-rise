@@ -4,6 +4,7 @@ import org.fortunerise.history.entities.Game;
 import org.fortunerise.history.services.BetDto;
 
 import java.math.BigDecimal;
+import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.List;
 
@@ -12,7 +13,7 @@ public class GameDto {
     private BigDecimal payout;
     private int roll;
 
-    private Date date;
+    private LocalDateTime date;
 
     private Integer userId;
     private List<BetDto> bets;
@@ -60,11 +61,11 @@ public class GameDto {
         this.userId = userId;
     }
 
-    public Date getDate() {
+    public LocalDateTime getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(LocalDateTime date) {
         this.date = date;
     }
 

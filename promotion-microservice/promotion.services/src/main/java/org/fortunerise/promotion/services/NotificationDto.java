@@ -1,19 +1,19 @@
 package org.fortunerise.promotion.services;
 
 
-import java.util.Date;
+import java.time.LocalDateTime;
 
 public class NotificationDto {
     private Integer id;
     private Boolean read; // True if notification has been read
     private String content; // Message of notification
-    private Date date; // Time of notification
+    private LocalDateTime date; // Time of notification
 
 
 
     public NotificationDto() {}
 
-    public NotificationDto(Date date, String msg, boolean read){
+    public NotificationDto(LocalDateTime date, String msg, boolean read){
         this.date = date;
         this.content = msg;
         this.read = read;
@@ -34,7 +34,7 @@ public class NotificationDto {
 
     public Integer getId() {return id; }
 
-    public Date getDate() {
+    public LocalDateTime getDate() {
         return date;
     }
 
