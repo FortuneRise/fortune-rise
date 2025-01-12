@@ -222,7 +222,7 @@ public class PromotionBean {
         Response response = endTarget.request().post(Entity.json(promotionId));
 
         if(response.getStatus() != 200) {
-            log.info("Failed while calling wallet");
+            log.info("Failed while calling" + response.getStatus());
             throw new RuntimeException();
         }
 
