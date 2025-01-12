@@ -1,0 +1,11 @@
+<h3>Bets for game: {{gameId}}</h3>
+
+<button (click)="goBack()">Back</button>
+
+<ul class="bets">
+  <li *ngFor="let bet of bets">
+    <p>{{bet.betAmount}}</p>
+    <p>{{bet.type}}</p>
+    <p>{{bet.fields}}</p>
+  </li>
+</ul>

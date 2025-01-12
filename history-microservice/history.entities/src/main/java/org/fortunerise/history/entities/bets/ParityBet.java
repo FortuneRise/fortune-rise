@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 //@DiscriminatorValue("PARITY")
@@ -26,6 +28,14 @@ public class ParityBet extends Bet {
         super(betAmount);
         this.parity = parity;
         this.calculatePayout(roll);
+    }
+
+    @Override
+    public List<Integer> getFields(){
+        List<Integer> fields = new ArrayList<Integer>();
+        if (parity == Parity.EVEN){ fields.add(0);
+        }else if(parity == Parity.ODD) {fields.add(1);}
+        return fields;
     }
 
     @Override

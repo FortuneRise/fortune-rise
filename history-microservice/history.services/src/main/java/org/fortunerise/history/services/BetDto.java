@@ -5,6 +5,7 @@ import org.fortunerise.history.entities.Bet;
 import org.fortunerise.history.entities.bets.*;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -69,6 +70,8 @@ public class BetDto {
         }else if(bet instanceof HighLowBet) {
             this.type = BetType.HIGH_LOW;
         }
+
+        this.fields = bet.getFields();
     }
 
     public Bet convertToBet(Integer roll) {

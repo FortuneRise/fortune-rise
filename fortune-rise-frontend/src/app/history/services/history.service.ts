@@ -4,6 +4,7 @@ import {catchError, map, Observable} from 'rxjs';
 import {Game} from '../../games/models/game';
 import {Transaction} from '../../wallets/models/transaction';
 import {Notification} from '../../notifications/models/notification';
+import {Bet} from '../../games/models/bet';
 
 @Injectable({
   providedIn: "root"
@@ -32,6 +33,11 @@ export class HistoryService {
       );
   }
 
+  getBets(gameId:number):Observable<Bet[]>{
+    const newurl = `${this.url}/games/${gameId}/bets`;
+    return this.http.get<Bet[]>(newurl).pipe(catchError(this.handleError));
+  }
+
   getTransactions(userId: number,limit:number,offset:number): Observable<{totalCount:number, transactions: Transaction[]}>{
     const newurl = `${this.url}/transactions/${userId}`;
     const params = new HttpParams().set('limit', limit.toString()).set('offset', offset.toString());
@@ -43,4 +49,6 @@ export class HistoryService {
         }))
       );
   }
+
+
 }

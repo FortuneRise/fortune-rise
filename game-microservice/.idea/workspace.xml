@@ -4,7 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fb186cb5-53fb-457c-b32a-acebe56a8d33" name="Changes" comment="" />
+    <list default="true" id="fb186cb5-53fb-457c-b32a-acebe56a8d33" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../history-microservice/history.entities/src/main/java/org/fortunerise/history/entities/Bet.java" beforeDir="false" afterPath="$PROJECT_DIR$/../history-microservice/history.entities/src/main/java/org/fortunerise/history/entities/Bet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../history-microservice/history.entities/src/main/java/org/fortunerise/history/entities/bets/ColorBet.java" beforeDir="false" afterPath="$PROJECT_DIR$/../history-microservice/history.entities/src/main/java/org/fortunerise/history/entities/bets/ColorBet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../history-microservice/history.services/src/main/java/org/fortunerise/history/services/BetDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/../history-microservice/history.services/src/main/java/org/fortunerise/history/services/BetDto.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -68,6 +73,8 @@
       <workItem from="1736591912190" duration="1295000" />
       <workItem from="1736682854637" duration="24000" />
       <workItem from="1736696139319" duration="7000" />
+      <workItem from="1736710986334" duration="11000" />
+      <workItem from="1736711002966" duration="7000" />
     </task>
     <servers />
   </component>

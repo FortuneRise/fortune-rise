@@ -8,6 +8,8 @@ import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 //@DiscriminatorValue("HIGH_LOW")
@@ -29,6 +31,15 @@ public class HighLowBet extends Bet {
         this.highLow = highLow;
         this.calculatePayout(roll);
     }
+
+    @Override
+    public List<Integer> getFields(){
+        List<Integer> fields = new ArrayList<Integer>();
+        if (highLow == HighLow.HIGH){ fields.add(0);
+        }else if(highLow == HighLow.LOW) {fields.add(1);}
+        return fields;
+    }
+
 
     @Override
     public void calculatePayout(Integer roll){

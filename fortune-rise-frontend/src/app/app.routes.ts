@@ -20,6 +20,7 @@ export const routes: Routes = [
   {path: "game", component: GamesComponent},
   {path: "history", component: HistoryComponent},
   {path: "history/games", component: GameHistoryComponent},
+  {path: "history/games/:gameId", component: GameHistoryComponent},
   {path: "history/transactions", component: TransactionhistoryComponent},
   {path: "notifications", component: NotificationsComponent},
   {path: "promotions", component: PromotionsComponent}

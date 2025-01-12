@@ -2,6 +2,7 @@ package org.fortunerise.history.entities;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
+import java.util.List;
 
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
@@ -22,6 +23,8 @@ public abstract class Bet {
 
     @Column(name = "payout")
     protected BigDecimal payout;
+
+    public abstract List<Integer> getFields();
 
     public Bet() {}
 

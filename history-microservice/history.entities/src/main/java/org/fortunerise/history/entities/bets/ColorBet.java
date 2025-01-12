@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -28,6 +30,14 @@ public class ColorBet extends Bet {
         super(betAmount);
         this.color = color;
         this.calculatePayout(roll);
+    }
+
+    @Override
+    public List<Integer> getFields(){
+        List<Integer> fields = new ArrayList<Integer>();
+        if (color == Color.RED){ fields.add(0);
+        }else {fields.add(1);}
+        return fields;
     }
 
 

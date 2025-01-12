@@ -6,6 +6,8 @@ import org.fortunerise.history.entities.Bet;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 //@DiscriminatorValue("CORNER")
@@ -31,6 +33,16 @@ public class CornerBet extends Bet {
         this.field3 = field3;
         this.field4 = field4;
         this.calculatePayout(roll);
+    }
+
+    @Override
+    public List<Integer> getFields(){
+        List<Integer> fields = new ArrayList<Integer>();
+        fields.add(field1);
+        fields.add(field2);
+        fields.add(field3);
+        fields.add(field4);
+        return fields;
     }
 
     @Override

@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 //@DiscriminatorValue("COLUMN")
@@ -28,6 +30,15 @@ public class ColumnBet extends Bet {
         super(betAmount);
         this.columns = columns;
         this.calculatePayout(roll);
+    }
+
+    @Override
+    public List<Integer> getFields(){
+        List<Integer> fields = new ArrayList<Integer>();
+        if (columns == Columns.FIRST){ fields.add(0);
+        }else if(columns == Columns.SECOND) {fields.add(1);
+        }else if(columns == Columns.THIRD) {fields.add(2);}
+        return fields;
     }
 
     @Override
