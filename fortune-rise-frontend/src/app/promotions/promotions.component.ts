@@ -35,20 +35,15 @@ export class PromotionsComponent {
 
 
     this.promotionService.addPromotion(this.newGamePromotion).subscribe(promotion => {
-      this.newGamePromotion = promotion;
-
       userIds.forEach(id => {
-        this.promotionService.linkUserToPromotion(id, this.newGamePromotion.id).subscribe({
-          next: () => console.log(`Linked user ${id} to promotion ${this.newGamePromotion.id}`),
+        this.promotionService.linkUserToPromotion(id, promotion.id).subscribe({
+          next: () => console.log(`Linked user ${id} to promotion ${promotion.id}`),
           error: err => console.error(`Failed to link user ${id}:`, err),
         });
       });
-
-      // Reset the promotion after the operation
-      this.newGamePromotion = new Promotion();
-    }, error => {
-      console.error("Failed to create promotion:", error);
     });
+
+    this.newGamePromotion = new Promotion();
   }
 
 }
