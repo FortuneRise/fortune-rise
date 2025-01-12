@@ -104,6 +104,7 @@ public class PromotionsResource {
             @Parameter(name = "userId", description = "The ID of the user.", required = true) @PathParam("userId") Integer userId,
             @Parameter(name = "promotionId", description = "The ID of the promotion.", required = true) @PathParam("promotionId") Integer promotionId) {
         try {
+            log.info("Adding promotion to user " + userId + " with promotionId " + promotionId);
             promotionBean.addPromotionToUser(userId, promotionId);
             return Response.noContent().build();
         }

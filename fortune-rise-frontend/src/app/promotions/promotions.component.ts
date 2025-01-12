@@ -33,6 +33,8 @@ export class PromotionsComponent {
       .filter(num => !isNaN(Number(num))) // Filter out non-numeric values
       .map(num => Number(num));
 
+    console.log(userIds);
+
 
     this.promotionService.addPromotion(this.newGamePromotion).subscribe(promotion => {
       userIds.forEach(id => {
