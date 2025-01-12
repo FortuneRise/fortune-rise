@@ -54,6 +54,8 @@ export class GamesComponent implements OnInit{
     this.betTypeToValue.set("COLUMN", ["Column 1", "Column 2", "Column 3"]);
     this.betTypeToValue.set("DOZEN", ["1-12", "13-24", "25-36"]);
     this.betTypeToValue.set("HIGH_LOW", ["1-18", "19-36"]);
+
+    this.getGamePromotions();
   }
 
 

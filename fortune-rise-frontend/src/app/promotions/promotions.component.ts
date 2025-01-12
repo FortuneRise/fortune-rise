@@ -34,14 +34,21 @@ export class PromotionsComponent {
       .map(num => Number(num));
 
 
-    this.promotionService.addPromotion(this.newGamePromotion).subscribe(promotion => this.newGamePromotion = promotion);
+    this.promotionService.addPromotion(this.newGamePromotion).subscribe(promotion => {
+      this.newGamePromotion = promotion;
 
-    for(var id in userIds){
-      this.promotionService.linkUserToPromotion(+id,this.newGamePromotion.id).subscribe();
-    }
+      userIds.forEach(id => {
+        this.promotionService.linkUserToPromotion(id, this.newGamePromotion.id).subscribe({
+          next: () => console.log(`Linked user ${id} to promotion ${this.newGamePromotion.id}`),
+          error: err => console.error(`Failed to link user ${id}:`, err),
+        });
+      });
 
-    this.newGamePromotion = new Promotion();
-
+      // Reset the promotion after the operation
+      this.newGamePromotion = new Promotion();
+    }, error => {
+      console.error("Failed to create promotion:", error);
+    });
   }
 
 }

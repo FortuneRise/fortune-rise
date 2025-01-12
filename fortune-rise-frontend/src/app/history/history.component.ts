@@ -3,9 +3,7 @@ import {ActivatedRoute, Router, RouterOutlet} from '@angular/router';
 
 @Component({
   selector: 'app-history',
-  imports: [
-    RouterOutlet
-  ],
+  imports: [],
   templateUrl: './history.component.html',
   styleUrl: './history.component.css'
 })
