@@ -21,7 +21,6 @@ import javax.ws.rs.client.Entity;
 import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.Response;
 import java.math.BigDecimal;
-import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.List;
 import java.util.Random;
@@ -77,7 +76,7 @@ public class GameBean {
         Integer roll = random.nextInt(37);
         BigDecimal totalPayout = BigDecimal.ZERO;
         BigDecimal totalBet = BigDecimal.ZERO;
-        LocalDateTime now = LocalDateTime.now();
+        Date now = new Date();
 
         // Creating base for http requests
 
