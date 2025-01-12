@@ -43,6 +43,10 @@ export class AppComponent {
     this.router.navigate(["login"]);
   }
 
+  navigatePromotions(){
+    this.router.navigate(["promotions"])
+  }
+
   testUser(){
     console.log(sessionStorage.getItem("username"));
   }
