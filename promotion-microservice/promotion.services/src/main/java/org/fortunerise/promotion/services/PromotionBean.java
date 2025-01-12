@@ -221,7 +221,7 @@ public class PromotionBean {
 
         Response response = endTarget.request().post(Entity.json(notification));
 
-        if(response.getStatus() != 200) {
+        if(response.getStatus() >= 300) {
             log.info("Failed while calling" + response.getStatus());
             throw new RuntimeException();
         }
