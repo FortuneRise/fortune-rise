@@ -122,8 +122,10 @@ export class GamesComponent implements OnInit{
 
   playBets(){
     for(const p of this.listOfUsedPromotions){
-      this.promotionService.applyPromotion(this.userId, p.id).subscribe();
-      console.log(p)
+      if(p.id != undefined){
+        this.promotionService.applyPromotion(this.userId, p.id).subscribe();
+        console.log(p)
+      }
     }
     this.gameService.createGame(this.userId,this.currentBets).subscribe(game => this.game = game);
     this.currentBets = [];
