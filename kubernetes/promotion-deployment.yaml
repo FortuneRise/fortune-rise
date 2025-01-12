@@ -33,6 +33,11 @@ spec:
               value: "wallet"
             - name: WALLET_PORT
               value: "80"
+            - name: NOTIFICATION_HOST
+              value: "notification"
+            - name: NOTIFICATION_PORT
+              value: "80"
+
           ports:
             - containerPort: 8084
           resources:
