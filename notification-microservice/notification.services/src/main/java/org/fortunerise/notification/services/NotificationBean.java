@@ -19,7 +19,6 @@ import javax.persistence.Query;
 import javax.transaction.Transactional;
 import javax.ws.rs.core.MultivaluedMap;
 import javax.ws.rs.core.UriInfo;
-import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.List;
 import java.util.logging.Logger;
@@ -108,7 +107,7 @@ public class NotificationBean {
     public NotificationDto addNotification(NotificationDto notificationDto, Integer userId){
 
         String content = notificationDto.getContent();
-        LocalDateTime now = LocalDateTime.now();
+        Date now = new Date();
 
         Notification notification = new Notification(userId, content, now);
         em.persist(notification);

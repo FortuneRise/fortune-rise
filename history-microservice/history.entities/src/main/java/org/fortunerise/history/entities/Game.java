@@ -3,7 +3,6 @@ package org.fortunerise.history.entities;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
-import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.List;
 
@@ -20,7 +19,7 @@ public class Game {
 
     @Column(name = "date")
     @Temporal(TemporalType.DATE)
-    private LocalDateTime date;
+    private Date date;
 
     @Column(name = "roll")
     private Integer roll;
@@ -33,7 +32,7 @@ public class Game {
 
     public Game() {}
 
-    public Game(LocalDateTime date, Integer roll, Integer userId) {
+    public Game(Date date, Integer roll, Integer userId) {
         this.date = date;
         this.roll = roll;
         this.userId = userId;
@@ -50,11 +49,11 @@ public class Game {
         this.userId = userId;
     }
 
-    public LocalDateTime getDate() {
+    public Date getDate() {
         return date;
     }
 
-    public void setDate(LocalDateTime date) {
+    public void setDate(Date date) {
         this.date = date;
     }
 
