@@ -104,18 +104,18 @@ public class PromotionBean {
 
         QueryFilter newqfUserId = new QueryFilter("userId", FilterOperation.EQ,userId.toString());
         QueryFilterExpression nqfeUI = new QueryFilterExpression(newqfUserId);
-        QueryFilter newqfTriggerScenario = new QueryFilter("triggerScenario", FilterOperation.EQ,triggerScenario.toString());
-        QueryFilterExpression nqfeTS = new QueryFilterExpression(newqfTriggerScenario);
+        //QueryFilter newqfTriggerScenario = new QueryFilter("triggerScenario", FilterOperation.EQ,triggerScenario.toString());
+        //QueryFilterExpression nqfeTS = new QueryFilterExpression(newqfTriggerScenario);
 
-        QueryFilterExpression nqfe = new QueryFilterExpression(FilterExpressionOperation.AND, nqfeUI, nqfeTS);
+        //QueryFilterExpression nqfe = new QueryFilterExpression(FilterExpressionOperation.AND, nqfeUI, nqfeTS);
 
         QueryFilterExpression qfe = query.getFilterExpression();
         QueryFilterExpression endqfe = null;
 
         if(qfe != null){
-            endqfe = new QueryFilterExpression(FilterExpressionOperation.AND, nqfe, qfe);
+            endqfe = new QueryFilterExpression(FilterExpressionOperation.AND, nqfeUI, qfe);
         }else {
-            endqfe = nqfe;
+            endqfe = nqfeUI;
         }
 
         query.setFilterExpression(endqfe);
@@ -138,7 +138,7 @@ public class PromotionBean {
 
         List<UserLink> userLinks = JPAUtils.queryEntities(em, UserLink.class, query);
 
-        return userLinks.stream().map(UserLink::getPromotion).map(PromotionDto::new).toList();
+        return userLinks.stream().map(UserLink::getPromotion).filter(promotion -> promotion.getTriggerScenario().toString().equals(triggerScenario.toString())).map(PromotionDto::new).toList();
     }
 
     @Transactional
