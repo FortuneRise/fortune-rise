@@ -219,7 +219,7 @@ public class PromotionBean {
 
         NotificationDto notification = new NotificationDto(new Date(),"You have a new promotion!",false);
 
-        Response response = endTarget.request().post(Entity.json(promotionId));
+        Response response = endTarget.request().post(Entity.json(notification));
 
         if(response.getStatus() != 200) {
             log.info("Failed while calling" + response.getStatus());
