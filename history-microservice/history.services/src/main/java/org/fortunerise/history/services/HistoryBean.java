@@ -116,13 +116,27 @@ public class HistoryBean {
 
         query.setFilterExpression(endqfe);
 
-        List<Transaction> allTransactions = JPAUtils.queryEntities(em, Transaction.class, (p, cb, r) -> cb.and(p, cb.equal(r.get("userId"), userId)));
+        List<Transaction> allTransactions = JPAUtils.queryEntities(em, Transaction.class, query);
         return allTransactions.stream().map(TransactionDto::new).collect(Collectors.toList());
     }
 
     @Transactional(Transactional.TxType.REQUIRED)
     public Long getTransactionCount(Integer userId, QueryParameters query){
-        Long count = JPAUtils.queryEntitiesCount(em, Transaction.class, (p, cb, r) -> cb.and(p, cb.equal(r.get("userId"), userId)));
+
+        QueryFilter newqf = new QueryFilter("userId", FilterOperation.EQ,userId.toString());
+        QueryFilterExpression nqfe = new QueryFilterExpression(newqf);
+        QueryFilterExpression qfe = query.getFilterExpression();
+        QueryFilterExpression endqfe = null;
+
+        if(qfe != null){
+            endqfe = new QueryFilterExpression(FilterExpressionOperation.AND, nqfe, qfe);
+        }else {
+            endqfe = nqfe;
+        }
+
+        query.setFilterExpression(endqfe);
+
+        Long count = JPAUtils.queryEntitiesCount(em, Transaction.class, query);
         return count;
     }
 
