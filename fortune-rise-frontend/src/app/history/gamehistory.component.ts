@@ -2,13 +2,14 @@ import {Component, OnInit} from '@angular/core';
 import {Game} from '../games/models/game';
 import {HistoryService} from './services/history.service';
 import {ActivatedRoute, Router} from '@angular/router';
-import {NgForOf, NgIf} from '@angular/common';
+import {CommonModule, NgForOf, NgIf} from '@angular/common';
 
 @Component({
   selector: 'game-history',
   imports: [
     NgForOf,
-    NgIf
+    NgIf,
+    CommonModule
   ],
   templateUrl: 'gamehistory.component.html'
 })

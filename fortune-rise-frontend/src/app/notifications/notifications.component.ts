@@ -3,13 +3,14 @@ import {Notification} from './models/notification';
 import {UsersService} from '../users/services/users.service';
 import {NotificationService} from './services/notification.service';
 import {ActivatedRoute, Router} from '@angular/router';
-import {NgForOf, NgIf} from '@angular/common';
+import {CommonModule, NgForOf, NgIf} from '@angular/common';
 
 @Component({
   selector: 'app-notifications',
   imports: [
     NgForOf,
-    NgIf
+    NgIf,
+    CommonModule
   ],
   templateUrl: './notifications.component.html',
   styleUrl: './notifications.component.css'

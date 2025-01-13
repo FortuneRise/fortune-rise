@@ -13,7 +13,7 @@
     <tbody>
      <tr *ngFor="let notification of notifications">
        <th>{{notification.id}}</th>
-       <th>{{notification.date}}</th>
+       <th>{{notification.date | date: 'shortDate'}}</th>
        <th>{{notification.content}}</th>
      </tr>
     </tbody>

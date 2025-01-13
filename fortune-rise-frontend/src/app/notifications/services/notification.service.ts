@@ -20,7 +20,7 @@ export class NotificationService {
       .pipe(
         map(response => ({
           totalCount: +(response.headers.get('X-Total-Count') ?? '0'),
-          notifications: response.body || [],
+          notifications: (response.body || []).map(notification => new Notification(notification)),
         }))
       );
   }
