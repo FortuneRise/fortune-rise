@@ -122,7 +122,7 @@ export class GamesComponent implements OnInit{
 
   playBets(){
     for(const p of this.listOfUsedPromotions){
-      if(p.id != undefined){
+      if((p != undefined ) && (p.id != undefined)){
         this.promotionService.applyPromotion(this.userId, p.id).subscribe();
         console.log(p)
       }
