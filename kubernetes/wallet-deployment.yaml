@@ -37,7 +37,21 @@ spec:
               valueFrom:
                 configMapKeyRef:
                   name: wallet-config
-                  key: API_KEY
+                  key: API_KEY 
+          livenessProbe:
+            httpGet:
+              path: /health/live
+              port: 8081
+            initialDelaySeconds: 180
+            periodSeconds: 10
+            timeoutSeconds: 15
+          readinessProbe:
+            httpGet:
+              path: /health/ready
+              port: 8081
+            initialDelaySeconds: 180
+            periodSeconds: 10
+            timeoutSeconds: 15
           ports:
             - containerPort: 8081
           resources:

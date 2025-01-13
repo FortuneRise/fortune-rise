@@ -39,6 +39,20 @@ spec:
               value: "80"
           ports:
             - containerPort: 8082
+          livenessProbe:
+            httpGet:
+              path: /health/live
+              port: 8082
+            initialDelaySeconds: 180
+            periodSeconds: 10
+            timeoutSeconds: 15
+          readinessProbe:
+            httpGet:
+              path: /health/ready
+              port: 8082
+            initialDelaySeconds: 180
+            periodSeconds: 10
+            timeoutSeconds: 15
           resources:
             requests:
               cpu: 100m # Minimum CPU required
