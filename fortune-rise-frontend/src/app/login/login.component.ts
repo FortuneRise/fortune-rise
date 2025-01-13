@@ -15,7 +15,7 @@ import {ActivatedRoute, Router} from '@angular/router';
   styleUrl: './login.component.css'
 })
 export class LoginComponent {
-  username!: string;
+  username: string = '';
   user: User = new User;
 
   constructor(private userService: UsersService,
