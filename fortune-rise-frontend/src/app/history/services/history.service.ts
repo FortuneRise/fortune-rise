@@ -28,7 +28,7 @@ export class HistoryService {
       .pipe(
         map(response => ({
           totalCount: +(response.headers.get('X-Total-Count') ?? '0'),
-          games: response.body || [],
+          games: (response.body || []).map(game => new Game(game)),
         }))
       );
   }

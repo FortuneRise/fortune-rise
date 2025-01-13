@@ -15,7 +15,7 @@
     <tbody>
     <tr *ngFor="let game of games">
       <th>{{game.gameId}}</th>
-      <th>{{game.date}}</th>
+      <th>{{game.date }}</th>
       <th>{{game.roll}}</th>
       <th>{{game.payout}}</th>
       <button (click)="goToBets(game.gameId)"></button>
